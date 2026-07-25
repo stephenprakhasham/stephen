@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overall Application Architecture & Implementation Guide - Yaga's Mart, Sendurai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Mermaid.js for visual diagram rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    });
+  </script>
+  <style>
+    :root {
+      --bg-light: #f8fafc;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --border-color: rgba(226, 232, 240, 0.9);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent-gold: #d97706;
+      --accent-emerald: #059669;
+      --accent-indigo: #4f46e5;
+      --font-primary: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #f1f5f9;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.06) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 35px rgba(15, 23, 42, 0.05);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--accent-gold);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      margin-bottom: 12px;
+    }
+    h1 { font-family: var(--font-primary); font-size: 28px; font-weight: 800; margin-bottom: 8px; color: #0f172a; }
+    h2 { font-family: var(--font-primary); font-size: 20px; font-weight: 700; margin: 32px 0 16px 0; color: var(--accent-gold); border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+    h3 { font-family: var(--font-primary); font-size: 16px; font-weight: 600; margin: 20px 0 10px 0; color: #1e293b; }
+    p, li { font-size: 14px; color: #334155; margin-bottom: 10px; }
+    ul { padding-left: 20px; }
+    .card {
+      background: #ffffff;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+    .mermaid-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+    td { background: #ffffff; }
+    pre {
+      background: #0f172a;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 10px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #34d399;
+      overflow-x: auto;
+      margin: 14px 0;
+      line-height: 1.5;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <span class="badge">Architecture & Visual Flowcharts Blueprint</span>
+      <h1>Yaga's Mart, Sendurai</h1>
+      <p style="color: var(--text-muted); font-size: 14px;">
+        Overall Application Design Architecture, Sequence Diagrams & Class Component Diagrams
+      </p>
+    </header>
+
+    <!-- 1. Flowchart Diagram -->
+    <div class="card">
+      <h2>1. Visual Flowchart Diagram (System Architecture)</h2>
+      <div class="mermaid-box">
+        <pre class="mermaid">
+flowchart TD
+    subgraph CRON ["05:45 AM Scheduler Layer"]
+        A1[⏰ 05:45 AM Cron Awakens] --> A2[📅 Lookup Day 1-31 Theme]
+    end
+
+    subgraph AI ["AI Generation Layer"]
+        A2 --> B1{Is Gemini API Key Available?}
+        B1 -- Yes --> B2[🤖 Call Google Gemini 1.5 Flash API]
+        B1 -- No / Fallback --> B3[📦 Load Built-In Yaga's Mart Dataset]
+        B2 --> B4[📝 Parse JSON Payload: quoteEn, quoteTa, asanaName, benefit]
+        B3 --> B4
+    end
+
+    subgraph RENDER ["Poster Studio & Archival Layer"]
+        B4 --> C1[🎨 Render 1:1 Feed Poster Canvas 1080x1080]
+        B4 --> C2[📱 Render 9:16 Status Poster Canvas 1080x1920]
+        C1 --> C3[💾 Auto-Save PNG to Local Directory: C:\YagasMartPosters\]
+        C2 --> C3
+    end
+
+    subgraph DISPATCH ["06:00 AM Multi-Channel Dispatcher Layer"]
+        C3 --> D0[🚀 06:00 AM Dispatch Engine]
+        D0 --> D1[💬 WhatsApp Group - Baileys Gateway]
+        D0 --> D2[📲 WhatsApp Status - Baileys Gateway]
+        D0 --> D3[📸 Instagram Business Page - Meta Graph API]
+        D0 --> D4[📘 Facebook Page - Meta Graph API]
+    end
+        </pre>
+      </div>
+    </div>
+
+    <!-- 2. Sequence Diagram -->
+    <div class="card">
+      <h2>2. Execution Sequence Diagram (Timeline Protocol)</h2>
+      <div class="mermaid-box">
+        <pre class="mermaid">
+sequenceDiagram
+    autonumber
+    actor Scheduler as ⏰ Cron Scheduler
+    participant AI as 🤖 Gemini API
+    participant Engine as ⚙️ Poster Engine
+    participant Disk as 💾 Local Archival Path
+    participant WA as 💬 WhatsApp Gateway
+    participant IG as 📸 Instagram API
+    participant FB as 📘 Facebook API
+
+    Note over Scheduler, FB: 05:45 AM - AI Pre-Generation Phase
+    Scheduler->>AI: Request Day Content Prompt (Bilingual EN/TA)
+    AI-->>Scheduler: Return JSON Payload (quoteEn, quoteTa, asanaName)
+    Scheduler->>Engine: Render 1:1 Feed & 9:16 Status Canvas
+    Engine->>Disk: Save PNG files to C:\YagasMartPosters\Day06.png
+    Disk-->>Scheduler: Archival File Saved Successfully
+
+    Note over Scheduler, FB: 06:00 AM - Multi-Channel Publication Phase
+    Scheduler->>WA: Post Text Payload + Poster PNG to WhatsApp Group
+    Scheduler->>WA: Upload 9:16 Vertical Poster PNG to WhatsApp Status
+    Scheduler->>IG: Create Container & Publish to Instagram (@yagas_mart_sendurai_official)
+    Scheduler->>FB: Post Photo & Caption to Facebook Page (Yaga's Mart, Sendurai)
+    WA-->>Scheduler: 200 OK Dispatched
+    IG-->>Scheduler: 200 OK Published
+    FB-->>Scheduler: 200 OK Published
+    Note over Scheduler: Execution Complete - Dashboard Updated to "Sent 06:00 AM"
+        </pre>
+      </div>
+    </div>
+
+    <!-- 3. Class Diagram -->
+    <div class="card">
+      <h2>3. Class & Component Diagram Architecture</h2>
+      <div class="mermaid-box">
+        <pre class="mermaid">
+classDiagram
+    class App {
+        +Array schedule
+        +Object selectedDay
+        +String activeTab
+        +Array logs
+        +Object channelConfig
+        +handleUpdateItem()
+        +handleTriggerNow()
+        +handleApplyGeneratedContent()
+    }
+
+    class GeminiService {
+        +String apiKey
+        +generateYogaPost(apiKey, dayNumber, theme, category, language)
+        +fallbackDatabase()
+    }
+
+    class PostCardPreview {
+        +String aspectRatio ('feed'|'status')
+        +String themeStyle
+        +String fullWhatsAppText
+        +handleCopyPayload()
+        +renderCanvas()
+    }
+
+    class CalendarGrid {
+        +Array schedule
+        +onSelectDay()
+        +onRegenerateDay()
+        +onPublishNow()
+    }
+
+    class MultiChannelConfig {
+        +Object config
+        +handleSubmit()
+    }
+
+    class CronSimulatorLogs {
+        +Array logs
+        +onClearLogs()
+        +onRunManualTrigger()
+    }
+
+    App --> CalendarGrid : passes schedule & triggers
+    App --> PostCardPreview : passes selectedDay & handlers
+    App --> GeminiService : calls API service
+    App --> MultiChannelConfig : passes config state
+    App --> CronSimulatorLogs : passes live logs stream
+        </pre>
+      </div>
+    </div>
+
+    <!-- 4. Codebase Mapping -->
+    <div class="card">
+      <h2>4. Codebase Structure & Component Responsibilities</h2>
+      <table>
+        <thead>
+          <tr><th>File Path</th><th>Component Role</th><th>Core Functions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>src/App.jsx</code></td>
+            <td>Main State Orchestrator</td>
+            <td>Manages 31-day schedule array, active navigation tabs, execution logs, and channel settings.</td>
+          </tr>
+          <tr>
+            <td><code>src/data/yogaSchedule.js</code></td>
+            <td>31-Day Content Database</td>
+            <td>Contains 31 days mapped across 7 weekly themes (Mindfulness Monday to Self-Care Sunday) with bilingual quotes.</td>
+          </tr>
+          <tr>
+            <td><code>src/services/geminiService.js</code></td>
+            <td>Gemini AI Integration</td>
+            <td>Calls <code>gemini-1.5-flash</code> API with structured JSON output prompts; features offline fallback database.</td>
+          </tr>
+          <tr>
+            <td><code>src/components/Header.jsx</code></td>
+            <td>Navigation & KPI Banner</td>
+            <td>Displays studio branding, cron status badge ("Daily 06:00 AM Cron Active"), stats badges, and tab triggers.</td>
+          </tr>
+          <tr>
+            <td><code>src/components/CalendarGrid.jsx</code></td>
+            <td>Content Calendar Grid</td>
+            <td>Displays 31 daily cards with status badges, theme icons, quote previews, channel badges, and action triggers.</td>
+          </tr>
+          <tr>
+            <td><code>src/components/PostCardPreview.jsx</code></td>
+            <td>Poster Studio Canvas</td>
+            <td>Renders 1:1 Feed & 9:16 Status canvas cards, color gradient theme picker, text editor, and 1-click WhatsApp text copy.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>
+      Yaga's Mart, Sendurai • Visual Flowchart & Architecture Blueprint v2.1.0
+    </footer>
+
+  </div>
+
+</body>
+</html>

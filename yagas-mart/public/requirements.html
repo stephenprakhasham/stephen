@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Requirements Specification (SRS) - Yaga's Mart, Sendurai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #f8fafc;
+      --bg-card: rgba(255, 255, 255, 0.92);
+      --border-color: rgba(226, 232, 240, 0.9);
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --accent-gold: #d97706;
+      --accent-emerald: #059669;
+      --accent-indigo: #4f46e5;
+      --font-primary: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #f1f5f9;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.06) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 35px rgba(15, 23, 42, 0.05);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--accent-gold);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      margin-bottom: 12px;
+    }
+    h1 { font-family: var(--font-primary); font-size: 28px; font-weight: 800; margin-bottom: 8px; color: #0f172a; }
+    h2 { font-family: var(--font-primary); font-size: 20px; font-weight: 700; margin: 32px 0 16px 0; color: var(--accent-gold); border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+    h3 { font-family: var(--font-primary); font-size: 16px; font-weight: 600; margin: 20px 0 10px 0; color: #1e293b; }
+    p, li { font-size: 14px; color: #334155; margin-bottom: 10px; }
+    ul { padding-left: 20px; }
+    .card {
+      background: #ffffff;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+    th, td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    th {
+      background: #f8fafc;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+    td { background: #ffffff; }
+    pre {
+      background: #0f172a;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 10px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #34d399;
+      overflow-x: auto;
+      margin: 14px 0;
+    }
+    .priority-must { color: #e11d48; font-weight: 700; }
+    .priority-should { color: #d97706; font-weight: 700; }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <span class="badge">Official SRD Document</span>
+      <h1>Yaga's Mart, Sendurai</h1>
+      <p style="color: var(--text-muted); font-size: 14px;">
+        Daily Automated Morning Content Generation & Multi-Channel Pipeline • Software Requirements Specification (SRS)
+      </p>
+    </header>
+
+    <div class="card">
+      <h2>1. Document Control & Information</h2>
+      <table>
+        <tr><th>Document Title</th><td>Software Requirements Specification (SRS) & BRD</td></tr>
+        <tr><th>Target Client</th><td>Yaga's Mart, Sendurai, Tamil Nadu, India</td></tr>
+        <tr><th>Version</th><td>1.0.0</td></tr>
+        <tr><th>Author</th><td>AI Systems Engineering Team</td></tr>
+        <tr><th>Date</th><td>July 24, 2026</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>2. Executive Purpose & Business Vision</h2>
+      <p><strong>Yaga's Mart (Sendurai)</strong> requires an automated daily morning content publishing system to maintain continuous community engagement. Every morning at <strong>06:00 AM IST</strong>, the system generates and dispatches inspiring bilingual (English & Tamil தமிழ்) morning quotes, daily recommended yoga asanas, health tips, and visual posters across 4 target channels:</p>
+      <ul>
+        <li><strong>WhatsApp Community Groups</strong> (Formatted text payload + Poster image)</li>
+        <li><strong>WhatsApp Status Updates</strong> (Vertical 9:16 poster card)</li>
+        <li><strong>Instagram Business Page</strong> (<code>@yagas_mart_sendurai_official</code>)</li>
+        <li><strong>Facebook Page</strong> (<code>Yaga's Mart, Sendurai</code>)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>3. Functional Requirements Specification</h2>
+      
+      <h3>Module 1: 31-Day Content Calendar & Weekly Themes</h3>
+      <table>
+        <thead>
+          <tr><th>Req ID</th><th>Feature Title</th><th>Description</th><th>Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FR-01</td>
+            <td>Weekly Theme Rotation</td>
+            <td>Rotates 7 weekly themes: Mindfulness Monday, Asana Tuesday, Pranayama Wednesday, Therapeutic Thursday, Flexibility Friday, Wisdom Saturday, Self-Care Sunday.</td>
+            <td class="priority-must">MUST HAVE</td>
+          </tr>
+          <tr>
+            <td>FR-02</td>
+            <td>Calendar Grid View</td>
+            <td>Display 31-day interactive grid listing theme icon, status badge, English quote, Tamil quote preview, and target asana.</td>
+            <td class="priority-must">MUST HAVE</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Module 2: Google Gemini AI Content Engine</h3>
+      <table>
+        <thead>
+          <tr><th>Req ID</th><th>Feature Title</th><th>Description</th><th>Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FR-04</td>
+            <td>Dynamic AI Generation</td>
+            <td>Send prompts to Google Gemini API (<code>gemini-1.5-flash</code>) requesting bilingual quotes, asana tips, benefits, and hashtags.</td>
+            <td class="priority-must">MUST HAVE</td>
+          </tr>
+          <tr>
+            <td>FR-06</td>
+            <td>Intelligent Fallback</td>
+            <td>Seamlessly fall back to built-in wellness database if Gemini API key or network is offline.</td>
+            <td class="priority-must">MUST HAVE</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Module 3: Visual Poster Studio & Local Folder Saver</h3>
+      <table>
+        <thead>
+          <tr><th>Req ID</th><th>Feature Title</th><th>Description</th><th>Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>FR-08</td>
+            <td>Multi-Aspect Canvas</td>
+            <td>Support live preview for 1:1 Feed (1080x1080) & 9:16 WhatsApp Status (1080x1920) aspect ratios.</td>
+            <td class="priority-must">MUST HAVE</td>
+          </tr>
+          <tr>
+            <td>FR-11</td>
+            <td>Local Folder Auto-Save</td>
+            <td>Export rendered PNG posters automatically to configured local directory path (<code>C:\YagasMartPosters\</code>).</td>
+            <td class="priority-must">MUST HAVE</td>
+          </tr>
+          <tr>
+            <td>FR-12</td>
+            <td>1-Click WhatsApp Copy</td>
+            <td>Copy formatted WhatsApp text payload with emojis and contact details to clipboard.</td>
+            <td class="priority-must">MUST HAVE</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>4. Non-Functional Requirements</h2>
+      <ul>
+        <li><strong>NFR-01 Performance:</strong> Total execution cycle (AI call + poster rendering + local file save + dispatch) completes within 15 seconds.</li>
+        <li><strong>NFR-02 Reliability:</strong> 99.9% uptime with offline zero-downtime fallback mechanism.</li>
+        <li><strong>NFR-03 Security:</strong> API keys and access tokens masked with password inputs.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>5. Formatted WhatsApp Dispatch Payload Example</h2>
+      <pre>
+*YAGA'S MART, SENDURAI* 🧘‍♂️✨
+Good Morning! Morning Greeting & Asana of the Day
+
+☀️ *Day 6: Pranayama Wednesday* (Breathwork & Energy)
+
+📜 *Morning Inspiration:*
+"Control your breath, master your mind. 10 minutes of Pranayama in the morning transforms your vitality."
+
+🇮🇳 *தமிழ் குறிப்பு:*
+"மூச்சை கட்டுப்படுத்துங்கள், மனதை வெல்லுங்கள். தினமும் 10 நிமிடம் பிராணாயாமம் உங்கள் ஆற்றலை அதிகரிக்கும்."
+
+🧘‍♀️ *Recommended Asana:* Anulom Vilom (Nadi Shodhana)
+💡 *Health Benefit:* Purifies energy channels & calms the nervous system
+
+📍 *Yaga's Mart, Sendurai*
+📞 Call / WhatsApp: +91 98765 43210
+
+#YagasMart #Sendurai #SenduraiWellness #GoodMorningYoga
+      </pre>
+    </div>
+
+    <footer>
+      Yaga's Mart, Sendurai • Software Requirements Specification (SRS) • Document Version 1.0.0
+    </footer>
+
+  </div>
+
+</body>
+</html>
