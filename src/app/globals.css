@@ -75,3 +75,24 @@
   .admin-grid-2{grid-template-columns:1fr}
   .admin-user-meta{display:none}
 }
+
+/* ============================================================================
+   Admin catalogue components (Phase 2)
+   ============================================================================ */
+.admin-toolbar{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+.admin-toolbar select{border:1px solid #d9d3c7;border-radius:999px;padding:8px 14px;background:#fff}
+.admin-form-card{background:#fff;border:1px solid #ece8df;border-radius:16px;padding:22px;margin-bottom:22px}
+.admin-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.admin-form-wide{grid-column:1 / -1}
+.admin-form-actions{display:flex;gap:10px;margin-top:16px}
+.admin-checks{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:14px;color:#444}
+.admin-checks label{display:inline-flex;align-items:center;gap:6px}
+.admin-tree-row{display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid #f0ece4}
+.admin-tree-name{font-weight:600}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;background:#f1eee7;color:#555}
+.pill-published{background:#e6f4ea;color:#1e7b3c}
+.pill-draft{background:#f1eee7;color:#716e68}
+.pill-pending{background:#fff4e0;color:#a06a00}
+.pill-unpublished{background:#fdecea;color:#b3261e}
+.pill-archived{background:#ececec;color:#666}
+.pill-muted{background:#f1eee7;color:#888}
