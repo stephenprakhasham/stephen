@@ -1,5 +1,5 @@
 import { requireSuperAdmin } from "@/lib/admin-auth";
-import { createSupabaseServiceClient } from "@/lib/supabase-server";
+import { createSupabaseServerClient } from "@/lib/supabase-server";
 
 export const dynamic = "force-dynamic";
 
@@ -15,8 +15,8 @@ interface AuditRow {
 
 export default async function SuperAuditPage() {
   await requireSuperAdmin();
-  const svc = createSupabaseServiceClient();
-  const { data } = await svc
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase
     .from("audit_logs")
     .select(
       "id, created_at, actor_email, action, entity_type, entity_id, division_id"

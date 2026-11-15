@@ -1,13 +1,13 @@
 import { requireSuperAdmin } from "@/lib/admin-auth";
-import { createSupabaseServiceClient } from "@/lib/supabase-server";
+import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { SettingsForm } from "@/components/admin/SettingsForm";
 
 export const dynamic = "force-dynamic";
 
 export default async function SuperSettingsPage() {
   await requireSuperAdmin();
-  const svc = createSupabaseServiceClient();
-  const { data } = await svc
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase
     .from("system_settings")
     .select("key, value, updated_at");
 

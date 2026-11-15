@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireSuperAdmin, AuthError } from "@/lib/admin-auth";
-import { createSupabaseServiceClient } from "@/lib/supabase-server";
+import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { writeAudit } from "@/lib/audit";
 
 export async function POST(req: Request) {
@@ -26,8 +26,8 @@ export async function POST(req: Request) {
     );
   }
 
-  const svc = createSupabaseServiceClient();
-  const { data: role } = await svc
+  const supabase = await createSupabaseServerClient();
+  const { data: role } = await supabase
     .from("roles")
     .select("id, division_id, key")
     .eq("id", body.role_id)
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
   const divisionId =
     body.division_id ?? (role.division_id as string | null) ?? null;
 
-  const { error } = await svc.from("user_role_assignments").upsert(
+  const { error } = await supabase.from("user_role_assignments").upsert(
     {
       user_id: body.user_id,
       role_id: body.role_id,

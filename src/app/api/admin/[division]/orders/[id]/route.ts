@@ -3,6 +3,8 @@ import { requireDivision, requirePermission, AuthError, type DivisionId } from "
 import { getOrderItems, getOrderStatusHistory } from "@/lib/orders";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { writeAudit } from "@/lib/audit";
+import { releaseStock, createStockMovement } from "@/lib/inventory";
+import { getDefaultWarehouse } from "@/lib/warehouses";
 
 const VALID: DivisionId[] = ["mobiles", "jewellery", "digital"];
 const parseDivision = (p: string): DivisionId | null =>
@@ -61,6 +63,60 @@ export async function PATCH(req: Request, { params }: Ctx) {
 
   const { data, error } = await supabase.from("orders").update(update).eq("id", id).select("*").single();
   if (error) return NextResponse.json({ error: error.message }, { status: 400 });
+
+  // Handle stock release on cancellation/refund.
+  if (body.status === "cancelled" || body.status === "refunded") {
+    const items = await getOrderItems(id);
+    const warehouse = await getDefaultWarehouse(div);
+    if (warehouse) {
+      for (const item of items) {
+        if (item.variant_id && item.quantity && item.quantity > 0) {
+          try {
+            await releaseStock(div, item.variant_id, warehouse.id, item.quantity);
+            await createStockMovement({
+              division: div,
+              productVariantId: item.variant_id,
+              warehouseId: warehouse.id,
+              movementType: "adjustment",
+              quantityChange: item.quantity,
+              referenceType: "order",
+              referenceId: id,
+              notes: `Stock released for cancelled/refunded order #${data.order_number}`,
+            });
+          } catch (err) {
+            console.error(`Failed to release stock for variant ${item.variant_id}:`, err);
+          }
+        }
+      }
+    }
+  }
+
+  // Handle stock decrement on delivery/fulfilment.
+  if (body.status === "delivered" || body.status === "fulfilled") {
+    const items = await getOrderItems(id);
+    const warehouse = await getDefaultWarehouse(div);
+    if (warehouse) {
+      for (const item of items) {
+        if (item.variant_id && item.quantity && item.quantity > 0) {
+          try {
+            await createStockMovement({
+              division: div,
+              productVariantId: item.variant_id,
+              warehouseId: warehouse.id,
+              movementType: "sale",
+              quantityChange: -item.quantity,
+              referenceType: "order",
+              referenceId: id,
+              unitCost: item.unit_price,
+              notes: `Stock sold for order #${data.order_number}`,
+            });
+          } catch (err) {
+            console.error(`Failed to record sale for variant ${item.variant_id}:`, err);
+          }
+        }
+      }
+    }
+  }
 
   await writeAudit({ action: "update", entityType: "orders", entityId: id, divisionId: div, oldValues: existing, newValues: update });
   return NextResponse.json(data);

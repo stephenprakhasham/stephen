@@ -40,6 +40,7 @@ export interface OrderItemRow {
   id: string;
   order_id: string;
   product_id: string | null;
+  variant_id: string | null;
   category_id: string | null;
   description: string | null;
   quantity: number;

@@ -3,6 +3,8 @@ import { requireDivision, requirePermission, AuthError, type DivisionId } from "
 import { listOrders, getOrderItems } from "@/lib/orders";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { writeAudit } from "@/lib/audit";
+import { getDefaultWarehouse } from "@/lib/warehouses";
+import { reserveStock, createStockMovement } from "@/lib/inventory";
 
 const VALID: DivisionId[] = ["mobiles", "jewellery", "digital"];
 const parseDivision = (p: string): DivisionId | null =>
@@ -35,7 +37,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ divisio
         subtotal?: number;
         total_amount?: number;
         payment_method?: string;
-        items?: { description?: string; product_id?: string | null; category_id?: string | null; quantity?: number; unit_price?: number }[];
+        items?: { description?: string; product_id?: string | null; variant_id?: string | null; category_id?: string | null; quantity?: number; unit_price?: number }[];
       }
     | null;
   if (!body?.customer_name || !body?.phone) {
@@ -71,6 +73,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ divisio
         order_id: order.id,
         division_id: div,
         product_id: it.product_id ?? null,
+        variant_id: it.variant_id ?? null,
         category_id: it.category_id ?? null,
         description: it.description ?? null,
         quantity: it.quantity ?? 1,
@@ -78,6 +81,30 @@ export async function POST(req: Request, { params }: { params: Promise<{ divisio
         total_price: (it.quantity ?? 1) * (it.unit_price ?? 0),
       }))
     );
+
+    // Reserve stock for items with variant_id.
+    const warehouse = await getDefaultWarehouse(div);
+    if (warehouse) {
+      for (const it of body.items) {
+        if (it.variant_id && it.quantity && it.quantity > 0) {
+          try {
+            await reserveStock(div, it.variant_id, warehouse.id, it.quantity);
+            await createStockMovement({
+              division: div,
+              productVariantId: it.variant_id,
+              warehouseId: warehouse.id,
+              movementType: "adjustment",
+              quantityChange: -it.quantity,
+              referenceType: "order",
+              referenceId: order.id,
+              notes: `Stock reserved for order #${order.order_number}`,
+            });
+          } catch (err) {
+            console.error(`Failed to reserve stock for variant ${it.variant_id}:`, err);
+          }
+        }
+      }
+    }
   }
 
   // If from an enquiry, mark enquiry converted.

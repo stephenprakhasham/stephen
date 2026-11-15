@@ -4,33 +4,113 @@ import { divisionInfo, digitalServices } from "@/lib/data";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import EnquiryForm from "@/components/EnquiryForm";
+import { ProductCard, type ProductCardData } from "@/components/storefront/ProductCard";
 
 export const dynamic = "force-dynamic";
 
-interface PublicProduct {
+interface ProductWithCategory {
   id: string;
   name: string;
   slug: string;
   short_description: string | null;
   description: string | null;
   retail_price: number | null;
+  compare_at_price: number | null;
   image_urls: string[];
   category_id: string | null;
   material_finish: string | null;
+  category_name: string | null;
+  image_url: string | null;
+  images: { id: string; url: string; alt: string | null; is_main: boolean; is_360: boolean; sort_order: number }[];
 }
 
-async function getPublishedProducts(division: string): Promise<PublicProduct[]> {
+async function getPublishedProducts(division: string): Promise<ProductWithCategory[]> {
   try {
     const supabase = await createSupabaseServerClient();
+
+    // Fetch published products from the catalogue view
     const { data } = await supabase
       .from("catalogue_products")
       .select(
-        "id, name, slug, short_description, description, retail_price, image_urls, category_id, material_finish"
+        "id, name, slug, short_description, description, retail_price, compare_at_price, image_urls, category_id, material_finish"
       )
       .eq("division_id", division)
       .order("created_at", { ascending: false })
       .limit(24);
-    return (data ?? []) as PublicProduct[];
+
+    if (!data || data.length === 0) return [];
+
+    // Fetch categories separately and build a lookup map
+    const categoryIds = [...new Set(data.map((p) => p.category_id).filter(Boolean))] as string[];
+    let categoryMap = new Map<string, string>();
+    if (categoryIds.length > 0) {
+      const { data: categories } = await supabase
+        .from("categories")
+        .select("id, name")
+        .in("id", categoryIds);
+      categoryMap = new Map<string, string>();
+      for (const cat of categories ?? []) {
+        categoryMap.set(cat.id, cat.name);
+      }
+    }
+
+    // Fetch all images for these products from product_images table
+    const productIds = data.map((p) => p.id);
+    const { data: images } = await supabase
+      .from("product_images")
+      .select("id, product_id, url, alt, is_main, is_360, sort_order")
+      .in("product_id", productIds)
+      .order("sort_order");
+
+    const imagesByProduct = new Map<string, { id: string; url: string; alt: string | null; is_main: boolean; is_360: boolean; sort_order: number }[]>();
+    for (const img of images ?? []) {
+      if (!imagesByProduct.has(img.product_id)) {
+        imagesByProduct.set(img.product_id, []);
+      }
+      imagesByProduct.get(img.product_id)!.push({
+        id: img.id,
+        url: img.url,
+        alt: img.alt,
+        is_main: img.is_main,
+        is_360: img.is_360 ?? false,
+        sort_order: img.sort_order,
+      });
+    }
+
+    // Fallback to image_urls column if no product_images entry
+    for (const p of data) {
+      if (p.image_urls?.length && !imagesByProduct.has(p.id)) {
+        imagesByProduct.set(p.id, p.image_urls.map((url: string, idx: number) => ({
+          id: `fallback-${idx}`,
+          url,
+          alt: null,
+          is_main: idx === 0,
+          is_360: false,
+          sort_order: idx,
+        })));
+      }
+    }
+
+    return data.map((p) => {
+      const productImages = imagesByProduct.get(p.id) ?? [];
+      const mainImage = productImages.find((img) => img.is_main)?.url ?? productImages[0]?.url ?? null;
+
+      return {
+        id: p.id,
+        name: p.name,
+        slug: p.slug,
+        short_description: p.short_description,
+        description: p.description,
+        retail_price: p.retail_price,
+        compare_at_price: p.compare_at_price,
+        image_urls: p.image_urls ?? [],
+        category_id: p.category_id,
+        material_finish: p.material_finish,
+        category_name: p.category_id ? categoryMap.get(p.category_id) ?? null : null,
+        image_url: mainImage,
+        images: productImages.filter((img) => !img.is_360),
+      };
+    });
   } catch {
     return [];
   }
@@ -84,14 +164,19 @@ export default async function DivisionPage({
           </div>
         </section>
       ) : (
-        <section className="section">
+        <section className="section" style={{ background: "#f8f7f4" }}>
           <div className="container">
-            <div className="sectionhead">
+            <div className="sectionhead" style={{ marginBottom: 32 }}>
               <div>
                 <div className="eyebrow">Explore catalogue</div>
                 <h2>{key === "mobiles" ? "Mobile essentials" : "Jewellery collections"}</h2>
+                <p className="muted" style={{ margin: "8px 0 0", fontSize: 14 }}>
+                  {list.length > 0 ? `${list.length} products available` : "Browse our collection"}
+                </p>
               </div>
-              <span className="pill">Enquiry-based ordering</span>
+              <span className="pill" style={{ background: "#e6f4ea", color: "#1e7b3c", fontSize: 11 }}>
+                In Stock
+              </span>
             </div>
             {list.length === 0 ? (
               <div className="notice">
@@ -99,29 +184,30 @@ export default async function DivisionPage({
                 and pricing. Final order details are confirmed manually by our team.
               </div>
             ) : (
-              <div className="products" style={{ marginTop: 22 }}>
+              <div className="products">
                 {list.map((p) => (
-                  <article className="product" key={p.id}>
-                    <div className="productvisual">
-                      {p.image_urls?.[0] ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={p.image_urls[0]} alt={p.name} className="productimg" />
-                      ) : (
-                        <div className="productmark">{info.name.split(" ").map((w) => w[0]).join("")}</div>
-                      )}
-                    </div>
-                    <h3>{p.name}</h3>
-                    <p>{p.short_description || p.description || info.tagline}</p>
-                    <div className="product-meta">
-                      {p.retail_price != null && <span>₹{p.retail_price}</span>}
-                      {p.material_finish && <span>{p.material_finish}</span>}
-                    </div>
-                    <a className="btn outline" href={wa} target="_blank" rel="noreferrer">Enquire ↗</a>
-                  </article>
+                  <ProductCard
+                    key={p.id}
+                    product={{
+                      id: p.id,
+                      name: p.name,
+                      slug: p.slug,
+                      short_description: p.short_description,
+                      description: p.description,
+                      retail_price: p.retail_price,
+                      compare_at_price: p.compare_at_price,
+                      image_url: p.image_url,
+                      images: p.images,
+                      category_name: p.category_name,
+                      material_finish: p.material_finish,
+                      division: key,
+                      divisionName: info.name,
+                    }}
+                  />
                 ))}
               </div>
             )}
-            <div style={{ marginTop: 24 }}>
+            <div style={{ marginTop: 32 }}>
               <EnquiryForm
                 divisionId={key}
                 divisionName={info.name}

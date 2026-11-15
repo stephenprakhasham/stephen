@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireSuperAdmin, AuthError } from "@/lib/admin-auth";
-import { createSupabaseServiceClient } from "@/lib/supabase-server";
+import { createSupabaseServerClient } from "@/lib/supabase-server";
 import { writeAudit } from "@/lib/audit";
 
 export async function PUT(req: Request) {
@@ -23,8 +23,8 @@ export async function PUT(req: Request) {
     );
   }
 
-  const svc = createSupabaseServiceClient();
-  const { error } = await svc
+  const supabase = await createSupabaseServerClient();
+  const { error } = await supabase
     .from("system_settings")
     .upsert(
       { key: body.key, value: body.value, updated_at: new Date().toISOString() },

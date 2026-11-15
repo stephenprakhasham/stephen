@@ -1,8 +1,5 @@
 import type { User } from "@supabase/supabase-js";
-import {
-  createSupabaseServerClient,
-  createSupabaseServiceClient,
-} from "@/lib/supabase-server";
+import { createSupabaseServerClient } from "@/lib/supabase-server";
 
 export type DivisionId = "mobiles" | "jewellery" | "digital";
 export type RoleName = "super_admin" | "admin" | "staff" | "customer";
@@ -159,12 +156,12 @@ export async function requirePermission(
 }
 
 /**
- * Resolve the raw permission list via the service-role client.
- * Used by admin screens that need the full matrix, not just the caller's own.
+ * Resolve the raw permission list. The permissions table is readable by any
+ * authenticated user (RLS), so the caller-scoped client is sufficient.
  */
 export async function listAllPermissions(): Promise<EffectivePermission[]> {
-  const svc = createSupabaseServiceClient();
-  const { data } = await svc
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase
     .from("permissions")
     .select("key, module, action");
   return (data ?? []).map(

@@ -33,6 +33,12 @@ const NAV: NavItem[] = [
   { href: "/admin/mobiles/enquiries", label: "Enquiries", icon: "✉", division: "mobiles" },
   { href: "/admin/mobiles/orders", label: "Orders", icon: "✦", division: "mobiles" },
   { href: "/admin/mobiles/customers", label: "Customers", icon: "☺", division: "mobiles" },
+  // Phase 4: Inventory & Supply Chain
+  { href: "/admin/mobiles/inventory", label: "Inventory", icon: "▦", division: "mobiles" },
+  { href: "/admin/mobiles/warehouses", label: "Warehouses", icon: "▣", division: "mobiles" },
+  { href: "/admin/mobiles/purchase-orders", label: "Purchase Orders", icon: "▦", division: "mobiles" },
+  { href: "/admin/mobiles/vendors", label: "Vendors", icon: "◉", division: "mobiles" },
+  { href: "/admin/mobiles/wholesale", label: "Wholesale", icon: "◆", division: "mobiles" },
   // Jewellery
   { href: "/admin/jewellery/products", label: "Products", icon: "▤", division: "jewellery" },
   { href: "/admin/jewellery/categories", label: "Categories", icon: "▥", division: "jewellery" },
@@ -40,6 +46,12 @@ const NAV: NavItem[] = [
   { href: "/admin/jewellery/enquiries", label: "Enquiries", icon: "✉", division: "jewellery" },
   { href: "/admin/jewellery/orders", label: "Orders", icon: "✦", division: "jewellery" },
   { href: "/admin/jewellery/customers", label: "Customers", icon: "☺", division: "jewellery" },
+  // Phase 4: Inventory & Supply Chain
+  { href: "/admin/jewellery/inventory", label: "Inventory", icon: "▦", division: "jewellery" },
+  { href: "/admin/jewellery/warehouses", label: "Warehouses", icon: "▣", division: "jewellery" },
+  { href: "/admin/jewellery/purchase-orders", label: "Purchase Orders", icon: "▦", division: "jewellery" },
+  { href: "/admin/jewellery/vendors", label: "Vendors", icon: "◉", division: "jewellery" },
+  { href: "/admin/jewellery/wholesale", label: "Wholesale", icon: "◆", division: "jewellery" },
   // Digital (services catalogue)
   { href: "/admin/digital/services", label: "Services", icon: "▤", division: "digital" },
   { href: "/admin/digital/categories", label: "Categories", icon: "▥", division: "digital" },

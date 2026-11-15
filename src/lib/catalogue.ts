@@ -128,3 +128,71 @@ export function slugify(input: string): string {
     .replace(/-+/g, "-")
     .slice(0, 80);
 }
+
+export interface PublicProductImage {
+  id: string;
+  url: string;
+  alt: string | null;
+  is_main: boolean;
+  sort_order: number;
+}
+
+export interface PublicVariant {
+  id: string;
+  sku: string | null;
+  title: string | null;
+  retail_price: number | null;
+  stock_quantity: number;
+  image_url: string | null;
+}
+
+export interface PublicProductDetail {
+  id: string;
+  division_id: string;
+  name: string;
+  slug: string;
+  short_description: string | null;
+  description: string | null;
+  retail_price: number | null;
+  compare_at_price: number | null;
+  image_urls: string[];
+  material_finish: string | null;
+  size_or_variant: string | null;
+  images: PublicProductImage[];
+  variants: PublicVariant[];
+}
+
+export async function getPublicProductBySlug(
+  division: string,
+  slug: string
+): Promise<PublicProductDetail | null> {
+  const supabase = await createSupabaseServerClient();
+  const { data: product } = await supabase
+    .from("catalogue_products")
+    .select(
+      "id, division_id, name, slug, short_description, description, retail_price, compare_at_price, image_urls, material_finish, size_or_variant"
+    )
+    .eq("division_id", division)
+    .eq("slug", slug)
+    .maybeSingle();
+  if (!product) return null;
+
+  const { data: images } = await supabase
+    .from("product_images")
+    .select("id, url, alt, is_main, sort_order")
+    .eq("product_id", product.id)
+    .order("sort_order");
+
+  const { data: variants } = await supabase
+    .from("product_variants")
+    .select("id, sku, title, retail_price, stock_quantity, image_url")
+    .eq("product_id", product.id)
+    .eq("is_active", true)
+    .order("created_at");
+
+  return {
+    ...(product as Omit<PublicProductDetail, "images" | "variants">),
+    images: (images ?? []) as PublicProductImage[],
+    variants: (variants ?? []) as PublicVariant[],
+  };
+}

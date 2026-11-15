@@ -1,2 +1,25 @@
 import Link from "next/link";
-export default function Header(){return <><div className="topline">YAGA GROUP · THREE DIVISIONS · ONE TRUSTED GROUP</div><header className="header"><div className="container nav"><Link className="brand" href="/">YAGA <span>GROUP</span></Link><nav className="navlinks"><Link href="/mobiles">Mobiles</Link><Link href="/jewellery">Gold & Fashion</Link><Link href="/digital">Digital Nexus</Link><Link href="/#about">About Group</Link></nav><Link className="navcta" href="/contact">Contact us</Link></div></header></>}
+import { MiniCart } from "@/components/cart/MiniCart";
+
+export default function Header() {
+  return (
+    <>
+      <div className="topline">YAGA GROUP · THREE DIVISIONS · ONE TRUSTED GROUP</div>
+      <header className="header">
+        <div className="container nav">
+          <Link className="brand" href="/">YAGA <span>GROUP</span></Link>
+          <nav className="navlinks">
+            <Link href="/mobiles">Mobiles</Link>
+            <Link href="/jewellery">Gold & Fashion</Link>
+            <Link href="/digital">Digital Nexus</Link>
+            <Link href="/#about">About Group</Link>
+          </nav>
+          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+            <Link className="navcta" href="/contact">Contact us</Link>
+            <MiniCart />
+          </div>
+        </div>
+      </header>
+    </>
+  );
+}

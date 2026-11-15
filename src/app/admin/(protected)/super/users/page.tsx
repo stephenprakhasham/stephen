@@ -9,7 +9,7 @@ import { UserRoleManager } from "@/components/admin/UserRoleManager";
 export const dynamic = "force-dynamic";
 
 export default async function SuperUsersPage() {
-  await requireSuperAdmin();
+  const ctx = await requireSuperAdmin();
   const [users, roles, divisions] = await Promise.all([
     listAdminUsers(),
     listRoles(),
@@ -26,7 +26,17 @@ export default async function SuperUsersPage() {
         <span className="pill">{users.length} users</span>
       </div>
 
-      <UserRoleManager users={users} roles={roles} divisions={divisions} />
+      <UserRoleManager
+        users={users}
+        roles={roles}
+        divisions={divisions}
+        serviceRoleConfigured={Boolean(
+          process.env.SUPABASE_SERVICE_ROLE_KEY ||
+            process.env.SUPABASE_DB_PASSWORD ||
+            process.env.SUPABASE_DB_URL
+        )}
+        currentUserId={ctx.user.id}
+      />
     </div>
   );
 }
