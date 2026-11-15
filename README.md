@@ -24,9 +24,21 @@ The storefront and demo catalogue render without Supabase. Enquiry persistence, 
 ## Supabase setup
 1. Create a Supabase project.
 2. Run `supabase/schema.sql` in the SQL Editor.
-3. Configure Auth email/password users. Add an admin profile row with role `admin` after creating the user (see SQL comments).
-4. Add URL and anon key to `.env.local`.
-5. Set Site URL and redirect URLs in Supabase Auth settings.
+3. Run the Phase 1 migration `supabase/migrations/0001_phase1_foundation.sql` (roles, permissions, audit logs, settings, RLS helpers). Either paste into the SQL Editor, or:
+   ```
+   SUPABASE_DB_PASSWORD=... npm run db:migrate 0001_phase1_foundation.sql
+   ```
+4. Configure Auth email/password users. Promote your bootstrap account to `super_admin` (the migration does this for `admin@yagagroup.com`; otherwise update `profiles.role` manually).
+5. Add `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and the server-only `SUPABASE_SERVICE_ROLE_KEY` to `.env.local`.
+6. Set Site URL and redirect URLs in Supabase Auth settings.
+
+## Admin architecture (Phase 1)
+- Single Supabase Auth login at `/admin/login`.
+- Server-side authorization (`src/lib/admin-auth.ts`): super admin, group admin, division scope, category scope, module scope, and effective permissions.
+- Middleware (`src/middleware.ts`) protects `/admin/*` and `/api/admin/*`.
+- Super Admin area (`/admin/super/*`): user & role assignment, audit logs, system settings.
+- Role templates seeded in `roles` + `permissions`; assign via Users & Roles.
+- Audit logging via `src/lib/audit.ts` (service-role, append-only).
 
 ## Before production
 - Replace sample catalogue products and images with verified inventory.

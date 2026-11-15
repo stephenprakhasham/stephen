@@ -1,9 +1,15 @@
 import { readFileSync } from "node:fs";
 import { Client } from "pg";
 
+// Usage:
+//   node scripts/apply-schema.mjs                -> applies supabase/schema.sql
+//   node scripts/apply-schema.mjs supabase/migrations/0001_phase1_foundation.sql
+//   SUPABASE_DB_PASSWORD=... node scripts/apply-schema.mjs <file>
+
 const ref = "nskvbhqmubqucylqfbdu";
 const password = process.env.SUPABASE_DB_PASSWORD;
-const sql = readFileSync("supabase/schema.sql", "utf8");
+const sqlFile = process.argv[2] || "supabase/schema.sql";
+const sql = readFileSync(sqlFile, "utf8");
 
 if (!password) {
   console.error("Set SUPABASE_DB_PASSWORD first.");
@@ -21,7 +27,7 @@ for (const t of targets) {
     await client.connect();
     console.log(`[${t.label}] connected`);
     await client.query(sql);
-    console.log(`[${t.label}] schema applied`);
+    console.log(`[${t.label}] applied ${sqlFile}`);
     const { rows } = await client.query(
       "select table_name from information_schema.tables where table_schema='public' order by 1"
     );
