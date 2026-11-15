@@ -30,10 +30,16 @@ const NAV: NavItem[] = [
   { href: "/admin/mobiles/categories", label: "Categories", icon: "▥", division: "mobiles" },
   { href: "/admin/mobiles/brands", label: "Brands", icon: "◇", division: "mobiles" },
   { href: "/admin/mobiles/attributes", label: "Attributes", icon: "≡", division: "mobiles" },
+  { href: "/admin/mobiles/enquiries", label: "Enquiries", icon: "✉", division: "mobiles" },
+  { href: "/admin/mobiles/orders", label: "Orders", icon: "✦", division: "mobiles" },
+  { href: "/admin/mobiles/customers", label: "Customers", icon: "☺", division: "mobiles" },
   // Jewellery
   { href: "/admin/jewellery/products", label: "Products", icon: "▤", division: "jewellery" },
   { href: "/admin/jewellery/categories", label: "Categories", icon: "▥", division: "jewellery" },
   { href: "/admin/jewellery/attributes", label: "Attributes", icon: "≡", division: "jewellery" },
+  { href: "/admin/jewellery/enquiries", label: "Enquiries", icon: "✉", division: "jewellery" },
+  { href: "/admin/jewellery/orders", label: "Orders", icon: "✦", division: "jewellery" },
+  { href: "/admin/jewellery/customers", label: "Customers", icon: "☺", division: "jewellery" },
   // Digital (services catalogue)
   { href: "/admin/digital/services", label: "Services", icon: "▤", division: "digital" },
   { href: "/admin/digital/categories", label: "Categories", icon: "▥", division: "digital" },

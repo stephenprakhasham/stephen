@@ -96,3 +96,16 @@
 .pill-unpublished{background:#fdecea;color:#b3261e}
 .pill-archived{background:#ececec;color:#666}
 .pill-muted{background:#f1eee7;color:#888}
+
+/* ============================================================================
+   Admin orders / enquiries (Phase 3)
+   ============================================================================ */
+.admin-orders{display:flex;flex-direction:column;gap:20px}
+.admin-row-selected{background:#fdf9f0}
+.pill-paid{background:#e6f4ea;color:#1e7b3c}
+.pill-pending{background:#fff4e0;color:#a06a00}
+.pill-refunded{background:#fdecea;color:#b3261e}
+.pill-delivered{background:#e6f4ea;color:#1e7b3c}
+.pill-cancelled{background:#fdecea;color:#b3261e}
+.pill-dispatched{background:#e7f0fd;color:#1a56b8}
+.pill-confirmed{background:#e6f4ea;color:#1e7b3c}
