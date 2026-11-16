@@ -2,9 +2,30 @@ export type Division = "mobiles" | "jewellery" | "digital";
 const waDefault = "919787608569";
 export const groupWhatsApp = process.env.NEXT_PUBLIC_YAGA_WHATSAPP || waDefault;
 export const divisionInfo = {
- mobiles:{name:"YAGA MOBILES",tagline:"Mobile phones & accessories · Wholesale and retail",intro:"Discover mobile essentials, accessories and everyday technology. Enquire directly and our team will confirm availability, pricing and delivery.",wa:groupWhatsApp,emoji:"📱"},
- jewellery:{name:"YAGA GOLD & FASHION",tagline:"Jewellery for everyday elegance and celebrations",intro:"Explore elegant fashion jewellery, daily-wear favourites and festive collections. Ask our team about material, finish, size and availability.",wa:groupWhatsApp,emoji:"✦"},
- digital:{name:"YAGA DIGITAL NEXUS",tagline:"Digital growth, creative technology and marketing services",intro:"Creative campaigns, websites, social media and AI-powered content for growing businesses.",wa:groupWhatsApp,emoji:"✧"}
+ mobiles:{
+   name:"YAGA MOBILES",
+   tagline:"Mobile phones & accessories · Wholesale and retail",
+   intro:"Discover mobile essentials, accessories and everyday technology. Enquire directly and our team will confirm availability, pricing and delivery.",
+   wa:groupWhatsApp,
+   emoji:"📱",
+   keywords:["mobile phones","smartphones","mobile accessories","chargers","earphones","cables","cases","tempered glass","power banks","wholesale mobiles","retail mobiles"]
+ },
+ jewellery:{
+   name:"YAGA GOLD & FASHION",
+   tagline:"Jewellery for everyday elegance and celebrations",
+   intro:"Explore elegant fashion jewellery, daily-wear favourites and festive collections. Ask our team about material, finish, size and availability.",
+   wa:groupWhatsApp,
+   emoji:"✦",
+   keywords:["jewellery","fashion jewellery","necklace","earrings","bangles","bracelets","rings","pendants","gold plated","silver jewellery","bridal jewellery","festive jewellery"]
+ },
+ digital:{
+   name:"YAGA DIGITAL NEXUS",
+   tagline:"Digital growth, creative technology and marketing services",
+   intro:"Creative campaigns, websites, social media and AI-powered content for growing businesses.",
+   wa:groupWhatsApp,
+   emoji:"✧",
+   keywords:["digital marketing","social media management","SEO services","web development","website design","e-commerce development","content creation","video production","branding","online marketing","Google Ads","Facebook Ads","Instagram marketing"]
+ }
 } as const;
 export const products = [
  {id:"mob-1",division:"mobiles" as const,name:"Fast Charging Cable",category:"Cables",sku:"DEMO-MOB-001",price:0,description:"Add verified cable type, length, compatibility and actual price before publishing.",emoji:"🔌"},

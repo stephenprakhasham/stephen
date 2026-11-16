@@ -10,6 +10,7 @@ export default function Header() {
           <Link className="brand" href="/">YAGA <span>GROUP</span></Link>
           <nav className="navlinks">
             <Link href="/mobiles">Mobiles</Link>
+            <Link href="/yaga-hot-deals">🔥 Hot Deals</Link>
             <Link href="/jewellery">Gold & Fashion</Link>
             <Link href="/digital">Digital Nexus</Link>
             <Link href="/#about">About Group</Link>

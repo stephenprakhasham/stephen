@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import type { DivisionId } from "@/lib/admin-auth";
 import type { InventoryRow, WarehouseRow } from "@/lib/inventory-types";
 import type { ProductRow } from "@/lib/catalogue";
+import { Spinner } from "@/components/ui/Spinner";
 
 interface Props {
   division: DivisionId;
@@ -129,7 +130,7 @@ export function InventoryManager({
               />
             </label>
             <button type="submit" disabled={saving} className="btn">
-              {saving ? "Saving..." : "Adjust"}
+              {saving ? <><Spinner size={16} /> Saving...</> : "Adjust"}
             </button>
             <button type="button" onClick={() => { setAdjusting(null); setAdjustQty(""); }} className="btn outline" style={{ marginLeft: "0.5rem" }}>
               Cancel

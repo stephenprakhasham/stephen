@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { DivisionId } from "@/lib/admin-auth";
 import type { VendorRow } from "@/lib/inventory-types";
+import { Spinner } from "@/components/ui/Spinner";
 
 interface Props {
   division: DivisionId;
@@ -82,7 +83,7 @@ export function VendorManager({ division, vendors }: Props) {
             <label>Payment Terms: <input type="text" value={paymentTerms} onChange={(e) => setPaymentTerms(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} /></label>
           </div>
           <button type="submit" disabled={saving} className="btn" style={{ marginTop: "1rem" }}>
-            {saving ? "Saving..." : "Create Vendor"}
+            {saving ? <><Spinner size={16} /> Saving...</> : "Create Vendor"}
           </button>
         </form>
       )}

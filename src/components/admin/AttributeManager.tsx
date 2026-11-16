@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { AttributeDefinitionRow, CategoryRow } from "@/lib/catalogue";
 import type { DivisionId } from "@/lib/admin-auth";
+import { Spinner } from "@/components/ui/Spinner";
 
 const FIELD_TYPES = ["text", "longtext", "number", "decimal", "dropdown", "multiselect", "checkbox", "date"];
 
@@ -90,7 +91,9 @@ export function AttributeManager({
           <label><input type="checkbox" checked={f.variant_defining} onChange={(e) => set("variant_defining", e.target.checked)} /> Variant-defining</label>
         </div>
         <div className="admin-form-actions">
-          <button className="btn gold" disabled={busy} type="submit">{busy ? "Saving…" : "Add attribute"}</button>
+          <button className="btn gold" disabled={busy} type="submit">
+            {busy ? <><Spinner size={16} /> Saving…</> : "Add attribute"}
+          </button>
         </div>
         {msg && <p className="admin-muted">{msg}</p>}
       </form>

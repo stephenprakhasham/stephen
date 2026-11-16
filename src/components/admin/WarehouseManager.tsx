@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { DivisionId } from "@/lib/admin-auth";
 import type { WarehouseRow } from "@/lib/inventory-types";
+import { Spinner } from "@/components/ui/Spinner";
 
 interface Props {
   division: DivisionId;
@@ -69,7 +70,7 @@ export function WarehouseManager({ division, warehouses }: Props) {
             <label>Contact Phone: <input type="text" value={contactPhone} onChange={(e) => setContactPhone(e.target.value)} style={{ width: "100%", padding: "0.5rem" }} /></label>
           </div>
           <button type="submit" disabled={saving} className="btn" style={{ marginTop: "1rem" }}>
-            {saving ? "Saving..." : "Create Warehouse"}
+            {saving ? <><Spinner size={16} /> Saving...</> : "Create Warehouse"}
           </button>
         </form>
       )}

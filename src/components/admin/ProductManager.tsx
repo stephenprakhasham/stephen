@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { ProductRow, CategoryRow, BrandRow } from "@/lib/catalogue";
 import type { DivisionId } from "@/lib/admin-auth";
+import { Spinner } from "@/components/ui/Spinner";
 
 const STATUSES = ["draft", "pending", "published", "unpublished", "archived"] as const;
 
@@ -64,9 +65,15 @@ export function ProductManager({
       setMsg(b.error || "Save failed.");
       return;
     }
+    const data = await res.json();
     setMsg("Saved.");
     setCreating(false);
-    setEditing(null);
+    if (!id && data.id) {
+      // New product created - switch to edit mode to show media gallery
+      setEditing(data);
+    } else {
+      setEditing(null);
+    }
     await reload();
   }
 
@@ -221,6 +228,11 @@ function ProductForm({
   return (
     <form className="admin-section admin-form-card" onSubmit={submit}>
       <h2>{initial ? "Edit product" : "New product"}</h2>
+      {!initial && (
+        <p className="admin-muted" style={{ marginBottom: 12, fontSize: 13 }}>
+          Fill in the product details and click Save. After saving, you can upload images, 360° frames, and videos.
+        </p>
+      )}
       <div className="admin-form-grid">
         <label className="field"><span>Name</span>
           <input value={f.name} onChange={(e) => set("name", e.target.value)} required /></label>
@@ -252,7 +264,9 @@ function ProductForm({
           <textarea rows={2} value={f.short_description} onChange={(e) => set("short_description", e.target.value)} /></label>
       </div>
       <div className="admin-form-actions">
-        <button className="btn gold" disabled={busy} type="submit">{busy ? "Saving…" : "Save"}</button>
+        <button className="btn gold" disabled={busy} type="submit">
+          {busy ? <><Spinner size={16} /> Saving…</> : "Save"}
+        </button>
         <button className="btn outline" type="button" onClick={onCancel}>Cancel</button>
       </div>
     </form>

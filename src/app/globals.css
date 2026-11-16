@@ -31,6 +31,14 @@
 .product-actions .btn.outline{border:1px solid #c9c1b2;background:transparent;color:#222}
 .product-actions .btn.outline:hover{background:#f5f3ee}
 
+/* Skeleton loading */
+.skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skeleton-image{width:100%;height:200px;border-radius:16px;margin-bottom:12px}
+.skeleton-line{height:14px;background:#e0e0e0;border-radius:4px;margin-bottom:8px;width:80%}
+.skeleton-line.short{width:50%}
+.skeleton-price{height:20px;background:#e0e0e0;border-radius:4px;width:60px;margin-top:8px}
+
 /* Product detail zoom */
 .zoom-container{position:relative;overflow:hidden;border-radius:12px;border:1px solid #ece8df;background:#f9f8f5}
 .zoom-container img{transition:transform .2s ease;transform-origin:center center}
@@ -134,7 +142,10 @@
 .admin-form-card{background:#fff;border:1px solid #ece8df;border-radius:16px;padding:22px;margin-bottom:22px}
 .admin-form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
 .admin-form-wide{grid-column:1 / -1}
-.admin-form-actions{display:flex;gap:10px;margin-top:16px}
+.admin-form-actions .btn{position:relative}
+.admin-form-actions .btn:disabled{opacity:.7;cursor:not-allowed}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.btn svg{animation:spin 1s linear infinite}
 .admin-checks{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:14px;color:#444}
 .admin-checks label{display:inline-flex;align-items:center;gap:6px}
 .admin-tree-row{display:flex;align-items:center;gap:10px;padding:8px;border-bottom:1px solid #f0ece4}
@@ -157,6 +168,9 @@
 .adminpanel{background:#fff;border:1px solid #eee;border-radius:14px;padding:22px;min-height:360px}
 .table{width:100%;border-collapse:collapse}
 .table th,.table td{text-align:left;padding:12px;border-bottom:1px solid #eee;font-size:13px}
+.table td:last-child{white-space:nowrap}
+.table td:last-child .btn{margin-right:6px;padding:6px 12px;font-size:12px}
+.table td:last-child .btn:last-child{margin-right:0}
 .status{border-radius:99px;background:#eee8dc;padding:5px 9px;font-size:11px}
 .digitalframe{width:100%;height:calc(100vh - 80px);border:0;background:#111}
 
@@ -191,3 +205,62 @@
 .pill-cancelled{background:#fdecea;color:#b3261e}
 .pill-dispatched{background:#e7f0fd;color:#1a56b8}
 .pill-confirmed{background:#e6f4ea;color:#1e7b3c}
+
+/* ============================================================================
+   YAGA HOT DEALS
+   ============================================================================ */
+.hotdeals-hero{padding:64px 0 58px;background:radial-gradient(circle at 82% 38%,#f3c9a0 0,transparent 30%),radial-gradient(circle at 12% 82%,#f6d7b0 0,transparent 34%),linear-gradient(125deg,#2a1608,#4a2410 46%,#6b3412 78%,#3d1d09)}
+.hotdeals-hero .eyebrow{color:#f3c07a}
+.hotdeals-hero h1{color:#fff;font-size:clamp(38px,6vw,70px);letter-spacing:-.04em;margin:14px 0 10px;text-shadow:0 2px 18px rgba(0,0,0,.28)}
+.hotdeals-hero .muted{color:#f0ddc4}
+.hotdeals-fire{display:inline-block;margin-left:6px;animation:hotdeals-pulse 1.4s ease-in-out infinite}
+@keyframes hotdeals-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.hotdeals-countdown-wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
+.hotdeals-countdown-label{color:#f3c07a;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:12px}
+.hotdeals-countdown{display:inline-flex;align-items:center;gap:6px}
+.hotdeals-countdown span{display:flex;flex-direction:column;align-items:center;background:#160a03;border:1px solid #5a3115;border-radius:10px;padding:6px 12px;min-width:58px}
+.hotdeals-countdown b{color:#ffd27a;font-size:24px;line-height:1;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.hotdeals-countdown small{color:#c98d54;font-size:9px;text-transform:uppercase;letter-spacing:.12em;margin-top:3px}
+.hotdeals-countdown i{color:#f3c07a;font-style:normal;font-weight:900;font-size:22px}
+.hotdeals-countdown-ended{color:#f3c07a;font-weight:800;font-size:16px;letter-spacing:.06em}
+
+.hotdeals-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.hotdeals-product{background:#fff;border:1px solid #eae6df;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s}
+.hotdeals-product:hover{transform:translateY(-4px);box-shadow:0 16px 46px rgba(74,36,16,.16);border-color:#e0a86a}
+.hotdeals-product-img{position:relative;height:210px;background:linear-gradient(140deg,#f3e3cf,#e4c9a8);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hotdeals-product-img img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.hotdeals-product:hover .hotdeals-product-img img{transform:scale(1.06)}
+.hotdeals-product-fallback{font-size:54px;font-weight:900;color:rgba(107,52,18,.55);letter-spacing:.05em}
+.hotdeals-badge{position:absolute;top:12px;left:12px;background:#e53935;color:#fff;font-size:12px;font-weight:800;padding:5px 12px;border-radius:8px;letter-spacing:.04em;z-index:2;box-shadow:0 4px 12px rgba(229,57,53,.35)}
+.hotdeals-out{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:#1c1c1c;color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:6px 14px;border-radius:999px;z-index:2}
+.hotdeals-product-body{padding:16px;display:flex;flex-direction:column;flex:1}
+.hotdeals-category{align-self:flex-start;display:inline-block;background:#fdeadb;color:#b3541a;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;padding:3px 9px;border-radius:5px;margin-bottom:8px}
+.hotdeals-product-body h3{font-size:16px;font-weight:700;line-height:1.35;margin:0 0 4px;color:#171717;min-height:44px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hotdeals-code{font-size:11px;color:#9a968e;margin:0 0 8px}
+.hotdeals-pricing{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.hotdeals-offer{font-size:22px;font-weight:800;color:#15803d}
+.hotdeals-mrp{font-size:14px;color:#9ca3af;text-decoration:line-through}
+.hotdeals-desc{font-size:12px;color:#6b7280;line-height:1.5;margin:0 0 14px;min-height:36px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hotdeals-actions{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.hotdeals-btn{width:100%;padding:11px 12px;font-size:12px;border-radius:10px;text-align:center;white-space:normal}
+.hotdeals-share{background:transparent;border:1px solid #c9c1b2;color:#222}
+.hotdeals-share:hover{background:#f5f3ee}
+.hotdeals-share:disabled{opacity:.6;cursor:not-allowed}
+.hotdeals-share-notice{font-size:11px;color:#b3541a;background:#fff4e8;border-radius:8px;padding:8px 10px;margin:8px 0 0;line-height:1.4}
+
+.hotdeals-cta{background:radial-gradient(circle at 50% 0,#f3c9a0 0,transparent 55%),#fff}
+.hotdeals-cta h2{font-size:clamp(24px,3.4vw,34px);margin:8px 0 10px}
+
+@media (max-width:1100px){
+  .hotdeals-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:800px){
+  .hotdeals-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .hotdeals-product-img{height:170px}
+}
+@media (max-width:480px){
+  .hotdeals-grid{grid-template-columns:1fr;gap:14px}
+  .hotdeals-product-img{height:220px}
+  .hotdeals-countdown span{min-width:52px;padding:6px 9px}
+  .hotdeals-countdown b{font-size:20px}
+}

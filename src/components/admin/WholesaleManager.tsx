@@ -6,6 +6,7 @@ import type { DivisionId } from "@/lib/admin-auth";
 import type { WholesalePriceRow, CustomerTier } from "@/lib/inventory-types";
 import { CUSTOMER_TIERS } from "@/lib/inventory-types";
 import type { ProductRow } from "@/lib/catalogue";
+import { Spinner } from "@/components/ui/Spinner";
 
 interface CustomerRow {
   id: string;
@@ -111,7 +112,7 @@ export function WholesaleManager({ division, prices, customers, products }: Prop
             </label>
           </div>
           <button type="submit" disabled={saving} className="btn" style={{ marginTop: "1rem" }}>
-            {saving ? "Saving..." : "Save Price"}
+            {saving ? <><Spinner size={16} /> Saving...</> : "Save Price"}
           </button>
         </form>
       )}

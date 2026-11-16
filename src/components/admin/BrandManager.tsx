@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { BrandRow } from "@/lib/catalogue";
 import type { DivisionId } from "@/lib/admin-auth";
+import { Spinner } from "@/components/ui/Spinner";
 
 export function BrandManager({
   division,
@@ -49,7 +50,9 @@ export function BrandManager({
             <input value={name} onChange={(e) => setName(e.target.value)} required /></label>
         </div>
         <div className="admin-form-actions">
-          <button className="btn gold" disabled={busy} type="submit">{busy ? "Adding…" : "Add brand"}</button>
+          <button className="btn gold" disabled={busy} type="submit">
+            {busy ? <><Spinner size={16} /> Adding…</> : "Add brand"}
+          </button>
         </div>
         {msg && <p className="admin-muted">{msg}</p>}
       </form>

@@ -135,6 +135,7 @@ export interface PublicProductImage {
   alt: string | null;
   is_main: boolean;
   sort_order: number;
+  is_360: boolean;
 }
 
 export interface PublicVariant {
@@ -158,6 +159,7 @@ export interface PublicProductDetail {
   image_urls: string[];
   material_finish: string | null;
   size_or_variant: string | null;
+  category_name: string | null;
   images: PublicProductImage[];
   variants: PublicVariant[];
 }
@@ -170,16 +172,27 @@ export async function getPublicProductBySlug(
   const { data: product } = await supabase
     .from("catalogue_products")
     .select(
-      "id, division_id, name, slug, short_description, description, retail_price, compare_at_price, image_urls, material_finish, size_or_variant"
+      "id, division_id, name, slug, short_description, description, retail_price, compare_at_price, image_urls, material_finish, size_or_variant, category_id"
     )
     .eq("division_id", division)
     .eq("slug", slug)
     .maybeSingle();
   if (!product) return null;
 
+  // Fetch category name if category_id exists
+  let categoryName: string | null = null;
+  if (product.category_id) {
+    const { data: category } = await supabase
+      .from("categories")
+      .select("name")
+      .eq("id", product.category_id)
+      .single();
+    categoryName = category?.name ?? null;
+  }
+
   const { data: images } = await supabase
     .from("product_images")
-    .select("id, url, alt, is_main, sort_order")
+    .select("id, url, alt, is_main, sort_order, is_360")
     .eq("product_id", product.id)
     .order("sort_order");
 
@@ -191,7 +204,8 @@ export async function getPublicProductBySlug(
     .order("created_at");
 
   return {
-    ...(product as Omit<PublicProductDetail, "images" | "variants">),
+    ...(product as Omit<PublicProductDetail, "images" | "variants" | "category_name">),
+    category_name: categoryName,
     images: (images ?? []) as PublicProductImage[],
     variants: (variants ?? []) as PublicVariant[],
   };

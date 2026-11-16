@@ -64,7 +64,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
       <Link className="productvisual" href={`/${product.division}/products/${product.slug}`}>
         {displayImage ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={displayImage} alt={product.name} className="productimg" />
+          <img src={displayImage} alt={product.name} className="productimg" loading="lazy" />
         ) : (
           <div className="productmark">{initial}</div>
         )}
@@ -83,7 +83,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={img.url} alt="" />
+                <img src={img.url} alt="" loading="lazy" />
               </button>
             ))}
           </div>

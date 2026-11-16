@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Spinner } from "@/components/ui/Spinner";
 
 interface SettingRow {
   key: string;
@@ -72,7 +73,7 @@ export function SettingsForm({ settings }: { settings: SettingRow[] }) {
             onClick={() => save(s.key)}
             disabled={busy === s.key}
           >
-            {busy === s.key ? "Saving…" : "Save"}
+            {busy === s.key ? <><Spinner size={16} /> Saving…</> : "Save"}
           </button>
         </section>
       ))}

@@ -4,116 +4,52 @@ import { divisionInfo, digitalServices } from "@/lib/data";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { createSupabaseServerClient } from "@/lib/supabase-server";
 import EnquiryForm from "@/components/EnquiryForm";
-import { ProductCard, type ProductCardData } from "@/components/storefront/ProductCard";
+import { ProductGrid } from "@/components/storefront/ProductGrid";
+import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
 
-interface ProductWithCategory {
-  id: string;
-  name: string;
-  slug: string;
-  short_description: string | null;
-  description: string | null;
-  retail_price: number | null;
-  compare_at_price: number | null;
-  image_urls: string[];
-  category_id: string | null;
-  material_finish: string | null;
-  category_name: string | null;
-  image_url: string | null;
-  images: { id: string; url: string; alt: string | null; is_main: boolean; is_360: boolean; sort_order: number }[];
-}
+const SITE_URL = "https://yaga-group-website.vercel.app";
 
-async function getPublishedProducts(division: string): Promise<ProductWithCategory[]> {
-  try {
-    const supabase = await createSupabaseServerClient();
+type Props = {
+  params: Promise<{ division: string }>;
+};
 
-    // Fetch published products from the catalogue view
-    const { data } = await supabase
-      .from("catalogue_products")
-      .select(
-        "id, name, slug, short_description, description, retail_price, compare_at_price, image_urls, category_id, material_finish"
-      )
-      .eq("division_id", division)
-      .order("created_at", { ascending: false })
-      .limit(24);
-
-    if (!data || data.length === 0) return [];
-
-    // Fetch categories separately and build a lookup map
-    const categoryIds = [...new Set(data.map((p) => p.category_id).filter(Boolean))] as string[];
-    let categoryMap = new Map<string, string>();
-    if (categoryIds.length > 0) {
-      const { data: categories } = await supabase
-        .from("categories")
-        .select("id, name")
-        .in("id", categoryIds);
-      categoryMap = new Map<string, string>();
-      for (const cat of categories ?? []) {
-        categoryMap.set(cat.id, cat.name);
-      }
-    }
-
-    // Fetch all images for these products from product_images table
-    const productIds = data.map((p) => p.id);
-    const { data: images } = await supabase
-      .from("product_images")
-      .select("id, product_id, url, alt, is_main, is_360, sort_order")
-      .in("product_id", productIds)
-      .order("sort_order");
-
-    const imagesByProduct = new Map<string, { id: string; url: string; alt: string | null; is_main: boolean; is_360: boolean; sort_order: number }[]>();
-    for (const img of images ?? []) {
-      if (!imagesByProduct.has(img.product_id)) {
-        imagesByProduct.set(img.product_id, []);
-      }
-      imagesByProduct.get(img.product_id)!.push({
-        id: img.id,
-        url: img.url,
-        alt: img.alt,
-        is_main: img.is_main,
-        is_360: img.is_360 ?? false,
-        sort_order: img.sort_order,
-      });
-    }
-
-    // Fallback to image_urls column if no product_images entry
-    for (const p of data) {
-      if (p.image_urls?.length && !imagesByProduct.has(p.id)) {
-        imagesByProduct.set(p.id, p.image_urls.map((url: string, idx: number) => ({
-          id: `fallback-${idx}`,
-          url,
-          alt: null,
-          is_main: idx === 0,
-          is_360: false,
-          sort_order: idx,
-        })));
-      }
-    }
-
-    return data.map((p) => {
-      const productImages = imagesByProduct.get(p.id) ?? [];
-      const mainImage = productImages.find((img) => img.is_main)?.url ?? productImages[0]?.url ?? null;
-
-      return {
-        id: p.id,
-        name: p.name,
-        slug: p.slug,
-        short_description: p.short_description,
-        description: p.description,
-        retail_price: p.retail_price,
-        compare_at_price: p.compare_at_price,
-        image_urls: p.image_urls ?? [],
-        category_id: p.category_id,
-        material_finish: p.material_finish,
-        category_name: p.category_id ? categoryMap.get(p.category_id) ?? null : null,
-        image_url: mainImage,
-        images: productImages.filter((img) => !img.is_360),
-      };
-    });
-  } catch {
-    return [];
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { division } = await params;
+  if (!["mobiles", "jewellery", "digital"].includes(division)) {
+    return { title: "Page Not Found" };
   }
+
+  const key = division as keyof typeof divisionInfo;
+  const info = divisionInfo[key];
+
+  return {
+    title: info.name,
+    description: `${info.name} - ${info.tagline}. ${info.intro}`,
+    keywords: [
+      info.name,
+      info.tagline,
+      division,
+      "YAGA GROUP",
+      ...divisionInfo[key].keywords,
+    ],
+    openGraph: {
+      title: info.name,
+      description: `${info.name} - ${info.tagline}`,
+      type: "website",
+      url: `${SITE_URL}/${division}`,
+      siteName: "YAGA GROUP",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: info.name,
+      description: info.tagline,
+    },
+    alternates: {
+      canonical: `${SITE_URL}/${division}`,
+    },
+  };
 }
 
 export default async function DivisionPage({
@@ -126,7 +62,6 @@ export default async function DivisionPage({
   const key = division as keyof typeof divisionInfo;
   const info = divisionInfo[key];
   const wa = whatsappUrl(info.wa, `Hello ${info.name}, I would like to make an enquiry.`);
-  const list = key === "digital" ? [] : await getPublishedProducts(key);
 
   return (
     <main>
@@ -171,42 +106,14 @@ export default async function DivisionPage({
                 <div className="eyebrow">Explore catalogue</div>
                 <h2>{key === "mobiles" ? "Mobile essentials" : "Jewellery collections"}</h2>
                 <p className="muted" style={{ margin: "8px 0 0", fontSize: 14 }}>
-                  {list.length > 0 ? `${list.length} products available` : "Browse our collection"}
+                  Browse our collection
                 </p>
               </div>
               <span className="pill" style={{ background: "#e6f4ea", color: "#1e7b3c", fontSize: 11 }}>
                 In Stock
               </span>
             </div>
-            {list.length === 0 ? (
-              <div className="notice">
-                Catalogue is being prepared. Send an enquiry on WhatsApp for current availability
-                and pricing. Final order details are confirmed manually by our team.
-              </div>
-            ) : (
-              <div className="products">
-                {list.map((p) => (
-                  <ProductCard
-                    key={p.id}
-                    product={{
-                      id: p.id,
-                      name: p.name,
-                      slug: p.slug,
-                      short_description: p.short_description,
-                      description: p.description,
-                      retail_price: p.retail_price,
-                      compare_at_price: p.compare_at_price,
-                      image_url: p.image_url,
-                      images: p.images,
-                      category_name: p.category_name,
-                      material_finish: p.material_finish,
-                      division: key,
-                      divisionName: info.name,
-                    }}
-                  />
-                ))}
-              </div>
-            )}
+            <ProductGrid division={key} divisionName={info.name} />
             <div style={{ marginTop: 32 }}>
               <EnquiryForm
                 divisionId={key}

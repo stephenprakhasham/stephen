@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { CategoryRow } from "@/lib/catalogue";
 import type { DivisionId } from "@/lib/admin-auth";
+import { Spinner } from "@/components/ui/Spinner";
 
 export function CategoryManager({
   division,
@@ -72,7 +73,9 @@ export function CategoryManager({
             </select></label>
         </div>
         <div className="admin-form-actions">
-          <button className="btn gold" disabled={busy} type="submit">{busy ? "Adding…" : "Add category"}</button>
+          <button className="btn gold" disabled={busy} type="submit">
+            {busy ? <><Spinner size={16} /> Adding…</> : "Add category"}
+          </button>
         </div>
         {msg && <p className="admin-muted">{msg}</p>}
       </form>

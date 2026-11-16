@@ -6,6 +6,7 @@ import type { DivisionId } from "@/lib/admin-auth";
 import type { PurchaseOrderRow, PurchaseOrderLineRow, VendorRow } from "@/lib/inventory-types";
 import type { ProductRow } from "@/lib/catalogue";
 import { PO_STATUSES } from "@/lib/inventory-types";
+import { Spinner } from "@/components/ui/Spinner";
 
 interface Props {
   division: DivisionId;
@@ -171,7 +172,9 @@ export function PurchaseOrderManager({
             </div>
           ))}
           <button type="button" onClick={addLine} className="btn outline" style={{ marginBottom: "1rem" }}>+ Add Line</button>
-          <button type="submit" disabled={saving} className="btn">{saving ? "Saving..." : "Create PO"}</button>
+          <button type="submit" disabled={saving} className="btn">
+            {saving ? <><Spinner size={16} /> Saving...</> : "Create PO"}
+          </button>
         </form>
       )}
 
@@ -182,7 +185,9 @@ export function PurchaseOrderManager({
             <label>Quantity to Receive:
               <input type="number" value={receiving.qty} onChange={(e) => setReceiving({ ...receiving, qty: e.target.value })} required style={{ width: "100%", padding: "0.5rem", marginBottom: "1rem" }} />
             </label>
-            <button type="submit" disabled={saving} className="btn">{saving ? "Saving..." : "Receive"}</button>
+            <button type="submit" disabled={saving} className="btn">
+              {saving ? <><Spinner size={16} /> Saving...</> : "Receive"}
+            </button>
             <button type="button" onClick={() => setReceiving(null)} className="btn outline" style={{ marginLeft: "0.5rem" }}>Cancel</button>
           </form>
         </div>
