@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MiniCart } from "@/components/cart/MiniCart";
+import { GENERAL_GREETING } from "@/lib/whatsapp";
 
 function MobilesHeader() {
+  const wa = `https://wa.me/919787608569?text=${encodeURIComponent(GENERAL_GREETING)}`;
   return (
     <>
       <div className="topline">YAGA MOBILES · PREMIUM MOBILE ACCESSORIES · ORDER ON WHATSAPP</div>
@@ -23,7 +25,7 @@ function MobilesHeader() {
           <div className="ym-nav-cta">
             <a
               className="ym-wa-btn"
-              href="https://wa.me/919787608569?text=Hello%20YAGA%20MOBILES!%20I%20want%20to%20order."
+              href={wa}
               target="_blank"
               rel="noopener noreferrer"
             >

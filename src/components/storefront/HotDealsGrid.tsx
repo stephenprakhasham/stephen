@@ -134,7 +134,7 @@ function ProductCard({ product }: { product: HotDealProduct }) {
             <a
               className="btn outline hotdeals-btn"
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                `Hello YAGA MOBILES!\n\nIs the following out-of-stock product available now?\n\nProduct: ${product.name}\nProduct Code: ${product.productCode}\n\nPlease advise.`
+                `Hi YAGA'S MART, I want to know about your mega offers.\n\nIs the following out-of-stock product available now?\n\nProduct: ${product.name}\nProduct Code: ${product.productCode}\n\nHot Deals Page: https://yaga-group-website.vercel.app/yaga-hot-deals\n\nPlease advise.`
               )}`}
               target="_blank"
               rel="noopener noreferrer"

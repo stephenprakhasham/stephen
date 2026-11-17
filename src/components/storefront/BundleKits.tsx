@@ -1,12 +1,12 @@
 import { BUNDLE_KITS } from "@/lib/mobiles";
-import { WHATSAPP_NUMBER } from "@/lib/hot-deals";
+import { WHATSAPP_NUMBER, SITE_URL } from "@/lib/hot-deals";
 
 export function BundleKits() {
   return (
     <div className="bundle-grid">
       {BUNDLE_KITS.map((kit) => {
         const save = kit.originalPrice - kit.price;
-        const msg = `Hello YAGA MOBILES! I want to order the ${kit.name}.\n\nItems: ${kit.items}\nBundle Price: ₹${kit.price} (MRP ₹${kit.originalPrice})\nYou Save: ₹${save}\n\nPlease confirm availability.`;
+        const msg = `Hi YAGA'S MART, I want to know about your mega offers.\n\nI want to order the ${kit.name}.\n\nItems: ${kit.items}\nBundle Price: ₹${kit.price} (MRP ₹${kit.originalPrice})\nYou Save: ₹${save}\n\nPage: ${SITE_URL}/mobiles\n\nPlease confirm availability.`;
         return (
           <div className="bundle-card" key={kit.name}>
             <div style={{ fontSize: 34, marginBottom: 8 }}>{kit.emoji}</div>

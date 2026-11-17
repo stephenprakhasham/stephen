@@ -1,8 +1,9 @@
 import { WHATSAPP_NUMBER } from "@/lib/hot-deals";
+import { GENERAL_GREETING } from "@/lib/whatsapp";
 
 export function ContactBand() {
   const wa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    "Hello! I'd like to get in touch."
+    `${GENERAL_GREETING}\n\nPlease share your latest offers and deals.`
   )}`;
   const call = `tel:+91${WHATSAPP_NUMBER}`;
 

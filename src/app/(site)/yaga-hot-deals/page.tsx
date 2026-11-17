@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function YagaHotDealsPage() {
   const wa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    "Hello YAGA MOBILES! I would like to know about the YAGA HOT DEALS offers."
+    "Hi YAGA'S MART, I want to know about your mega offers.\n\nPlease share the YAGA HOT DEALS offers.\n\nPage: https://yaga-group-website.vercel.app/yaga-hot-deals"
   )}`;
 
   return (

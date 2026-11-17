@@ -101,7 +101,7 @@ export function getProductImageUrl(product: HotDealProduct): string {
 
 export function buildWhatsappMessage(product: HotDealProduct): string {
   return [
-    "Hello YAGA MOBILES!",
+    "Hi YAGA'S MART, I want to know about your mega offers.",
     "",
     "I am interested in purchasing this product from YAGA HOT DEALS.",
     "",
@@ -113,6 +113,7 @@ export function buildWhatsappMessage(product: HotDealProduct): string {
     "Please confirm product availability and ordering details.",
     "",
     `Product Image: ${getProductImageUrl(product)}`,
+    `Hot Deals Page: ${SITE_URL}/yaga-hot-deals`,
   ].join("\n");
 }
 

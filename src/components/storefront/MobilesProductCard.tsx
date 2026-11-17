@@ -4,21 +4,23 @@ import Image from "next/image";
 import { useState } from "react";
 import { ProductCardData } from "@/components/storefront/ProductCard";
 import { WHATSAPP_NUMBER } from "@/lib/hot-deals";
+import { GENERAL_GREETING, whatsappProductUrl } from "@/lib/whatsapp";
 
 function buildMessage(p: ProductCardData): string {
   const price = p.retail_price ?? 0;
   const mrp = p.compare_at_price ?? price;
   const save = mrp - price;
+  const link = whatsappProductUrl(p.division, p.slug);
   return [
-    "Hello YAGA MOBILES!",
-    "",
-    "I am interested in purchasing this product.",
+    GENERAL_GREETING,
     "",
     `Product Name: ${p.name}`,
     `Category: ${p.category_name ?? "Mobile Accessory"}`,
     `MRP: ₹${mrp}`,
     `Offer Price: ₹${price}`,
     save > 0 ? `You Save: ₹${save}` : "",
+    "",
+    `Product Link: ${link}`,
     "",
     "Please confirm product availability and ordering details.",
   ]
@@ -100,7 +102,7 @@ export function MobilesProductCard({ product }: { product: ProductCardData }) {
             <a
               className="btn outline"
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                `Hello YAGA MOBILES! Is the following product available now?\n\nProduct: ${product.name}`
+                `${GENERAL_GREETING}\n\nIs the following product available now?\n\nProduct: ${product.name}\nProduct Link: ${whatsappProductUrl(product.division, product.slug)}`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
