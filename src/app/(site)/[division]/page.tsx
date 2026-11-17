@@ -16,10 +16,10 @@ import { BundleKits } from "@/components/storefront/BundleKits";
 import { HowToOrder } from "@/components/storefront/HowToOrder";
 import { BrandsStrip } from "@/components/storefront/BrandsStrip";
 import { FAQ } from "@/components/storefront/FAQ";
-import { NewsletterForm } from "@/components/storefront/NewsletterForm";
 import { CinematicHero } from "@/components/storefront/CinematicHero";
 import { ContactBand } from "@/components/storefront/ContactBand";
 import { FeaturesGrid } from "@/components/storefront/FeaturesGrid";
+import { MobilesFooter } from "@/components/storefront/MobilesFooter";
 import type { Metadata } from "next";
 import type { ProductCardData } from "@/components/storefront/ProductCard";
 
@@ -173,25 +173,11 @@ function MobilesPage({ products }: { products: ProductCardData[] }) {
 
       <ContactBand />
 
-      <section style={{ background: "#F1F2F4", padding: "0 0 36px" }}>
+      <section style={{ background: "#F1F2F4", padding: "28px 0 36px" }}>
         <FeaturesGrid />
       </section>
 
-      <footer className="ym-footer">
-        <div className="container">
-          <div className="ym-newsletter">
-            <div className="eyebrow">Get exclusive deals</div>
-            <h2>Join our list</h2>
-            <p className="muted" style={{ margin: "8px 0 16px" }}>
-              Early access to new launches and special offers.
-            </p>
-            <NewsletterForm />
-          </div>
-          <div style={{ textAlign: "center", color: "#6b6b6e", fontSize: 12, marginTop: 8 }}>
-            © {new Date().getFullYear()} YAGA MOBILES · YAGA GROUP. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <MobilesFooter />
     </div>
   );
 }

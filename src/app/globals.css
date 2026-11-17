@@ -419,10 +419,18 @@
 .yaga-mobiles .ym-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
 .yaga-mobiles .ym-filter{background:#151517;border:1px solid #2A2A2C;color:#F3F3F1;border-radius:999px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer}
 .yaga-mobiles .ym-filter.active{background:#FF8A00;color:#0A0A0B;border-color:#FF8A00}
-.yaga-mobiles .ym-footer{background:#0A0A0B;border-top:1px solid #2A2A2C;padding:44px 0 24px;margin-top:20px}
-.yaga-mobiles .ym-newsletter{max-width:520px;margin:0 auto 34px;text-align:center}
-.yaga-mobiles .ym-newsletter input{width:100%;background:#151517;border:1px solid #2A2A2C;border-radius:999px;padding:13px 18px;color:#fff;margin-bottom:10px}
-.yaga-mobiles .ym-newsletter .btn{width:100%}
+.yaga-mobiles .ym-foot{background:#0A0A0B;color:#A6A8AF;border-top:1px solid rgba(255,255,255,.14);padding-block:48px 40px}
+.yaga-mobiles .ym-foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.yaga-mobiles .ym-foot-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.yaga-mobiles .ym-foot-barcode{display:block;height:7px;background:repeating-linear-gradient(90deg,#FF8A00 0 1px,transparent 1px 3px,#FF8A00 3px 5px,transparent 5px 6px);width:26px;border-radius:1px;animation:ym-barcode-scan 3.5s linear infinite}
+.yaga-mobiles .ym-foot-brand b{font-family:var(--ym-display);font-weight:900;font-stretch:125%;font-size:20px;letter-spacing:.06em;color:#fff}
+.yaga-mobiles .ym-foot p{margin:0;font-size:14px}
+.yaga-mobiles .ym-foot h4{margin:0 0 12px;font-family:var(--ym-mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#FF8A00}
+.yaga-mobiles .ym-foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.yaga-mobiles .ym-foot li a{color:#A6A8AF;text-decoration:none;font-size:14px;transition:color .2s}
+.yaga-mobiles .ym-foot li a:hover{color:#fff}
+.yaga-mobiles .ym-foot-fine{grid-column:1/-1;margin-top:8px;font-size:12px;color:#6b6b6e}
+@media(max-width:760px){.yaga-mobiles .ym-foot-grid{grid-template-columns:1fr;gap:24px}}
 @media (max-width:1100px){
   .yaga-mobiles .ym-products{grid-template-columns:repeat(3,1fr)}
   .yaga-mobiles .category-tiles{grid-template-columns:repeat(3,1fr)}
