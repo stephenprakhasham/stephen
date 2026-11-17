@@ -9,13 +9,14 @@ export function CategoryTiles() {
   const [failed, setFailed] = useState<Record<string, boolean>>({});
   return (
     <div className="category-tiles">
-      {MOBILES_CATEGORIES.map((cat) => {
+      {MOBILES_CATEGORIES.map((cat, idx) => {
         const showImg = cat.image && !failed[cat.slug];
+        const featured = idx === 0 ? " t-featured" : "";
         return (
           <Link
             key={cat.slug}
             href={`/mobiles?category=${cat.slug}`}
-            className="cat-tile"
+            className={`cat-tile${featured}`}
           >
             {showImg ? (
               <Image
@@ -27,19 +28,13 @@ export function CategoryTiles() {
                 onError={() => setFailed((s) => ({ ...s, [cat.slug]: true }))}
               />
             ) : (
-              <div
-                className="cat-tile-img"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 44,
-                  opacity: 0.9,
-                }}
-              >
+              <div className="cat-tile-fallback" aria-hidden="true">
                 {cat.name.charAt(0)}
               </div>
             )}
+            <svg className="cat-tile-arr" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17L17 7M8 7h9v9" />
+            </svg>
             <div className="cat-tile-body">
               <strong>{cat.name}</strong>
               <span>{cat.count} items</span>

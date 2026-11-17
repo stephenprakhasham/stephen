@@ -162,7 +162,7 @@ function MobilesPage({ products }: { products: ProductCardData[] }) {
         </div>
       </section>
 
-      <section className="section alt">
+      <section className="section alt" id="faq">
         <div className="container">
           <div className="sectionhead">
             <div>
