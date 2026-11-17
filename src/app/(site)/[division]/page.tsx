@@ -173,10 +173,8 @@ function MobilesPage({ products }: { products: ProductCardData[] }) {
 
       <ContactBand />
 
-      <section className="section" style={{ background: "#F1F2F4", padding: "0 0 36px" }}>
-        <div className="container">
-          <FeaturesGrid />
-        </div>
+      <section style={{ background: "#F1F2F4", padding: "0 0 36px" }}>
+        <FeaturesGrid />
       </section>
 
       <footer className="ym-footer">

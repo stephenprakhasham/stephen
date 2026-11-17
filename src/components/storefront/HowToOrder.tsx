@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 const STEPS = [
   {
     title: "Pick your product",
@@ -18,21 +14,12 @@ const STEPS = [
 ];
 
 export function HowToOrder() {
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setActive((prev) => (prev + 1) % STEPS.length);
-    }, 5000);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <ol className="steps">
       {STEPS.map((s, i) => (
-        <li key={s.title} className={`step${active === i ? " active" : ""}`}>
+        <li key={s.title} className="step">
           <span className="step-num">{i + 1}</span>
-          <strong>{s.title}</strong>
+          <h3>{s.title}</h3>
           <p>{s.text}</p>
         </li>
       ))}

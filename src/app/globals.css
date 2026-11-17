@@ -358,20 +358,30 @@
 .yaga-mobiles .ym-steps-light .eyebrow{color:#BF5A00}
 .yaga-mobiles .ym-steps-light h2{color:#0A0A0B}
 .yaga-mobiles .ym-steps-light .muted{color:#5B5D65}
+.yaga-mobiles .eyebrow{font-family:var(--ym-mono)}
+.yaga-mobiles .ym-steps-light h2,.yaga-mobiles .ym-faq-light h2{font-family:var(--ym-display);font-weight:850;font-stretch:118%;text-transform:uppercase;letter-spacing:-.01em}
 .yaga-mobiles .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;padding:0;margin:0;position:relative}
-.yaga-mobiles .step{position:relative;padding:28px;background:#FFFFFF;border:1px solid #D9DBE0;border-radius:8px;transition:transform .4s,border-color .4s,box-shadow .4s;opacity:.7}
-.yaga-mobiles .step.active{opacity:1;transform:translateY(-4px);border-color:#FF8A00;box-shadow:0 10px 30px rgba(255,138,0,.15)}
-.yaga-mobiles .step .step-num{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#0A0A0B;color:#FF8A00;font-family:var(--ym-mono);font-size:18px;font-weight:500;margin-bottom:16px;transition:transform .4s,background .4s,color .4s}
-.yaga-mobiles .step.active .step-num{transform:rotate(360deg);background:#FF8A00;color:#0A0A0B}
-.yaga-mobiles .step strong{display:block;color:#0A0A0B;font-size:15px;margin-bottom:6px}
+.yaga-mobiles .step{position:relative;padding:28px;background:#FFFFFF;border:1px solid #D9DBE0;border-radius:8px;opacity:.7;animation:ym-step-cycle 15s ease-in-out infinite}
+.yaga-mobiles .step:nth-child(1){animation-delay:0s}
+.yaga-mobiles .step:nth-child(2){animation-delay:5s}
+.yaga-mobiles .step:nth-child(3){animation-delay:10s}
+@keyframes ym-step-cycle{0%,100%{opacity:.7;transform:translateY(0);border-color:#D9DBE0;box-shadow:none}4%,29%{opacity:1;transform:translateY(-4px);border-color:#FF8A00;box-shadow:0 10px 30px rgba(255,138,0,.15)}33%{opacity:.7;transform:translateY(0);border-color:#D9DBE0;box-shadow:none}}
+.yaga-mobiles .step:not(:last-child)::after{content:"";position:absolute;top:50px;left:calc(100% + 1px);width:15px;height:2px;background:#FF8A00}
+.yaga-mobiles .step .step-num{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#0A0A0B;color:#FF8A00;font-family:var(--ym-mono);font-size:18px;font-weight:500;margin-bottom:16px;animation:ym-num-cycle 15s ease-in-out infinite}
+.yaga-mobiles .step:nth-child(1) .step-num{animation-delay:0s}
+.yaga-mobiles .step:nth-child(2) .step-num{animation-delay:5s}
+.yaga-mobiles .step:nth-child(3) .step-num{animation-delay:10s}
+@keyframes ym-num-cycle{0%,100%{transform:rotate(0deg);background:#0A0A0B;color:#FF8A00}4%{transform:rotate(90deg);background:#FF8A00;color:#0A0A0B}29%{transform:rotate(270deg);background:#FF8A00;color:#0A0A0B}33%{transform:rotate(360deg);background:#0A0A0B;color:#FF8A00}}
+.yaga-mobiles .step h3{margin:0 0 6px;font-family:var(--ym-display);font-weight:800;font-stretch:110%;text-transform:uppercase;font-size:1.05rem;color:#0A0A0B}
 .yaga-mobiles .step p{font-size:13px;color:#5B5D65;line-height:1.55;margin:0}
 .yaga-mobiles .ym-brands{background:#0A0A0B;color:#fff;padding-block:48px;overflow:hidden}
 .yaga-mobiles .ym-mq{overflow:hidden;white-space:nowrap;padding-block:8px}
 .yaga-mobiles .ym-mq-track{display:inline-flex;animation:ym-marq 60s linear infinite;will-change:transform}
 .yaga-mobiles .ym-mq.rev .ym-mq-track{animation-direction:reverse;animation-duration:70s}
 .yaga-mobiles .ym-mq-grp{display:inline-flex;flex:none}
-.yaga-mobiles .ym-mq-grp span{display:inline-flex;align-items:center;padding:10px 30px;font-family:var(--ym-display);font-weight:850;font-stretch:118%;text-transform:uppercase;font-size:clamp(1.8rem,4vw,2.6rem);color:#fff;letter-spacing:.01em;opacity:.9}
-.yaga-mobiles .ym-mq-grp span::after{content:"◆";margin-left:30px;color:#FF8A00;font-size:14px}
+.yaga-mobiles .ym-mq-grp span{display:inline-block;padding-right:.6em;font-family:var(--ym-display);font-weight:850;font-stretch:118%;text-transform:uppercase;font-size:clamp(2rem,5vw,3.6rem);line-height:1.1;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.42);transition:color .3s}
+.yaga-mobiles .ym-mq-grp span:hover{color:#fff}
+.yaga-mobiles .ym-mq-grp span::after{content:"/";color:#FF8A00;-webkit-text-stroke:0;margin-left:.6em}
 @keyframes ym-marq{to{transform:translateX(-50%)}}
 .yaga-mobiles .ym-faq-light{background:#F1F2F4;color:#0E0E10;padding-block:56px}
 .yaga-mobiles .ym-faq-light .eyebrow{color:#BF5A00}
@@ -379,23 +389,23 @@
 .yaga-mobiles .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
 .yaga-mobiles .faq{border-bottom:1px solid #D9DBE0}
 .yaga-mobiles .faq details:first-child{border-top:1px solid #D9DBE0}
-.yaga-mobiles .faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;cursor:pointer;font-size:15px;font-weight:600;color:#0A0A0B;list-style:none}
+.yaga-mobiles .faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;list-style:none;font-weight:600;font-size:1.05rem}
 .yaga-mobiles .faq summary::-webkit-details-marker{display:none}
-.yaga-mobiles .faq summary i{width:10px;height:10px;position:relative;flex-shrink:0}
-.yaga-mobiles .faq summary i::before,.yaga-mobiles .faq summary i::after{content:"";position:absolute;background:#0A0A0B;transition:transform .3s}
-.yaga-mobiles .faq summary i::before{top:4px;left:0;width:10px;height:2px}
-.yaga-mobiles .faq summary i::after{top:0;left:4px;width:2px;height:10px}
-.yaga-mobiles .faq details[open] summary i::after{transform:rotate(90deg)}
-.yaga-mobiles .faq details p{padding:0 0 18px;color:#5B5D65;font-size:14px;line-height:1.6;margin:0}
+.yaga-mobiles .faq summary i{flex:none;position:relative;width:22px;height:22px}
+.yaga-mobiles .faq summary i::before,.yaga-mobiles .faq summary i::after{content:"";position:absolute;left:3px;right:3px;top:10px;height:2px;background:#BF5A00;transition:transform .3s}
+.yaga-mobiles .faq summary i::after{transform:rotate(90deg)}
+.yaga-mobiles .faq details[open] summary i::after{transform:rotate(0deg)}
+.yaga-mobiles .faq details p{margin:0 0 20px;max-width:60ch;color:#5B5D65;animation:ym-faqin .35s ease both}
+@keyframes ym-faqin{from{opacity:0;translate:0 -6px}}
 .yaga-mobiles .cta-band{position:relative;overflow:hidden;background:#FF8A00;color:#0A0A0B;padding-block:56px}
-.yaga-mobiles .cta-band::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,rgba(10,10,11,.07) 0 2px,transparent 2px 4px,rgba(10,10,11,.07) 4px 5px,transparent 5px 10px)}
+.yaga-mobiles .cta-band::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,rgba(10,10,11,.07) 0 2px,transparent 2px 4px,rgba(10,10,11,.07) 4px 5px,transparent 5px 10px) 0 100%/100% 28px no-repeat}
 .yaga-mobiles .cta-in{position:relative;text-align:center}
 .yaga-mobiles .wa-ico{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 18px;border-radius:50%;background:#0A0A0B;color:#FF8A00;animation:ym-bob 5s ease-in-out infinite}
 .yaga-mobiles .wa-ico svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @keyframes ym-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.yaga-mobiles .cta-band h2{color:#0A0A0B;font-family:var(--ym-display);font-weight:850;font-stretch:118%;text-transform:uppercase;font-size:clamp(1.8rem,3.8vw,2.9rem);line-height:1;margin:0 0 10px;letter-spacing:-.01em}
-.yaga-mobiles .cta-band p{color:#3a2408;margin:0 0 22px;font-size:15px}
-.yaga-mobiles .cta-band .ctas{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.yaga-mobiles .cta-band h2{margin:0;font-family:var(--ym-display);font-weight:850;font-stretch:118%;text-transform:uppercase;font-size:clamp(2.2rem,6vw,4.4rem);line-height:.98;color:#0A0A0B;letter-spacing:-.01em}
+.yaga-mobiles .cta-band p{margin:14px 0 0;color:#3a2408;font-size:15px}
+.yaga-mobiles .cta-band .ctas{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px}
 .yaga-mobiles .btn-ink{background:#0A0A0B;color:#fff;border-radius:8px;padding:13px 24px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .yaga-mobiles .btn-ol{background:transparent;border:1px solid #0A0A0B;color:#0A0A0B;border-radius:8px;padding:13px 24px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
 .yaga-mobiles .cxu-sg{max-width:1200px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr)}
