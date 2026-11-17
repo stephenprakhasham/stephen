@@ -274,7 +274,7 @@
 .ym-header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.14);color:#fff}
 .ym-nav{display:flex;align-items:center;gap:24px;height:68px}
 .ym-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
-.ym-brand-barcode{display:block;height:7px;background:repeating-linear-gradient(90deg,#FF8A00 0 1px,transparent 1px 3px,#FF8A00 3px 5px,transparent 5px 6px);width:26px;border-radius:1px}
+.ym-brand-barcode{display:block;height:7px;background:repeating-linear-gradient(90deg,#FF8A00 0 1px,transparent 1px 3px,#FF8A00 3px 5px,transparent 5px 6px);width:26px;border-radius:1px;animation:ym-barcode-scan 3.5s linear infinite}
 .ym-brand-text{font-size:20px;font-weight:900;letter-spacing:.06em}
 .ym-brand-text em{font-style:normal;color:#FF8A00}
 .ym-links{display:flex;gap:26px;margin-left:auto;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#A1A1A6}
@@ -302,7 +302,7 @@
 .yaga-mobiles .trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:0}
 .yaga-mobiles .trust-item{display:flex;align-items:center;gap:10px;background:#151517;border:1px solid #2A2A2C;border-radius:14px;padding:14px 16px;font-size:13px;font-weight:600;color:#F3F3F1}
 .yaga-mobiles .trust-item .ti-icon{font-size:20px;color:#FF8A00;flex-shrink:0}
-.yaga-mobiles .section{padding:56px 0}
+.yaga-mobiles .section{padding:28px 0}
 .yaga-mobiles .section.soft{background:#0A0A0B}
 .yaga-mobiles .section.alt{background:#0F0F11}
 .yaga-mobiles .sectionhead{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:26px}
@@ -354,13 +354,25 @@
 .yaga-mobiles .bundle-card .bundle-items{font-size:12px;color:#A1A1A6;line-height:1.6;margin:0 0 12px}
 .yaga-mobiles .bundle-price{font-size:22px;font-weight:800;color:#34C759;margin-bottom:12px}
 .yaga-mobiles .bundle-price s{font-size:14px;color:#6b6b6e;margin-left:6px}
-.yaga-mobiles .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.yaga-mobiles .step{background:#151517;border:1px solid #2A2A2C;border-radius:16px;padding:22px;text-align:center}
-.yaga-mobiles .step .step-num{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#FF8A00,#BF5A00);color:#0A0A0B;font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.yaga-mobiles .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;list-style:none;padding:0;margin:0}
+.yaga-mobiles .step{background:#151517;border:1px solid #2A2A2C;border-radius:16px;padding:22px;text-align:center;transition:transform .4s,border-color .4s,box-shadow .4s;opacity:.55}
+.yaga-mobiles .step.active{opacity:1;transform:translateY(-6px) scale(1.03);border-color:#FF8A00;box-shadow:0 14px 40px rgba(255,138,0,.18)}
+.yaga-mobiles .step .step-num{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#FF8A00,#BF5A00);color:#0A0A0B;font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;transition:transform .4s}
+.yaga-mobiles .step.active .step-num{animation:ym-step-rotate 2.2s ease-in-out infinite}
+@keyframes ym-step-rotate{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.15)}100%{transform:rotate(360deg) scale(1)}}
 .yaga-mobiles .step strong{display:block;color:#fff;font-size:15px;margin-bottom:4px}
 .yaga-mobiles .step p{font-size:12px;color:#A1A1A6;line-height:1.5;margin:0}
-.yaga-mobiles .brands-strip{display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:center;opacity:.85}
-.yaga-mobiles .brands-strip span{font-size:16px;font-weight:800;color:#F3F3F1;letter-spacing:.02em}
+.yaga-mobiles .ym-barcode{display:flex;justify-content:center;margin:0 auto 22px;max-width:220px}
+.yaga-mobiles .ym-barcode-lines{display:block;height:34px;width:100%;background:repeating-linear-gradient(90deg,#FF8A00 0 2px,transparent 2px 4px,#FF8A00 4px 7px,transparent 7px 9px,#FF8A00 9px 10px,transparent 10px 14px);border-radius:2px;animation:ym-barcode-scan 3.5s linear infinite;opacity:.9}
+@keyframes ym-barcode-scan{0%{background-position:0 0}100%{background-position:60px 0}}
+.yaga-mobiles .ym-brands{display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.yaga-mobiles .ym-mq{overflow:hidden;white-space:nowrap}
+.yaga-mobiles .ym-mq-track{display:inline-flex;animation:ym-marq 26s linear infinite;will-change:transform}
+.yaga-mobiles .ym-mq.rev .ym-mq-track{animation-direction:reverse}
+.yaga-mobiles .ym-mq-grp{display:inline-flex;flex:none}
+.yaga-mobiles .ym-mq-grp span{display:inline-flex;align-items:center;padding:10px 30px;font-size:20px;font-weight:800;color:#F3F3F1;letter-spacing:.04em;opacity:.85}
+.yaga-mobiles .ym-mq-grp span::after{content:"◆";margin-left:30px;color:#FF8A00;font-size:12px}
+@keyframes ym-marq{to{transform:translateX(-50%)}}
 .yaga-mobiles .faq-list{display:flex;flex-direction:column;gap:10px;max-width:780px}
 .yaga-mobiles .faq-item{background:#151517;border:1px solid #2A2A2C;border-radius:12px;overflow:hidden}
 .yaga-mobiles .faq-q{width:100%;text-align:left;background:transparent;border:0;color:#fff;font-size:14px;font-weight:700;padding:16px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}

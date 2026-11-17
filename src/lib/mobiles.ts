@@ -17,14 +17,12 @@ export const MOBILES_CATEGORIES: MobilesCategory[] = [
 ];
 
 export const MOBILES_BRANDS = [
-  "Apple",
-  "Samsung",
-  "boAt",
-  "Noise",
-  "OnePlus",
-  "Realme",
-  "Anker",
-  "Mi",
+  "VIVO",
+  "Oppo",
+  "REALME",
+  "Redmi",
+  "Treams",
+  "RSD",
 ];
 
 export interface BundleKit {
