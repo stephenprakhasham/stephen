@@ -75,7 +75,7 @@ function MobilesPage({ products }: { products: ProductCardData[] }) {
     <div className="yaga-mobiles">
       <PromoTicker />
       <CinematicHero />
-      <section className="section alt">
+      <section className="ym-trust-bar">
         <div className="container">
           <TrustStrip />
         </div>

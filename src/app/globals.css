@@ -298,7 +298,8 @@
 .yaga-mobiles .btn.gold{background:linear-gradient(135deg,#FF8A00,#BF5A00);color:#0A0A0B}
 .yaga-mobiles .btn.outline{background:transparent;border:1px solid #3a3a3c;color:#F3F3F1}
 .yaga-mobiles .btn.outline:hover{background:#1a1a1c}
-.yaga-mobiles .trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.yaga-mobiles .ym-trust-bar{background:#0F0F11;padding:14px 0}
+.yaga-mobiles .trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:0}
 .yaga-mobiles .trust-item{display:flex;align-items:center;gap:10px;background:#151517;border:1px solid #2A2A2C;border-radius:14px;padding:14px 16px;font-size:13px;font-weight:600;color:#F3F3F1}
 .yaga-mobiles .trust-item .ti-icon{font-size:20px;color:#FF8A00;flex-shrink:0}
 .yaga-mobiles .section{padding:56px 0}
