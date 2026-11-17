@@ -5,7 +5,7 @@ export function BrandsStrip() {
   const row2 = [...MOBILES_BRANDS].reverse();
 
   return (
-    <div className="ym-brands">
+    <>
       <div className="ym-mq">
         <div className="ym-mq-track">
           <div className="ym-mq-grp">
@@ -34,6 +34,6 @@ export function BrandsStrip() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

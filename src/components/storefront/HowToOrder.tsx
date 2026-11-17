@@ -23,27 +23,19 @@ export function HowToOrder() {
   useEffect(() => {
     const id = setInterval(() => {
       setActive((prev) => (prev + 1) % STEPS.length);
-    }, 2200);
+    }, 5000);
     return () => clearInterval(id);
   }, []);
 
   return (
-    <>
-      <div className="ym-barcode" aria-hidden="true">
-        <span className="ym-barcode-lines" />
-      </div>
-      <ol className="steps">
-        {STEPS.map((s, i) => (
-          <li
-            key={s.title}
-            className={`step${active === i ? " active" : ""}`}
-          >
-            <span className="step-num">{i + 1}</span>
-            <strong>{s.title}</strong>
-            <p>{s.text}</p>
-          </li>
-        ))}
-      </ol>
-    </>
+    <ol className="steps">
+      {STEPS.map((s, i) => (
+        <li key={s.title} className={`step${active === i ? " active" : ""}`}>
+          <span className="step-num">{i + 1}</span>
+          <strong>{s.title}</strong>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
   );
 }

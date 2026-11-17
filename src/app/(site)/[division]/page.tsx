@@ -18,6 +18,8 @@ import { BrandsStrip } from "@/components/storefront/BrandsStrip";
 import { FAQ } from "@/components/storefront/FAQ";
 import { NewsletterForm } from "@/components/storefront/NewsletterForm";
 import { CinematicHero } from "@/components/storefront/CinematicHero";
+import { ContactBand } from "@/components/storefront/ContactBand";
+import { FeaturesGrid } from "@/components/storefront/FeaturesGrid";
 import type { Metadata } from "next";
 import type { ProductCardData } from "@/components/storefront/ProductCard";
 
@@ -138,7 +140,7 @@ function MobilesPage({ products }: { products: ProductCardData[] }) {
         </div>
       </section>
 
-      <section className="section alt">
+      <section className="ym-steps-light">
         <div className="container">
           <div className="sectionhead">
             <div>
@@ -150,27 +152,30 @@ function MobilesPage({ products }: { products: ProductCardData[] }) {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="sectionhead">
-            <div>
-              <div className="eyebrow">Brands in store</div>
-              <h2>Top brands, one store</h2>
-            </div>
+      <div className="ym-brands" aria-label="Brands in store">
+        <div className="container" style={{ marginBottom: 8 }}>
+          <div className="eyebrow" style={{ color: "#FF8A00" }}>
+            Brands in store
           </div>
-          <BrandsStrip />
+        </div>
+        <BrandsStrip />
+      </div>
+
+      <section className="ym-faq-light" id="faq">
+        <div className="container faq-grid">
+          <div>
+            <div className="eyebrow">Questions</div>
+            <h2>Good to know</h2>
+          </div>
+          <FAQ />
         </div>
       </section>
 
-      <section className="section alt" id="faq">
+      <ContactBand />
+
+      <section className="section" style={{ background: "#F1F2F4", padding: "0 0 36px" }}>
         <div className="container">
-          <div className="sectionhead">
-            <div>
-              <div className="eyebrow">Questions?</div>
-              <h2>Good to know</h2>
-            </div>
-          </div>
-          <FAQ />
+          <FeaturesGrid />
         </div>
       </section>
 
