@@ -17,6 +17,7 @@ import { HowToOrder } from "@/components/storefront/HowToOrder";
 import { BrandsStrip } from "@/components/storefront/BrandsStrip";
 import { FAQ } from "@/components/storefront/FAQ";
 import { NewsletterForm } from "@/components/storefront/NewsletterForm";
+import { CinematicHero } from "@/components/storefront/CinematicHero";
 import type { Metadata } from "next";
 import type { ProductCardData } from "@/components/storefront/ProductCard";
 
@@ -70,28 +71,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function MobilesPage({ products }: { products: ProductCardData[] }) {
-  const generalWa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    "Hello YAGA MOBILES! I would like to know about your latest products and offers."
-  )}`;
-
   return (
     <div className="yaga-mobiles">
       <PromoTicker />
-      <section className="ym-hero">
+      <CinematicHero />
+      <section className="section alt">
         <div className="container">
-          <div className="eyebrow">YAGA MOBILES / Latest Arrivals</div>
-          <h1>YAGA MOBILES</h1>
-          <p className="muted">
-            Premium mobile phones, audio, chargers and accessories. Order online or on WhatsApp — pay when it arrives.
-          </p>
-          <div className="ym-hero-actions">
-            <a className="btn gold" href={generalWa} target="_blank" rel="noopener noreferrer">
-              Order on WhatsApp ↗
-            </a>
-            <Link className="btn outline" href="#catalogue">
-              Shop Now
-            </Link>
-          </div>
           <TrustStrip />
         </div>
       </section>
