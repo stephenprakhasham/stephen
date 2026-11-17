@@ -3,9 +3,22 @@ import { notFound } from "next/navigation";
 import { divisionInfo, digitalServices } from "@/lib/data";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { getPublicProductsForDivision } from "@/lib/catalogue";
+import { WHATSAPP_NUMBER } from "@/lib/hot-deals";
 import EnquiryForm from "@/components/EnquiryForm";
+import { ProductGrid } from "@/components/storefront/ProductGrid";
 import { ProductCard } from "@/components/storefront/ProductCard";
+import { MobilesProductCard } from "@/components/storefront/MobilesProductCard";
+import { PromoTicker } from "@/components/storefront/PromoTicker";
+import { TrustStrip } from "@/components/storefront/TrustStrip";
+import { CategoryTiles } from "@/components/storefront/CategoryTiles";
+import { FeaturedRow } from "@/components/storefront/FeaturedRow";
+import { BundleKits } from "@/components/storefront/BundleKits";
+import { HowToOrder } from "@/components/storefront/HowToOrder";
+import { BrandsStrip } from "@/components/storefront/BrandsStrip";
+import { FAQ } from "@/components/storefront/FAQ";
+import { NewsletterForm } from "@/components/storefront/NewsletterForm";
 import type { Metadata } from "next";
+import type { ProductCardData } from "@/components/storefront/ProductCard";
 
 export const revalidate = 60;
 
@@ -56,6 +69,145 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function MobilesPage({ products }: { products: ProductCardData[] }) {
+  const generalWa = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    "Hello YAGA MOBILES! I would like to know about your latest products and offers."
+  )}`;
+
+  return (
+    <div className="yaga-mobiles">
+      <PromoTicker />
+      <section className="ym-hero">
+        <div className="container">
+          <div className="eyebrow">YAGA MOBILES / Latest Arrivals</div>
+          <h1>YAGA MOBILES</h1>
+          <p className="muted">
+            Premium mobile phones, audio, chargers and accessories. Order online or on WhatsApp — pay when it arrives.
+          </p>
+          <div className="ym-hero-actions">
+            <a className="btn gold" href={generalWa} target="_blank" rel="noopener noreferrer">
+              Order on WhatsApp ↗
+            </a>
+            <Link className="btn outline" href="#catalogue">
+              Shop Now
+            </Link>
+          </div>
+          <TrustStrip />
+        </div>
+      </section>
+
+      <section className="section alt" id="catalogue">
+        <div className="container">
+          <div className="sectionhead">
+            <div>
+              <div className="eyebrow">Shop by category</div>
+              <h2>Find your accessory</h2>
+            </div>
+          </div>
+          <CategoryTiles />
+        </div>
+      </section>
+
+      {products.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <div className="sectionhead">
+              <div>
+                <div className="eyebrow">In store now</div>
+                <h2>Trending accessories</h2>
+              </div>
+            </div>
+            <FeaturedRow products={products.slice(0, 8)} />
+          </div>
+        </section>
+      )}
+
+      {products.length > 0 && (
+        <section className="section alt">
+          <div className="container">
+            <div className="sectionhead">
+              <div>
+                <div className="eyebrow">Full catalogue</div>
+                <h2>All products</h2>
+              </div>
+              <span className="ym-filter active">In Stock</span>
+            </div>
+            <div className="ym-products">
+              {products.map((p) => (
+                <MobilesProductCard key={p.id} product={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="section">
+        <div className="container">
+          <div className="sectionhead">
+            <div>
+              <div className="eyebrow">Buy together & save</div>
+              <h2>Ready-made kits</h2>
+            </div>
+          </div>
+          <BundleKits />
+        </div>
+      </section>
+
+      <section className="section alt">
+        <div className="container">
+          <div className="sectionhead">
+            <div>
+              <div className="eyebrow">How to order</div>
+              <h2>Three steps to your door</h2>
+            </div>
+          </div>
+          <HowToOrder />
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="sectionhead">
+            <div>
+              <div className="eyebrow">Brands in store</div>
+              <h2>Top brands, one store</h2>
+            </div>
+          </div>
+          <BrandsStrip />
+        </div>
+      </section>
+
+      <section className="section alt">
+        <div className="container">
+          <div className="sectionhead">
+            <div>
+              <div className="eyebrow">Questions?</div>
+              <h2>Good to know</h2>
+            </div>
+          </div>
+          <FAQ />
+        </div>
+      </section>
+
+      <footer className="ym-footer">
+        <div className="container">
+          <div className="ym-newsletter">
+            <div className="eyebrow">Get exclusive deals</div>
+            <h2>Join our list</h2>
+            <p className="muted" style={{ margin: "8px 0 16px" }}>
+              Early access to new launches and special offers.
+            </p>
+            <NewsletterForm />
+          </div>
+          <div style={{ textAlign: "center", color: "#6b6b6e", fontSize: 12, marginTop: 8 }}>
+            © {new Date().getFullYear()} YAGA MOBILES · YAGA GROUP. All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
 export default async function DivisionPage({
   params,
 }: {
@@ -67,7 +219,12 @@ export default async function DivisionPage({
   const info = divisionInfo[key];
   const wa = whatsappUrl(info.wa, `Hello ${info.name}, I would like to make an enquiry.`);
 
-  const products = key === "digital" ? [] : await getPublicProductsForDivision(key, 24);
+  const products =
+    key === "digital" ? [] : ((await getPublicProductsForDivision(key, 24)) as unknown as ProductCardData[]);
+
+  if (key === "mobiles") {
+    return <MobilesPage products={products} />;
+  }
 
   return (
     <main>
@@ -110,7 +267,7 @@ export default async function DivisionPage({
             <div className="sectionhead" style={{ marginBottom: 32 }}>
               <div>
                 <div className="eyebrow">Explore catalogue</div>
-                <h2>{key === "mobiles" ? "Mobile essentials" : "Jewellery collections"}</h2>
+                <h2>Jewellery collections</h2>
                 <p className="muted" style={{ margin: "8px 0 0", fontSize: 14 }}>
                   Browse our collection
                 </p>
