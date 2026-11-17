@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useCart } from "@/components/cart/CartContext";
 
 export interface ProductCardData {
@@ -63,8 +64,13 @@ export function ProductCard({ product }: { product: ProductCardData }) {
     <article className="product">
       <Link className="productvisual" href={`/${product.division}/products/${product.slug}`}>
         {displayImage ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={displayImage} alt={product.name} className="productimg" loading="lazy" />
+          <Image
+            src={displayImage}
+            alt={product.name}
+            className="productimg"
+            fill
+            sizes="(max-width: 480px) 50vw, (max-width: 800px) 50vw, (max-width: 1100px) 33vw, 25vw"
+          />
         ) : (
           <div className="productmark">{initial}</div>
         )}
@@ -82,8 +88,7 @@ export function ProductCard({ product }: { product: ProductCardData }) {
                   setCurrentImageIndex(idx);
                 }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={img.url} alt="" loading="lazy" />
+                <Image src={img.url} alt="" fill sizes="32px" />
               </button>
             ))}
           </div>

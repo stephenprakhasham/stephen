@@ -2,12 +2,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { divisionInfo, digitalServices } from "@/lib/data";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { createSupabaseServerClient } from "@/lib/supabase-server";
+import { getPublicProductsForDivision } from "@/lib/catalogue";
 import EnquiryForm from "@/components/EnquiryForm";
-import { ProductGrid } from "@/components/storefront/ProductGrid";
+import { ProductCard } from "@/components/storefront/ProductCard";
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
+
+export function generateStaticParams() {
+  return [{ division: "mobiles" }, { division: "jewellery" }, { division: "digital" }];
+}
 
 const SITE_URL = "https://yaga-group-website.vercel.app";
 
@@ -63,6 +67,8 @@ export default async function DivisionPage({
   const info = divisionInfo[key];
   const wa = whatsappUrl(info.wa, `Hello ${info.name}, I would like to make an enquiry.`);
 
+  const products = key === "digital" ? [] : await getPublicProductsForDivision(key, 24);
+
   return (
     <main>
       <section className="pagehero">
@@ -113,7 +119,25 @@ export default async function DivisionPage({
                 In Stock
               </span>
             </div>
-            <ProductGrid division={key} divisionName={info.name} />
+            {products.length === 0 ? (
+              <div className="notice">
+                Catalogue is being prepared. Send an enquiry on WhatsApp for current availability
+                and pricing. Final order details are confirmed manually by our team.
+              </div>
+            ) : (
+              <div className="products">
+                {products.map((p) => (
+                  <ProductCard
+                    key={p.id}
+                    product={{
+                      ...p,
+                      division,
+                      divisionName: info.name,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
             <div style={{ marginTop: 32 }}>
               <EnquiryForm
                 divisionId={key}

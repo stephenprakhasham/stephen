@@ -1,10 +1,22 @@
 import { notFound } from "next/navigation";
-import { getPublicProductBySlug } from "@/lib/catalogue";
-import { createSupabaseServerClient } from "@/lib/supabase-server";
+import { getPublicProductBySlug, getPublicProductsForDivision } from "@/lib/catalogue";
+import { createPublicSupabaseClient } from "@/lib/supabase-server";
 import { ProductDetail } from "@/components/storefront/ProductDetail";
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const divisions = ["mobiles", "jewellery", "digital"];
+  const all: { division: string; slug: string }[] = [];
+  for (const division of divisions) {
+    const products = await getPublicProductsForDivision(division, 100);
+    for (const p of products) {
+      all.push({ division, slug: p.slug });
+    }
+  }
+  return all;
+}
 
 const SITE_URL = "https://yaga-group-website.vercel.app";
 
@@ -67,7 +79,7 @@ export default async function ProductPage({ params }: Props) {
   const product = await getPublicProductBySlug(division, slug);
   if (!product) notFound();
 
-  const supabase = await createSupabaseServerClient();
+  const supabase = createPublicSupabaseClient();
   const { data: videos } = await supabase
     .from("product_videos")
     .select("id, url, title, is_feature")

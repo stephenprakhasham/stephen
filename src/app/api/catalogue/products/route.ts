@@ -1,7 +1,13 @@
 import { NextResponse } from "next/server";
-import { createSupabaseServerClient } from "@/lib/supabase-server";
+import { createPublicSupabaseClient } from "@/lib/supabase-server";
+
+export const revalidate = 60;
 
 const VALID = ["mobiles", "jewellery", "digital"];
+
+const CACHE_HEADERS = {
+  "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300",
+};
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
@@ -15,7 +21,7 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "Invalid division." }, { status: 400 });
   }
 
-  const supabase = await createSupabaseServerClient();
+  const supabase = createPublicSupabaseClient();
 
   // Fetch products
   let query = supabase
@@ -32,8 +38,8 @@ export async function GET(req: Request) {
     .order("created_at", { ascending: false })
     .limit(limit);
 
-  if (error) return NextResponse.json({ error: error.message }, { status: 400 });
-  if (!products || products.length === 0) return NextResponse.json([]);
+  if (error) return NextResponse.json({ error: error.message }, { status: 400, headers: CACHE_HEADERS });
+  if (!products || products.length === 0) return NextResponse.json([], { headers: CACHE_HEADERS });
 
   const productIds = products.map((p) => p.id);
   const categoryIds = [...new Set(products.map((p) => p.category_id).filter(Boolean))] as string[];
@@ -105,5 +111,5 @@ export async function GET(req: Request) {
     };
   });
 
-  return NextResponse.json(result);
+  return NextResponse.json(result, { headers: CACHE_HEADERS });
 }

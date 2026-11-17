@@ -1,5 +1,5 @@
 import type { DivisionId } from "@/lib/admin-auth";
-import { createSupabaseServerClient } from "@/lib/supabase-server";
+import { createSupabaseServerClient, createPublicSupabaseClient } from "@/lib/supabase-server";
 
 export interface CategoryRow {
   id: string;
@@ -168,7 +168,7 @@ export async function getPublicProductBySlug(
   division: string,
   slug: string
 ): Promise<PublicProductDetail | null> {
-  const supabase = await createSupabaseServerClient();
+  const supabase = createPublicSupabaseClient();
   const { data: product } = await supabase
     .from("catalogue_products")
     .select(
@@ -209,4 +209,105 @@ export async function getPublicProductBySlug(
     images: (images ?? []) as PublicProductImage[],
     variants: (variants ?? []) as PublicVariant[],
   };
+}
+
+export interface CatalogueListProduct {
+  id: string;
+  name: string;
+  slug: string;
+  short_description: string | null;
+  description: string | null;
+  retail_price: number | null;
+  compare_at_price: number | null;
+  image_url: string | null;
+  images: { id: string; url: string; alt: string | null; is_main: boolean; is_360: boolean; sort_order: number }[];
+  category_name: string | null;
+  material_finish: string | null;
+  division: string;
+}
+
+export async function getPublicProductsForDivision(
+  division: string,
+  limit = 24
+): Promise<CatalogueListProduct[]> {
+  const supabase = createPublicSupabaseClient();
+
+  let query = supabase
+    .from("catalogue_products")
+    .select(
+      "id, division_id, category_id, brand_id, name, slug, short_description, description, retail_price, compare_at_price, image_urls, material_finish, size_or_variant, status"
+    )
+    .eq("division_id", division);
+
+  const { data: products, error } = await query
+    .order("created_at", { ascending: false })
+    .limit(limit);
+
+  if (error || !products || products.length === 0) return [];
+
+  const productIds = products.map((p) => p.id);
+  const categoryIds = [...new Set(products.map((p) => p.category_id).filter(Boolean))] as string[];
+
+  const [categoriesResult, imagesResult] = await Promise.all([
+    categoryIds.length > 0
+      ? supabase.from("categories").select("id, name").in("id", categoryIds)
+      : Promise.resolve({ data: [], error: null }),
+    supabase
+      .from("product_images")
+      .select("id, product_id, url, alt, is_main, is_360, sort_order")
+      .in("product_id", productIds)
+      .order("sort_order"),
+  ]);
+
+  const categoryMap = new Map<string, string>();
+  for (const cat of categoriesResult.data ?? []) {
+    categoryMap.set(cat.id, cat.name);
+  }
+
+  const imagesByProduct = new Map<string, { id: string; url: string; alt: string | null; is_main: boolean; is_360: boolean; sort_order: number }[]>();
+  for (const img of imagesResult.data ?? []) {
+    if (!imagesByProduct.has(img.product_id)) {
+      imagesByProduct.set(img.product_id, []);
+    }
+    imagesByProduct.get(img.product_id)!.push({
+      id: img.id,
+      url: img.url,
+      alt: img.alt,
+      is_main: img.is_main,
+      is_360: img.is_360 ?? false,
+      sort_order: img.sort_order,
+    });
+  }
+
+  for (const p of products) {
+    if (p.image_urls?.length && !imagesByProduct.has(p.id)) {
+      imagesByProduct.set(p.id, p.image_urls.map((url: string, idx: number) => ({
+        id: `fallback-${idx}`,
+        url,
+        alt: null,
+        is_main: idx === 0,
+        is_360: false,
+        sort_order: idx,
+      })));
+    }
+  }
+
+  return products.map((p) => {
+    const productImages = imagesByProduct.get(p.id) ?? [];
+    const mainImage = productImages.find((img) => img.is_main)?.url ?? productImages[0]?.url ?? null;
+    return {
+      id: p.id,
+      name: p.name,
+      slug: p.slug,
+      short_description: p.short_description,
+      description: p.description,
+      retail_price: p.retail_price,
+      compare_at_price: p.compare_at_price,
+      image_url: mainImage,
+      images: productImages.filter((img) => !img.is_360),
+      category_name: p.category_id ? categoryMap.get(p.category_id) ?? null : null,
+      material_finish: p.material_finish,
+      division: p.division_id,
+    };
+  });
 }

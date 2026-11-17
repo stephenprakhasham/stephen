@@ -14,6 +14,19 @@ function assertConfig() {
 }
 
 /**
+ * Cookie-less anon client for PUBLIC, unauthenticated storefront reads.
+ * Does NOT call cookies(), so routes using it can be statically cached (ISR).
+ * RLS still applies (anon role), so only public data is ever returned.
+ * Use this in server components / route handlers that serve public catalogue data.
+ */
+export function createPublicSupabaseClient() {
+  assertConfig();
+  return createServiceClientRaw(url!, anonKey!, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
+
+/**
  * Request-scoped Supabase client bound to the caller's auth cookies.
  * Use in Server Components, Route Handlers and Server Actions.
  * Respects RLS as the signed-in user.
