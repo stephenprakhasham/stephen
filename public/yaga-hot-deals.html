@@ -1210,11 +1210,11 @@ $("bannerForm").onsubmit=saveBanner;$("cancelBanner").onclick=resetBannerForm;$(
 $("login").onclick=()=>$("loginModal").classList.remove("hidden");$("closeLogin").onclick=()=>$("loginModal").classList.add("hidden");$("logout").onclick=()=>signOut(auth);$("loginForm").onsubmit=async e=>{e.preventDefault();try{await signInWithEmailAndPassword(auth,$("email").value,$("password").value);$("loginModal").classList.add("hidden");$("password").value=""}catch(err){$("loginErr").textContent=err.message}};
 $("posterModal").querySelector(".modal-close").onclick=()=>{$("posterModal").classList.remove("open");$("posterModal").style.display="none"};$("posterModal").addEventListener("click",e=>{if(e.target===$("posterModal")){$("posterModal").classList.remove("open");$("posterModal").style.display="none"}});
 
-const app=initializeApp(firebaseConfig);db=getDatabase(app);auth=getAuth(app);
+const app=initializeApp(firebaseConfig);db=getDatabase(app);try{auth=getAuth(app)}catch(authErr){console.warn("Auth init failed:",authErr);auth=null}
 onValue(dr(db,"products"),snap=>{items=snap.val()||{};for(const [id,line] of Object.entries(cart)){const p=items[id];if(!p||p.status!=="active")delete cart[id];else{line.name=p.name;line.price=Number(p.price)||0;line.category=p.category}}persistCart();render();$("resultCount").dataset.connection="live"},err=>{console.error(err);$("emptyState").textContent="Database connection error: "+err.message;$("emptyState").classList.add("show")});
-onValue(dr(db,"banners"),snap=>{banners=snap.val()||{};renderBannerAdmin();renderRemoteBanners().catch(e=>console.warn("Banner carousel update failed",e))},err=>console.error("Banner database listener failed",err));
+onValue(dr(db,"banners"),snap=>{banners=snap.val()||{};renderBannerAdmin();renderRemoteBanners().catch(e=>console.warn("Banner carousel update failed",e))},err=>console.warn("Banner listener skipped (rules not updated):",err.code||"error"));
 onValue(dr(db,"meta/usedBytes"),snap=>{used=Number(snap.val()||0);if(isAdmin)renderAdmin()});
-onAuthStateChanged(auth,async u=>{user=u;isAdmin=!!u&&ADMIN_UIDS.includes(u.uid);$("admin").classList.toggle("hidden",!isAdmin);$("login").classList.toggle("hidden",!!isAdmin);$("logout").classList.toggle("hidden",!isAdmin);if(u&&!isAdmin){await signOut(auth);alert("This account is not an authorized YAGA HOT DEALS administrator.")}if(isAdmin){renderAdmin();renderBannerAdmin();await cleanup()}});
+if(auth){onAuthStateChanged(auth,async u=>{user=u;isAdmin=!!u&&ADMIN_UIDS.includes(u.uid);$("admin").classList.toggle("hidden",!isAdmin);$("login").classList.toggle("hidden",!!isAdmin);$("logout").classList.toggle("hidden",!isAdmin);if(u&&!isAdmin){await signOut(auth);alert("This account is not an authorized YAGA HOT DEALS administrator.")}if(isAdmin){renderAdmin();renderBannerAdmin();await cleanup()}})}
 setLanguage($("languageSelect")?.value||"ta");renderCartBadge();renderCart();
 </script>
 </body>
