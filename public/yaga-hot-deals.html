@@ -841,6 +841,9 @@ body{
 .admin-modal-card{background:linear-gradient(160deg,#17152f,#090b19);border:1px solid rgba(169,145,255,.28);border-radius:20px;padding:clamp(20px,4vw,32px);max-width:640px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 24px 70px rgba(0,0,0,.5)}
 .admin-modal-close{float:right;border:0;background:#292542;color:#fff;border-radius:50%;width:36px;height:36px;font-size:22px;cursor:pointer}
 .admin-modal-card h3{margin:0 0 16px;font-size:22px}
+.admin-logout{margin-top:auto;border:1px solid rgba(169,145,255,.25);border-radius:11px;background:transparent;color:#ffb3b3;padding:12px 14px;font-size:14px;font-weight:700;cursor:pointer;text-align:left}
+.admin-logout:hover{background:rgba(255,80,80,.12)}
+body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-bar,body:has(#admin:not(.hidden)) main{display:none!important}
 @media(max-width:800px){.admin-shell{grid-template-columns:1fr}.admin-sidebar{border-right:0;border-bottom:1px solid rgba(169,145,255,.18);border-radius:22px 22px 0 0;flex-direction:row;flex-wrap:wrap;gap:4px}.admin-brand{width:100%;border-bottom:0;margin-bottom:0;padding-bottom:8px}.admin-nav{flex-direction:row;flex-wrap:wrap}.admin-tab{width:auto}}
 </style>
 
@@ -927,7 +930,7 @@ body{
   <div class="menu-links" id="mainMenu">
     <a href="#top" data-i18n="home">முகப்பு</a><a href="#offers" data-i18n="shop">சலுகைகள்</a><a href="#dynamicFilters" data-i18n="categories">வகைகள்</a><a href="#footerCta" data-i18n="contact">தொடர்பு</a>
     <button class="menu-cart" id="openCart" type="button"><span aria-hidden="true">🛒</span> <span data-i18n="cart">கார்ட்</span> <b id="cartCount">0</b></button>
-    <button class="menu-admin" id="login" type="button" data-i18n="adminLogin">Admin Login</button><button class="menu-admin hidden" id="logout" type="button" data-i18n="logout">Logout</button>
+    <button class="menu-admin" id="login" type="button" data-i18n="adminLogin">Admin Login</button>
   </div>
 </nav>
 
@@ -971,6 +974,7 @@ body{
         <button class="admin-tab" type="button" data-tab="products">📦 <span>Products</span></button>
         <button class="admin-tab" type="button" data-tab="banners">🖼️ <span>Banners</span></button>
       </nav>
+      <button id="logout" type="button" class="admin-logout">🚪 Logout</button>
     </aside>
     <div class="admin-content">
       <div id="tab-dashboard" class="admin-tab-panel active">
