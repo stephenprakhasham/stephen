@@ -844,6 +844,18 @@ body{
 .admin-logout{margin-top:auto;border:1px solid rgba(169,145,255,.25);border-radius:11px;background:transparent;color:#ffb3b3;padding:12px 14px;font-size:14px;font-weight:700;cursor:pointer;text-align:left}
 .admin-logout:hover{background:rgba(255,80,80,.12)}
 body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-bar,body:has(#admin:not(.hidden)) main{display:none!important}
+body:has(#admin:not(.hidden)){background:linear-gradient(135deg,#0a0a0f 0%,#1a0b2e 30%,#0b1a2e 60%,#0a0a0f 100%);background-size:400% 400%;animation:ymAurora 15s ease infinite}
+@keyframes ymAurora{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+body:has(#admin:not(.hidden))::before{content:"";position:fixed;top:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,138,0,.15),transparent 70%);border-radius:50%;animation:ymOrb 12s ease-in-out infinite;pointer-events:none;z-index:0}
+body:has(#admin:not(.hidden))::after{content:"";position:fixed;bottom:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(139,92,246,.15),transparent 70%);border-radius:50%;animation:ymOrb 15s ease-in-out infinite reverse;pointer-events:none;z-index:0}
+@keyframes ymOrb{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,30px) scale(1.1)}}
+.admin-sidebar{background:rgba(20,20,30,.6)!important;backdrop-filter:blur(20px);border-right:1px solid rgba(255,255,255,.08)!important}
+.admin-content{background:rgba(255,255,255,.03);backdrop-filter:blur(10px);border-radius:0 22px 22px 0}
+.admin-stat{background:linear-gradient(145deg,rgba(255,138,0,.08),rgba(139,92,246,.08))!important;border:1px solid rgba(255,138,0,.2)!important;box-shadow:0 0 20px rgba(255,138,0,.08);transition:transform .3s,box-shadow .3s}
+.admin-stat:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,138,0,.2)}
+.admin-tab.active{box-shadow:0 0 20px rgba(255,138,0,.3)}
+.admin-modal-card{background:linear-gradient(160deg,rgba(23,21,47,.95),rgba(9,11,25,.95))!important;border:1px solid rgba(255,138,0,.2)!important;box-shadow:0 0 60px rgba(255,138,0,.15),0 24px 70px rgba(0,0,0,.5)!important}
+.admin-console{position:relative;z-index:1}
 @media(max-width:800px){.admin-shell{grid-template-columns:1fr}.admin-sidebar{border-right:0;border-bottom:1px solid rgba(169,145,255,.18);border-radius:22px 22px 0 0;flex-direction:row;flex-wrap:wrap;gap:4px}.admin-brand{width:100%;border-bottom:0;margin-bottom:0;padding-bottom:8px}.admin-nav{flex-direction:row;flex-wrap:wrap}.admin-tab{width:auto}}
 </style>
 
