@@ -999,6 +999,36 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
 .order-btn:hover{background:#f8f5ef;border-color:#FF6B35}
 .order-btn.danger{color:#b3261e;border-color:#f5c6c6}
 .order-btn.danger:hover{background:#fdf0ee}
+
+/* ===== ADMIN BUTTON COLORS (warm cream + orange theme) ===== */
+.adminrow button{border:1px solid transparent;border-radius:8px;padding:7px 13px;font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap}
+.adminrow button[data-edit]{background:#FF6B35;color:#fff;border-color:#FF6B35}
+.adminrow button[data-edit]:hover{background:#E8550F;border-color:#E8550F;box-shadow:0 4px 12px rgba(255,107,53,.3)}
+.adminrow button[data-archive]{background:#FFF3E0;color:#E8550F;border-color:#ffcc99}
+.adminrow button[data-archive]:hover{background:#FFE0B2;border-color:#E8550F}
+.adminrow button[data-restore]{background:#E3F2FD;color:#1565C0;border-color:#90caf9}
+.adminrow button[data-restore]:hover{background:#BBDEFB;border-color:#1565C0}
+.adminrow button.danger{background:#FFEBEE;color:#C62828;border-color:#f5c6c6}
+.adminrow button.danger:hover{background:#FFCDD2;border-color:#C62828}
+.adminrow button[data-banner-edit]{background:#FF6B35;color:#fff;border-color:#FF6B35}
+.adminrow button[data-banner-edit]:hover{background:#E8550F;border-color:#E8550F}
+.adminrow button[data-banner-toggle]{background:#FFF3E0;color:#E8550F;border-color:#ffcc99}
+.adminrow button[data-banner-toggle]:hover{background:#FFE0B2;border-color:#E8550F}
+.adminrow button[data-banner-delete]{background:#FFEBEE;color:#C62828;border-color:#f5c6c6}
+.adminrow button[data-banner-delete]:hover{background:#FFCDD2;border-color:#C62828}
+.order-btn{border:1px solid transparent!important;border-radius:7px!important;padding:5px 10px!important;font-size:11px!important;font-weight:700!important;cursor:pointer;transition:all .2s;white-space:nowrap}
+.order-btn[data-status="confirmed"]{background:#E3F2FD!important;color:#1565C0!important;border-color:#90caf9!important}
+.order-btn[data-status="confirmed"]:hover{background:#BBDEFB!important}
+.order-btn[data-status="delivered"]{background:#E8F5E9!important;color:#2E7D32!important;border-color:#a5d6a7!important}
+.order-btn[data-status="delivered"]:hover{background:#C8E6C9!important}
+.order-btn.danger{background:#FFEBEE!important;color:#C62828!important;border-color:#f5c6c6!important}
+.order-btn.danger:hover{background:#FFCDD2!important}
+.admin-action{background:linear-gradient(110deg,#FF6B35,#E8550F)!important;color:#fff!important;border:none!important}
+.admin-action:hover{box-shadow:0 6px 18px rgba(255,107,53,.3);transform:translateY(-1px)}
+.admin-secondary{background:#fff!important;color:#1A1A2E!important;border:1px solid #e0d9cf!important}
+.admin-secondary:hover{background:#f8f5ef!important;border-color:#FF6B35!important}
+.admin-logout{background:#FFEBEE!important;color:#C62828!important;border:1px solid #f5c6c6!important}
+.admin-logout:hover{background:#FFCDD2!important}
 @media print{
   .site-nav,.language-bar,.carousel,.intro,.toolbar,.results-line,.grid,.footer-cta,.ym-foot,.admin-sidebar,.admin-toolbar,#exportCsv,#printOrders,.admin-tab,.ym-header,.promo-ticker{display:none!important}
   .admin-console{box-shadow:none!important;border:none!important;background:#fff!important}
