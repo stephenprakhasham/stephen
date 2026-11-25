@@ -865,6 +865,33 @@ body:has(#admin:not(.hidden))::after{content:"";position:fixed;bottom:-15%;right
 .admin-warning{color:#b3261e!important}
 .admin-form{background:#fff!important;border:1px solid #eae6df!important}
 .admin-fields label,.login-card label{color:#20202a!important}
+.site-nav{background:linear-gradient(110deg,#0A0A0B,#1a0f2a 50%,#0A0A0B)!important;border-bottom:1px solid rgba(255,138,0,.3)!important}
+.menu-links>a{color:#E8E6F0!important;font-weight:700!important}
+.menu-links>a:hover{color:#FF8A00!important;background:rgba(255,138,0,.12)!important}
+.nav-brand{color:#fff!important}
+.nav-brand span{color:#FF8A00!important}
+.menu-toggle{background:#17152d!important;color:#fff!important}
+.login-modal{background:rgba(10,10,11,.85)!important;backdrop-filter:blur(10px)!important}
+.login-card{background:linear-gradient(145deg,#1a1a2e,#0a0a0b)!important;border:1px solid rgba(255,138,0,.25)!important;color:#fff!important;box-shadow:0 24px 70px rgba(0,0,0,.5)!important}
+.login-card h2{color:#fff!important}
+.login-card label{color:#E8E6F0!important}
+.login-card input{background:#0b0d21!important;border:1px solid #484466!important;color:#fff!important}
+.login-close{background:#292542!important;color:#fff!important}
+.login-card .admin-action{background:linear-gradient(110deg,#e8b95e,#e66c35)!important;color:#fff!important}
+.login-card .admin-warning{color:#ffb3b3!important}
+.checkout-card{background:linear-gradient(145deg,#1a1a2e,#0a0a0b)!important;border:1px solid rgba(255,138,0,.25)!important;color:#fff!important;max-width:440px!important;padding:clamp(20px,4vw,32px)!important}
+.checkout-card h2{color:#fff!important;margin:4px 0 6px!important}
+.checkout-card label{display:flex;flex-direction:column;gap:6px;color:#E8E6F0;font-size:13px;font-weight:700;margin-bottom:12px}
+.checkout-card input,.checkout-card textarea{width:100%;padding:12px;border:1px solid #484466;border-radius:10px;background:#0b0d21;color:#fff}
+.checkout-card textarea{min-height:70px}
+.checkout-card .checkout-button{width:100%;border:0;border-radius:12px;padding:14px;background:linear-gradient(110deg,#ffc04a,#ff7900);color:#241406;font-weight:900;cursor:pointer;margin-top:6px}
+.checkout-card .modal-close{background:#292542!important;color:#fff!important}
+.checkout-inline{margin-top:14px;padding:16px;border-radius:14px;background:rgba(255,138,0,.06);border:1px solid rgba(255,138,0,.2)}
+.checkout-inline h3{margin:0 0 12px;font-size:16px;font-family:var(--ym-display);font-weight:800;text-transform:uppercase;color:#0A0A0B}
+.checkout-inline label{display:flex;flex-direction:column;gap:6px;color:#20202a;font-size:13px;font-weight:700;margin-bottom:10px}
+.checkout-inline input,.checkout-inline textarea{width:100%;padding:11px;border:1px solid #e0d9cf;border-radius:10px;background:#fff;color:#20202a}
+.checkout-inline textarea{min-height:60px}
+.checkout-inline .checkout-button{width:100%;border:0;border-radius:12px;padding:13px;background:linear-gradient(110deg,#ffc04a,#ff7900);color:#241406;font-weight:900;cursor:pointer}
 .admin-fields input,.admin-fields textarea,.admin-manage-head select,.login-card input{background:#fff!important;border:1px solid #e0d9cf!important;color:#20202a!important}
 .admin-fields small{color:#6f6b70!important}
 .img-size-hint{display:block!important;background:linear-gradient(135deg,#fff4e8,#ffe8d1)!important;border:1px solid #ffcc99!important;border-left:4px solid #e66c35!important;border-radius:8px!important;padding:9px 12px!important;margin-top:6px!important;color:#20202a!important;font-size:12px!important;line-height:1.5!important}
@@ -874,6 +901,7 @@ body:has(#admin:not(.hidden))::after{content:"";position:fixed;bottom:-15%;right
 .adminrow{border-bottom:1px solid #eae6df!important}
 .adminrow b{color:#20202a!important}
 .adminrow small{color:#6f6b70!important}
+.admin-cat-badge{display:inline-block;background:linear-gradient(135deg,#fff4e8,#ffe8d1)!important;border:1px solid #ffcc99!important;border-radius:6px!important;padding:2px 8px!important;margin:4px 6px 0 0!important;color:#e66c35!important;font-size:10px!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.06em!important}
 .admin-manage-head h3{color:#20202a!important}
 .admin-modal{background:rgba(32,32,42,.35)!important;backdrop-filter:blur(6px)!important}
 .admin-modal-card{background:#fff!important;border:1px solid #eae6df!important;box-shadow:0 24px 60px rgba(43,31,45,.18)!important}
@@ -887,6 +915,100 @@ body:has(#admin:not(.hidden))::after{content:"";position:fixed;bottom:-15%;right
 .admin-section-title{color:#20202a!important}
 body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-bar,body:has(#admin:not(.hidden)) main{display:none!important}
 @media(max-width:800px){.admin-shell{grid-template-columns:1fr}.admin-sidebar{border-right:0;border-bottom:1px solid rgba(169,145,255,.18);border-radius:22px 22px 0 0;flex-direction:row;flex-wrap:wrap;gap:4px}.admin-brand{width:100%;border-bottom:0;margin-bottom:0;padding-bottom:8px}.admin-nav{flex-direction:row;flex-wrap:wrap}.admin-tab{width:auto}}
+
+/* Order cards - timeline style */
+.adminrow:has([data-order-status]){flex-direction:column!important;align-items:stretch!important;gap:10px!important;padding:16px!important;background:rgba(255,255,255,.03)!important;border:1px solid rgba(255,138,0,.15)!important;border-radius:14px!important}
+
+/* ===== OPTION 1: WARM CREAM + VIBRANT ORANGE ===== */
+.admin-console{background:linear-gradient(145deg,#fffdf8,#f8f5ef)!important;border:1px solid #eae6df!important;box-shadow:0 18px 48px rgba(43,31,45,.12)!important}
+.admin-head h2,.admin-page-head h2,.admin-section-title{color:#1A1A2E!important}
+.admin-head p,.admin-page-head p{color:#6f6b70!important}
+.admin-stat{background:#fff!important;border:1px solid #eae6df!important}
+.admin-stat small{color:#6f6b70!important}
+.admin-stat b{color:#1A1A2E!important}
+.admin-form{background:#fff!important;border:1px solid #eae6df!important}
+.admin-fields label{color:#1A1A2E!important}
+.admin-fields input,.admin-fields textarea,.admin-manage-head select{background:#fff!important;border:1px solid #e0d9cf!important;color:#1A1A2E!important}
+.admin-fields small{color:#6f6b70!important}
+.admin-action{background:linear-gradient(110deg,#FF6B35,#E8550F)!important;color:#fff!important}
+.admin-secondary{background:#fff!important;border:1px solid #e0d9cf!important;color:#1A1A2E!important}
+.adminrow{border-bottom:1px solid #eae6df!important}
+.adminrow b{color:#1A1A2E!important}
+.adminrow small{color:#6f6b70!important}
+.admin-manage-head h3{color:#1A1A2E!important}
+.admin-manage-head select{background:#fff!important;border:1px solid #e0d9cf!important;color:#1A1A2E!important}
+.admin-warning{color:#b3261e!important}
+.admin-cat-badge{background:#fff4e8!important;color:#E8550F!important;border:1px solid #ffcc99!important}
+.admin-toolbar input[type=search],.admin-toolbar select{background:#fff!important;border:1px solid #e0d9cf!important;color:#1A1A2E!important}
+.admin-modal-card{background:#fff!important;border:1px solid #eae6df!important;box-shadow:0 24px 60px rgba(43,31,45,.18)!important}
+.admin-modal-card h3{color:#1A1A2E!important}
+.admin-modal-close{background:#f8f5ef!important;color:#1A1A2E!important}
+.admin-logout{border:1px solid #e0d9cf!important;background:#fff!important;color:#b3261e!important}
+.admin-logout:hover{background:#fdf0ee!important}
+.admin-tab{color:#6f6b70!important}
+.admin-tab:hover{background:#f8f5ef!important;color:#1A1A2E!important}
+.admin-tab.active{background:linear-gradient(110deg,#FF6B35,#E8550F)!important;color:#fff!important}
+.admin-sidebar{background:#fff!important;border-right:1px solid #eae6df!important}
+.admin-brand{color:#1A1A2E!important;border-bottom:1px solid #eae6df!important}
+.cart-drawer{background:linear-gradient(160deg,#fffdf8,#f8f5ef)!important;border-left:1px solid #eae6df!important}
+.cart-head h2{color:#1A1A2E!important}
+.cart-head small{color:#E8550F!important}
+.cart-line{border-bottom:1px solid #eae6df!important}
+.cart-line h3{color:#1A1A2E!important}
+.cart-line small{color:#6f6b70!important}
+.cart-summary>div{color:#1A1A2E!important}
+.cart-summary>small{color:#6f6b70!important}
+.cart-empty{color:#6f6b70!important}
+.qty-controls button{background:#fff!important;border:1px solid #e0d9cf!important;color:#1A1A2E!important}
+.remove-line{color:#b3261e!important}
+.clear-cart{color:#b3261e!important}
+.checkout-inline{background:rgba(255,107,53,.06)!important;border:1px solid rgba(255,107,53,.2)!important}
+.checkout-inline h3{color:#1A1A2E!important}
+.checkout-inline label{color:#1A1A2E!important}
+.checkout-inline input,.checkout-inline textarea{background:#fff!important;border:1px solid #e0d9cf!important;color:#1A1A2E!important}
+.checkout-inline .checkout-button{background:linear-gradient(110deg,#FF6B35,#E8550F)!important;color:#fff!important}
+.checkout-button{background:linear-gradient(110deg,#FF6B35,#E8550F)!important;color:#fff!important}
+.cart-thumb{background:#f8f5ef!important}
+.cart-close{background:#f8f5ef!important;color:#1A1A2E!important}
+.cart-overlay{background:rgba(26,26,46,.35)!important}
+.adminrow:has([data-order-status]){background:rgba(255,107,53,.04)!important;border:1px solid rgba(255,107,53,.15)!important;border-radius:14px!important}
+.adminrow:has([data-order-status]) b{color:#1A1A2E!important}
+.adminrow:has([data-order-status]) small{color:#6f6b70!important}
+.adminrow:has([data-order-status]) .admin-cat-badge{background:#fff4e8!important;color:#E8550F!important}
+.admin-manage{background:transparent!important}
+.adminrow{background:transparent!important}
+.adminrow:hover{background:#f8f5ef!important}
+.admin-console .admin-tab-panel{background:transparent!important}
+.admin-toolbar{background:transparent!important}
+.admin-manage-head{background:transparent!important}
+.admin-manage-head h3{color:#1A1A2E!important}
+.admin-page-head h2{color:#1A1A2E!important}
+.admin-content{background:transparent!important}
+.admin-shell{background:transparent!important}
+.orders-summary{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px;padding:12px 16px;background:#f8f5ef;border:1px solid #eae6df;border-radius:12px;font-size:14px;color:#1A1A2E}
+.orders-summary b{color:#E8550F}
+.orders-table-wrap{background:#fff;border:1px solid #eae6df;border-radius:12px;box-shadow:0 4px 16px rgba(43,31,45,.06);overflow-x:auto}
+.orders-table{width:100%;border-collapse:collapse}
+.orders-header th{padding:11px 12px;text-align:left;background:#f8f5ef;border-bottom:2px solid #eae6df;font-family:var(--ym-mono);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#6f6b70;white-space:nowrap}
+.orders-table tbody tr{transition:background .15s}
+.orders-table tbody tr:nth-child(even){background:#faf9f6}
+.orders-table tbody tr:hover{background:#fff4e8}
+.order-avatar{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#FF6B35,#E8550F);color:#fff;font-size:12px;font-weight:800;flex-shrink:0}
+.order-status-badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.order-btn{border:1px solid #e0d9cf;border-radius:6px;background:#fff;color:#1A1A2E;padding:4px 9px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+.order-btn:hover{background:#f8f5ef;border-color:#FF6B35}
+.order-btn.danger{color:#b3261e;border-color:#f5c6c6}
+.order-btn.danger:hover{background:#fdf0ee}
+@media print{
+  .site-nav,.language-bar,.carousel,.intro,.toolbar,.results-line,.grid,.footer-cta,.ym-foot,.admin-sidebar,.admin-toolbar,#exportCsv,#printOrders,.admin-tab,.ym-header,.promo-ticker{display:none!important}
+  .admin-console{box-shadow:none!important;border:none!important;background:#fff!important}
+  .admin-content{padding:0!important}
+  .orders-table{font-size:11px!important}
+  .orders-table th,.orders-table td{padding:6px 4px!important}
+  .admin-tab-panel{display:none!important}
+  #tab-orders{display:block!important}
+  body{background:#fff!important}
+}
 </style>
 
 </head>
@@ -1004,7 +1126,7 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
     <div><h2><span class="footer-drop">உ</span>ங்கள் விருப்பம்… எங்கள் சலுகை!</h2><p>பிடித்த பொருளைத் தேர்வு செய்து, விலை மற்றும் கிடைக்கும் விவரங்களை WhatsApp-ல் கேளுங்கள்.</p></div>
     <a class="footer-button" href="https://wa.me/919787608569?text=வணக்கம்%20YAGA%27S%20MART%2C%20உங்கள்%20சலுகைகள்%20பற்றி%20விவரம்%20வேண்டும்." target="_blank" rel="noopener">WhatsApp-ல் விசாரிக்கவும் ↗</a>
   </section>
-  <p class="footnote">YAGA'S MART • SMK COMPLEX, SENDURAI • போஸ்டரில் குறிப்பிடப்பட்டுள்ள விலைகளின் அடிப்படையில் சலுகைகள்.</p>
+  <p class="footnote" data-i18n="footnote">YAGA'S MART • SMK COMPLEX, SENDURAI • போஸ்டரில் குறிப்பிடப்பட்டுள்ள விலைகளின் அடிப்படையில் சலுகைகள்.</p>
 </main>
 
 <section id="admin" class="admin-console hidden" aria-label="Admin dashboard">
@@ -1015,6 +1137,7 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
         <button class="admin-tab active" type="button" data-tab="dashboard">📊 <span>Dashboard</span></button>
         <button class="admin-tab" type="button" data-tab="products">📦 <span>Products</span></button>
         <button class="admin-tab" type="button" data-tab="banners">🖼️ <span>Banners</span></button>
+        <button class="admin-tab" type="button" data-tab="orders">🧾 <span>Orders</span></button>
       </nav>
       <button id="logout" type="button" class="admin-logout">🚪 Logout</button>
     </aside>
@@ -1040,6 +1163,7 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
         <div class="admin-toolbar">
           <input id="productSearch" type="search" placeholder="Search products..." aria-label="Search products">
           <select id="filter" aria-label="Filter products"><option value="all">All</option><option value="active">Active</option><option value="archived">Archived</option></select>
+          <select id="categoryFilter" aria-label="Filter by category"><option value="all">All categories</option></select>
           <button type="button" class="admin-action js-add-product">+ Add Product</button>
         </div>
         <div id="manage" class="admin-manage"></div>
@@ -1052,6 +1176,10 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
         </div>
         <div id="bannerManage" class="admin-manage"></div>
       </div>
+      <div id="tab-orders" class="admin-tab-panel">
+        <div class="admin-page-head"><h2>Orders</h2><p>Customer orders with details.</p></div>
+        <div id="ordersManage" class="admin-manage"></div>
+      </div>
     </div>
   </div>
   <div id="productModal" class="admin-modal hidden" role="dialog" aria-modal="true" aria-label="Add or edit product">
@@ -1062,7 +1190,7 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
         <input type="hidden" id="pid">
         <div class="admin-fields">
           <label>Product name *<input id="name" required maxlength="120"></label>
-          <label>Category *<input id="category" required maxlength="60" placeholder="Mobile Accessories"></label>
+          <label>Category *<select id="category" required><option value="">Select category...</option></select><input id="newCategory" maxlength="60" placeholder="Type new category name" style="display:none;margin-top:6px"></label>
           <label>Offer price (₹) *<input id="price" type="number" min="0" step="0.01" required></label>
           <label>MRP (₹)<input id="mrp" type="number" min="0" step="0.01"></label>
           <label class="full">Description<textarea id="description" maxlength="500"></textarea></label>
@@ -1104,7 +1232,14 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
     <div class="cart-head"><div><small>YAGA HOT DEALS</small><h2 id="cartTitle" data-i18n="yourCart">Your Cart</h2></div><button type="button" id="closeCart" class="cart-close" aria-label="Close cart">×</button></div>
     <div id="cartItems" class="cart-items"></div>
     <div class="cart-empty" id="cartEmpty" data-i18n="cartEmpty">Your cart is empty. Add products to get started.</div>
-    <div class="cart-summary"><div><span data-i18n="subtotal">Subtotal</span><strong id="cartSubtotal">₹0</strong></div><small data-i18n="checkoutNote">Final availability and delivery charges will be confirmed on WhatsApp.</small><button type="button" id="checkoutCart" class="checkout-button" disabled data-i18n="checkout">Proceed to WhatsApp Order</button><button type="button" id="clearCart" class="clear-cart" data-i18n="clearCart">Clear cart</button></div>
+<div class="cart-summary"><div><span data-i18n="subtotal">Subtotal</span><strong id="cartSubtotal">₹0</strong></div><small data-i18n="checkoutNote">Final availability and delivery charges will be confirmed on WhatsApp.</small><button type="button" id="clearCart" class="clear-cart" data-i18n="clearCart">Clear cart</button></div>
+    <form id="checkoutForm" class="checkout-inline">
+      <h3>Complete your order</h3>
+      <label>Full name *<input id="custName" required maxlength="80" placeholder="Your name"></label>
+      <label>Phone number *<input id="custPhone" required maxlength="15" placeholder="10-digit mobile number"></label>
+      <label>Delivery address *<textarea id="custAddress" required maxlength="300" placeholder="Full address with pincode"></textarea></label>
+      <button type="submit" class="checkout-button">Place order on WhatsApp</button>
+    </form>
   </aside>
 </div>
 
@@ -1167,13 +1302,57 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const bytes=s=>new TextEncoder().encode(s).length,mb=n=>(n/1048576).toFixed(2);
 let db,auth,user=null,isAdmin=false,items={},used=0,activeCategory="All",sortMode="featured",language="ta";
 let banners={},bannerImageCache=new Map();
+let orders={};
+let categoryTranslations={};
+async function translateCategory(cat){
+  if(!cat)return{en:cat,ta:cat,hi:cat};
+  if(categoryTranslations[cat])return categoryTranslations[cat];
+  try{
+    const pair=(lang)=>fetch("https://api.mymemory.translated.net/get?q="+encodeURIComponent(cat)+"&langpair=en|"+lang).then(r=>r.json()).then(d=>(d.responseData&&d.responseData.translatedText)||cat).catch(()=>cat);
+    const [ta,hi]=await Promise.all([pair("ta"),pair("hi")]);
+    const rec={en:cat,ta,hi,updatedAt:Date.now()};
+    categoryTranslations[cat]=rec;
+    try{await set(dr(db,"categoryTranslations/"+encodeURIComponent(cat)),rec)}catch(e){console.warn("Translation cache save failed",e)}
+    return rec;
+  }catch(e){return{en:cat,ta:cat,hi:cat}}
+}
+const CATEGORY_I18N={
+  "Toys & RC":{ta:"பொம்மைகள் & RC",hi:"खिलौने & RC",en:"Toys & RC"},
+  "Smart Gadgets":{ta:"ஸ்மார்ட் கேஜெட்ஸ்",hi:"स्मार्ट गैजेट्स",en:"Smart Gadgets"},
+  "Home & Kitchen":{ta:"வீடு & சமையலறை",hi:"होम & किचन",en:"Home & Kitchen"},
+  "Home Care":{ta:"வீட்டு பராமரிப்பு",hi:"होम केयर",en:"Home Care"},
+  "Jewels":{ta:"நகைகள்",hi:"गहने",en:"Jewels"},
+  "Car Accessories":{ta:"கார் பொருட்கள்",hi:"कार एक्सेसरीज़",en:"Car Accessories"},
+  "Mobile Accessories":{ta:"மொபைல் பொருட்கள்",hi:"मोबाइल एक्सेसरीज़",en:"Mobile Accessories"}
+};
+function trCategory(cat){
+  const t=CATEGORY_I18N[cat];
+  if(t)return t[language]||cat;
+  const c=categoryTranslations[cat];
+  if(!c)return cat;
+  return c[language]||cat;
+}
+async function translateText(text,lang){
+  if(!text)return text;
+  try{
+    const r=await fetch("https://api.mymemory.translated.net/get?q="+encodeURIComponent(text)+"&langpair=en|"+lang).then(r=>r.json());
+    return (r.responseData&&r.responseData.translatedText)||text;
+  }catch(e){return text}
+}
+function trName(p){return (language==="ta"&&p.name_ta)||(language==="hi"&&p.name_hi)||p.name}
+function trDesc(p){return (language==="ta"&&p.description_ta)||(language==="hi"&&p.description_hi)||p.description||""}
+async function translateProduct(p){
+  if(!p||!p.name)return;
+  const [nt,nh,dt,dh]=await Promise.all([translateText(p.name,"ta"),translateText(p.name,"hi"),translateText(p.description||"","ta"),translateText(p.description||"","hi")]);
+  try{await update(dr(db,"products/"+p.id),{name_ta:nt,name_hi:nh,description_ta:dt,description_hi:dh,updatedAt:Date.now()})}catch(e){console.warn("Product translation save failed",e)}
+}
 const fallbackCarouselSlides=$("top").querySelector(".slides").innerHTML,fallbackCarouselDots=$("top").querySelector(".dots").innerHTML;let usingRemoteBanners=false;
 const imageCache=new Map(),cartStoreKey="yaga_hot_deals_cart_v1";
 let cart=readCart();
 const copy={
- ta:{languageLabel:"மொழியைத் தேர்வு செய்யுங்கள்",hero:"இவ்வளவு குறைந்த விலையா?",intro:"உங்களுக்குப் பிடித்த பொருட்கள்… இனி உங்கள் பட்ஜெட்டுக்குள்!",kicker:"அடடா…!",action:"விலையைப் பாருங்கள்",action2:"பிடித்ததைத் தேர்வு செய்யுங்கள்",hooks:[["சின்னச் சின்ன சந்தோஷங்கள்","குழந்தைகளின் முகத்தில் மகிழ்ச்சி…","பெற்றோர்களின் மனதில் சந்தோஷம்!","குட்டீஸ்களுக்கு பிடித்த விளையாட்டுப் பொருட்கள் — அசத்தல் விலையில்!"],["தினசரி வாழ்க்கைக்கான ஸ்மார்ட் தேர்வுகள்","வீட்டிற்கும்… உங்களுக்கும்…","பயனுள்ள பொருட்கள் ஒரே இடத்தில்!","உங்கள் தேவைக்கு ஏற்ற பொருட்களைத் தேர்வு செய்யுங்கள்."],["வாங்கும் முன் ஒரு முறை பாருங்கள்","பார்த்தவுடன் பிடிக்கும்…","விலை கேட்டால் இன்னும் பிடிக்கும்!","WhatsApp-ல் விலை மற்றும் விவரங்களைக் கேளுங்கள்."]],closing:"உங்கள் விருப்பம்… எங்கள் சலுகை!",closeText:"பிடித்த பொருளைத் தேர்வு செய்து, விலை மற்றும் கிடைக்கும் விவரங்களைக் கேளுங்கள்.",closeButton:"WhatsApp-ல் விசாரிக்கவும்",all:"அனைத்துச் சலுகைகள்",search:"உங்களுக்குப் பிடித்த பொருளைத் தேடுங்கள்...",sort:["முன்னுரிமை","குறைந்த விலை முதல்","அதிக விலை முதல்","பெயர் வரிசை"],result:"சலுகைகள்",hint:"படத்தைத் தொட்டால் முழு விவரம் பார்க்கலாம்",view:"முழு விவரம் பார்க்க",limited:"சிறப்புச் சலுகை",mega:"அதிரடி விலை",wa:"WhatsApp-ல் கேளுங்கள்",add:"கார்ட்டில் சேர்",menu:"மெனு",home:"முகப்பு",shop:"சலுகைகள்",categories:"வகைகள்",contact:"தொடர்பு",cart:"கார்ட்",adminLogin:"Admin Login",logout:"Logout",yourCart:"உங்கள் கார்ட்",cartEmpty:"உங்கள் கார்ட் காலியாக உள்ளது. பொருட்களைச் சேர்க்கவும்.",subtotal:"மொத்தம்",checkoutNote:"இறுதி கிடைக்கும் நிலை மற்றும் டெலிவரி கட்டணம் WhatsApp-ல் உறுதி செய்யப்படும்.",checkout:"WhatsApp மூலம் ஆர்டர் செய்யுங்கள்",clearCart:"கார்ட்டை காலி செய்",added:"கார்ட்டில் சேர்க்கப்பட்டது",empty:"தற்போது செயலில் உள்ள சலுகைகள் இல்லை."},
- en:{languageLabel:"Choose language",hero:"PRICES THIS LOW?",intro:"Your favourite products are now within your budget!",kicker:"WOW…!",action:"CHECK THE PRICES",action2:"CHOOSE WHAT YOU LOVE",hooks:[["Little joys, big smiles","Bring a smile to every child…","And happiness to every parent!","Favourite toys for little ones at exciting prices!"],["SMART CHOICES FOR EVERYDAY LIVING","For your home… and for you…","Useful products, all in one place!","Discover practical picks for your home and family."],["Take a closer look before you decide","Love it at first sight…","Love the price even more!","Choose your favourite and ask us on WhatsApp."]],closing:"Your choice… Our special offers!",closeText:"Choose your favourite product and ask us about price and availability.",closeButton:"Enquire on WhatsApp",all:"All Offers",search:"Search for your favourite product...",sort:["Featured","Price: Low to High","Price: High to Low","Name: A to Z"],result:"offers",hint:"Tap a poster to view it in full size",view:"VIEW POSTER",limited:"SPECIAL OFFER",mega:"MEGA DEAL",wa:"Enquire on WhatsApp",add:"Add to Cart",menu:"Menu",home:"Home",shop:"Shop Deals",categories:"Categories",contact:"Contact",cart:"Cart",adminLogin:"Admin Login",logout:"Logout",yourCart:"Your Cart",cartEmpty:"Your cart is empty. Add products to get started.",subtotal:"Subtotal",checkoutNote:"Final availability and delivery charges will be confirmed on WhatsApp.",checkout:"Proceed to WhatsApp Order",clearCart:"Clear cart",added:"Added to cart",empty:"No active offers at the moment."},
- hi:{languageLabel:"भाषा चुनें",hero:"इतनी कम कीमत?",intro:"आपके पसंदीदा प्रोडक्ट अब आपके बजट में!",kicker:"वाह…!",action:"कीमत देखें",action2:"अपनी पसंद चुनें",hooks:[["छोटी खुशियाँ, बड़ी मुस्कान","बच्चों के चेहरे पर खुशी…","माता-पिता के दिल में सुकून!","बच्चों के पसंदीदा खिलौने शानदार कीमतों पर!"],["हर दिन के लिए स्मार्ट विकल्प","आपके घर के लिए… आपके लिए…","काम की चीज़ें, एक ही जगह!","अपनी ज़रूरत का सामान चुनें और कीमत पूछें।"],["खरीदने से पहले एक बार देखें","पहली नज़र में पसंद आएगा…","कीमत जानकर और भी पसंद आएगा!","WhatsApp पर कीमत और जानकारी पूछें।"]],closing:"आपकी पसंद… हमारे शानदार ऑफ़र!",closeText:"अपना पसंदीदा प्रोडक्ट चुनें और कीमत व उपलब्धता पूछें।",closeButton:"WhatsApp पर पूछताछ करें",all:"सभी ऑफ़र",search:"अपना पसंदीदा प्रोडक्ट खोजें...",sort:["विशेष ऑफ़र","कम कीमत पहले","ज़्यादा कीमत पहले","नाम के अनुसार"],result:"ऑफ़र",hint:"पूरा पोस्टर देखने के लिए टैप करें",view:"पोस्टर देखें",limited:"खास ऑफ़र",mega:"शानदार कीमत",wa:"WhatsApp पर पूछें",add:"कार्ट में जोड़ें",menu:"मेन्यू",home:"होम",shop:"ऑफ़र देखें",categories:"श्रेणियाँ",contact:"संपर्क",cart:"कार्ट",adminLogin:"Admin Login",logout:"Logout",yourCart:"आपका कार्ट",cartEmpty:"आपका कार्ट खाली है। उत्पाद जोड़ें।",subtotal:"कुल",checkoutNote:"उपलब्धता और डिलीवरी शुल्क WhatsApp पर पुष्टि किए जाएंगे।",checkout:"WhatsApp पर ऑर्डर करें",clearCart:"कार्ट खाली करें",added:"कार्ट में जोड़ा गया",empty:"अभी कोई सक्रिय ऑफ़र नहीं है."}
+ ta:{languageLabel:"மொழியைத் தேர்வு செய்யுங்கள்",hero:"இவ்வளவு குறைந்த விலையா?",intro:"உங்களுக்குப் பிடித்த பொருட்கள்… இனி உங்கள் பட்ஜெட்டுக்குள்!",kicker:"அடடா…!",action:"விலையைப் பாருங்கள்",action2:"பிடித்ததைத் தேர்வு செய்யுங்கள்",hooks:[["சின்னச் சின்ன சந்தோஷங்கள்","குழந்தைகளின் முகத்தில் மகிழ்ச்சி…","பெற்றோர்களின் மனதில் சந்தோஷம்!","குட்டீஸ்களுக்கு பிடித்த விளையாட்டுப் பொருட்கள் — அசத்தல் விலையில்!"],["தினசரி வாழ்க்கைக்கான ஸ்மார்ட் தேர்வுகள்","வீட்டிற்கும்… உங்களுக்கும்…","பயனுள்ள பொருட்கள் ஒரே இடத்தில்!","உங்கள் தேவைக்கு ஏற்ற பொருட்களைத் தேர்வு செய்யுங்கள்."],["வாங்கும் முன் ஒரு முறை பாருங்கள்","பார்த்தவுடன் பிடிக்கும்…","விலை கேட்டால் இன்னும் பிடிக்கும்!","WhatsApp-ல் விலை மற்றும் விவரங்களைக் கேளுங்கள்."]],closing:"உங்கள் விருப்பம்… எங்கள் சலுகை!",closeText:"பிடித்த பொருளைத் தேர்வு செய்து, விலை மற்றும் கிடைக்கும் விவரங்களைக் கேளுங்கள்.",closeButton:"WhatsApp-ல் விசாரிக்கவும்",all:"அனைத்துச் சலுகைகள்",search:"உங்களுக்குப் பிடித்த பொருளைத் தேடுங்கள்...",sort:["முன்னுரிமை","குறைந்த விலை முதல்","அதிக விலை முதல்","பெயர் வரிசை"],result:"சலுகைகள்",hint:"படத்தைத் தொட்டால் முழு விவரம் பார்க்கலாம்",view:"முழு விவரம் பார்க்க",limited:"சிறப்புச் சலுகை",mega:"அதிரடி விலை",wa:"WhatsApp-ல் கேளுங்கள்",add:"கார்ட்டில் சேர்",menu:"மெனு",home:"முகப்பு",shop:"சலுகைகள்",categories:"வகைகள்",contact:"தொடர்பு",cart:"கார்ட்",adminLogin:"Admin Login",logout:"Logout",yourCart:"உங்கள் கார்ட்",cartEmpty:"உங்கள் கார்ட் காலியாக உள்ளது. பொருட்களைச் சேர்க்கவும்.",subtotal:"மொத்தம்",checkoutNote:"இறுதி கிடைக்கும் நிலை மற்றும் டெலிவரி கட்டணம் WhatsApp-ல் உறுதி செய்யப்படும்.",checkout:"WhatsApp மூலம் ஆர்டர் செய்யுங்கள்",clearCart:"கார்ட்டை காலி செய்",added:"கார்ட்டில் சேர்க்கப்பட்டது",empty:"தற்போது செயலில் உள்ள சலுகைகள் இல்லை.",footnote:"YAGA'S MART • SMK COMPLEX, SENDURAI • போஸ்டரில் குறிப்பிடப்பட்டுள்ள விலைகளின் அடிப்படையில் சலுகைகள்."},
+ en:{languageLabel:"Choose language",hero:"PRICES THIS LOW?",intro:"Your favourite products are now within your budget!",kicker:"WOW…!",action:"CHECK THE PRICES",action2:"CHOOSE WHAT YOU LOVE",hooks:[["Little joys, big smiles","Bring a smile to every child…","And happiness to every parent!","Favourite toys for little ones at exciting prices!"],["SMART CHOICES FOR EVERYDAY LIVING","For your home… and for you…","Useful products, all in one place!","Discover practical picks for your home and family."],["Take a closer look before you decide","Love it at first sight…","Love the price even more!","Choose your favourite and ask us on WhatsApp."]],closing:"Your choice… Our special offers!",closeText:"Choose your favourite product and ask us about price and availability.",closeButton:"Enquire on WhatsApp",all:"All Offers",search:"Search for your favourite product...",sort:["Featured","Price: Low to High","Price: High to Low","Name: A to Z"],result:"offers",hint:"Tap a poster to view it in full size",view:"VIEW POSTER",limited:"SPECIAL OFFER",mega:"MEGA DEAL",wa:"Enquire on WhatsApp",add:"Add to Cart",menu:"Menu",home:"Home",shop:"Shop Deals",categories:"Categories",contact:"Contact",cart:"Cart",adminLogin:"Admin Login",logout:"Logout",yourCart:"Your Cart",cartEmpty:"Your cart is empty. Add products to get started.",subtotal:"Subtotal",checkoutNote:"Final availability and delivery charges will be confirmed on WhatsApp.",checkout:"Proceed to WhatsApp Order",clearCart:"Clear cart",added:"Added to cart",empty:"No active offers at the moment.",footnote:"YAGA'S MART • SMK COMPLEX, SENDURAI • Offers based on prices shown in the poster."},
+ hi:{languageLabel:"भाषा चुनें",hero:"इतनी कम कीमत?",intro:"आपके पसंदीदा प्रोडक्ट अब आपके बजट में!",kicker:"वाह…!",action:"कीमत देखें",action2:"अपनी पसंद चुनें",hooks:[["छोटी खुशियाँ, बड़ी मुस्कान","बच्चों के चेहरे पर खुशी…","माता-पिता के दिल में सुकून!","बच्चों के पसंदीदा खिलौने शानदार कीमतों पर!"],["हर दिन के लिए स्मार्ट विकल्प","आपके घर के लिए… आपके लिए…","काम की चीज़ें, एक ही जगह!","अपनी ज़रूरत का सामान चुनें और कीमत पूछें।"],["खरीदने से पहले एक बार देखें","पहली नज़र में पसंद आएगा…","कीमत जानकर और भी पसंद आएगा!","WhatsApp पर कीमत और जानकारी पूछें।"]],closing:"आपकी पसंद… हमारे शानदार ऑफ़र!",closeText:"अपना पसंदीदा प्रोडक्ट चुनें और कीमत व उपलब्धता पूछें।",closeButton:"WhatsApp पर पूछताछ करें",all:"सभी ऑफ़र",search:"अपना पसंदीदा प्रोडक्ट खोजें...",sort:["विशेष ऑफ़र","कम कीमत पहले","ज़्यादा कीमत पहले","नाम के अनुसार"],result:"ऑफ़र",hint:"पूरा पोस्टर देखने के लिए टैप करें",view:"पोस्टर देखें",limited:"खास ऑफ़र",mega:"शानदार कीमत",wa:"WhatsApp पर पूछें",add:"कार्ट में जोड़ें",menu:"मेन्यू",home:"होम",shop:"ऑफ़र देखें",categories:"श्रेणियाँ",contact:"संपर्क",cart:"कार्ट",adminLogin:"Admin Login",logout:"Logout",yourCart:"आपका कार्ट",cartEmpty:"आपका कार्ट खाली है। उत्पाद जोड़ें।",subtotal:"कुल",checkoutNote:"उपलब्धता और डिलीवरी शुल्क WhatsApp पर पुष्टि किए जाएंगे।",checkout:"WhatsApp पर ऑर्डर करें",clearCart:"कार्ट खाली करें",added:"कार्ट में जोड़ा गया",empty:"अभी कोई सक्रिय ऑफ़र नहीं है.",footnote:"YAGA'S MART • SMK COMPLEX, SENDURAI • पोस्टर में दिखाई गई कीमतों के आधार पर ऑफर।"}
 };
 function tr(k){return (copy[language]||copy.ta)[k]||copy.en[k]||k}
 function active(){const today=new Date().toISOString().slice(0,10);return Object.values(items||{}).filter(p=>p&&p.status==="active"&&(!p.expiry||p.expiry>=today))}
@@ -1185,37 +1364,111 @@ function money(n){return "₹"+Number(n||0).toLocaleString("en-IN",{maximumFract
 function setLanguage(lang){language=copy[lang]?lang:"ta";document.documentElement.lang=language;const languageCaption=document.querySelector(".language-caption");if(languageCaption)languageCaption.textContent=copy[language].languageLabel;document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(copy[language][key])el.textContent=tr(key)});const s=$("search");if(s)s.placeholder=tr("search");const hint=document.querySelector(".results-line span:last-child");if(hint)hint.textContent=tr("hint");const sel=$("sort");if(sel)[...sel.options].forEach((o,i)=>o.textContent=tr("sort")[i]||o.textContent);const c=copy[language];const kicker=document.querySelector(".promo-kicker"),hero=$("heroHeadline"),intro=$("heroSupporting"),action=$("heroAction");if(kicker)kicker.textContent=c.kicker;if(hero)hero.textContent=c.hero;if(intro)intro.textContent=c.intro;if(action)action.innerHTML=esc(c.action)+" <span>✦</span> "+esc(c.action2);document.querySelectorAll(".tamil-hook").forEach((section,i)=>{const h=c.hooks[i];if(!h)return;const k=section.querySelector(".hook-kicker"),title=section.querySelector("h2"),para=section.querySelector("p");if(k)k.textContent=h[0];if(title){title.replaceChildren();const a=document.createElement("span");a.className="hook-line-primary";a.textContent=h[1];const b=document.createElement("em");b.className="hook-line-secondary";b.textContent=h[2];title.append(a,document.createElement("br"),b)}if(para)para.textContent=h[3]});const ft=document.querySelector(".footer-cta h2"),fp=document.querySelector(".footer-cta p"),fb=document.querySelector(".footer-button");if(ft)ft.textContent=c.closing;if(fp)fp.textContent=c.closeText;if(fb)fb.textContent=c.closeButton+" ↗";render();renderCart()}
 $("languageSelect")?.addEventListener("change",e=>setLanguage(e.target.value));
 
-function buildFilters(){const cats=["All",...new Set(active().map(p=>p.category).filter(Boolean).sort((a,b)=>a.localeCompare(b)))];if(!cats.includes(activeCategory))activeCategory="All";$("dynamicFilters").innerHTML=cats.map(c=>`<button type="button" class="filter ${c===activeCategory?"active":""}" data-filter="${esc(c)}">${c==="All"?esc(tr("all")):esc(c)}${c==="All"?` <span>(${active().length})</span>`:""}</button>`).join("");$("dynamicFilters").querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{activeCategory=b.dataset.filter;render()})}
+function buildFilters(){const cats=["All",...new Set(active().map(p=>p.category).filter(Boolean).sort((a,b)=>a.localeCompare(b)))];if(!cats.includes(activeCategory))activeCategory="All";$("dynamicFilters").innerHTML=cats.map(c=>`<button type="button" class="filter ${c===activeCategory?"active":""}" data-filter="${esc(c)}">${c==="All"?esc(tr("all")):esc(trCategory(c))}${c==="All"?` <span>(${active().length})</span>`:""}</button>`).join("");$("dynamicFilters").querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{activeCategory=b.dataset.filter;render()})}
 function visibleProducts(){let list=active().filter(p=>(activeCategory==="All"||p.category===activeCategory));const term=$("search")?.value.trim().toLowerCase()||"";if(term)list=list.filter(p=>[p.name,p.category,p.description].join(" ").toLowerCase().includes(term));if(sortMode==="low")list.sort((a,b)=>Number(a.price)-Number(b.price));else if(sortMode==="high")list.sort((a,b)=>Number(b.price)-Number(a.price));else if(sortMode==="az")list.sort((a,b)=>String(a.name).localeCompare(String(b.name)));else list.sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0));return list}
 function cardTemplate(p){return `<article class="product-card" data-id="${esc(p.id)}" data-category="${esc(p.category)}" data-name="${esc(p.name).toLowerCase()}" data-price="${Number(p.price)||0}">
 <button class="image-button" type="button" data-preview="${esc(p.id)}" aria-label="${esc(tr("view"))} ${esc(p.name)}">${p.hasImage?`<img alt="${esc(p.name)}" loading="lazy" data-image-id="${esc(p.id)}" data-image-version="${esc(p.imageVersion||"1")}">`:`<span class="product-placeholder">YAGA<br>HOT DEALS</span>`}<span class="view-label">${esc(tr("view"))} <span aria-hidden="true">↗</span></span></button>
-<div class="card-content"><div class="card-topline"><span class="category-tag">${esc(p.category)}</span><span class="offer-dot">${esc(tr("limited"))}</span></div><h3>${esc(p.name)}</h3><p>${esc(p.description||"Special offer from YAGA MOBILES.")}</p><div class="card-bottom"><div class="price-wrap"><small>${esc(tr("mega"))}</small><strong>${money(p.price)}</strong>${Number(p.mrp)>Number(p.price)?`<del>${money(p.mrp)}</del>`:""}</div><div class="card-actions"><button class="cart-add" type="button" data-add="${esc(p.id)}">🛒 ${esc(tr("add"))}</button></div></div></div></article>`}
+<div class="card-content"><div class="card-topline"><span class="category-tag">${esc(p.category)}</span><span class="offer-dot">${esc(tr("limited"))}</span></div><h3>${esc(trName(p))}</h3><p>${esc(trDesc(p)||"Special offer from YAGA MOBILES.")}</p><div class="card-bottom"><div class="price-wrap"><small>${esc(tr("mega"))}</small><strong>${money(p.price)}</strong>${Number(p.mrp)>Number(p.price)?`<del>${money(p.mrp)}</del>`:""}</div><div class="card-actions"><button class="cart-add" type="button" data-add="${esc(p.id)}">🛒 ${esc(tr("add"))}</button></div></div></div></article>`}
 function render(){buildFilters();const list=visibleProducts();$("productGrid").innerHTML=list.map(cardTemplate).join("");$("emptyState").classList.toggle("show",list.length===0);$("emptyState").textContent=tr("empty");$("resultCount").textContent=`${list.length} / ${active().length} ${tr("result")}`;loadLazyImages($("productGrid"));if(isAdmin)renderAdmin()}
 function fetchRESTImage(id,version,img,key){fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/images/"+id+"/"+version+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){imageCache.set(key,rec.dataUrl);img.src=rec.dataUrl;}}).catch(e=>console.warn("REST image fallback failed",id,e))}
 function loadLazyImages(root=document){const imgs=root.querySelectorAll("img[data-image-id]");if(!imgs.length)return;const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const img=entry.target;observer.unobserve(img);const id=img.dataset.imageId,version=img.dataset.imageVersion,key=id+":"+version;if(imageCache.has(key)){img.src=imageCache.get(key);return}get(dr(db,`images/${id}/${version}`)).then(snap=>{if(!snap.exists()){fetchRESTImage(id,version,img,key);return}const rec=snap.val();if(rec.version===version&&rec.dataUrl){imageCache.set(key,rec.dataUrl);img.src=rec.dataUrl;}else{fetchRESTImage(id,version,img,key)}}).catch(e=>fetchRESTImage(id,version,img,key))}),{rootMargin:"250px"});imgs.forEach(i=>observer.observe(i))}
-function waProductUrl(p){const msg=`வணக்கம் YAGA'S MART, இந்தப் பொருளை ஆர்டர் செய்ய விரும்புகிறேன்.\nபொருள்: ${p.name}\nவிலை: ${money(p.price)}\nவகை: ${p.category}\nபக்க இணைப்பு: ${location.href}\nகிடைக்கும் விவரங்களைப் பகிரவும்.`;return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`}
-function openPoster(id){const p=items[id];if(!p)return;const img=document.querySelector(`img[data-image-id="${CSS.escape(id)}"]`);if(img?.src){$("modalImage").src=img.src;$("modalImage").alt=p.name;$("modalCaption").textContent=`${p.name} · ${money(p.price)}`;$("posterModal").classList.add("open");$("posterModal").style.display="grid"}else if(p.hasImage){get(dr(db,`images/${id}/${p.imageVersion||"1"}`)).then(s=>{if(s.exists()&&s.val().dataUrl){$("modalImage").src=s.val().dataUrl;$("modalImage").alt=p.name;$("modalCaption").textContent=`${p.name} · ${money(p.price)}`;$("posterModal").classList.add("open");$("posterModal").style.display="grid"}else{fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/images/"+id+"/"+(p.imageVersion||"1")+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){$("modalImage").src=rec.dataUrl;$("modalImage").alt=p.name;$("modalCaption").textContent=p.name+" · "+money(p.price);$("posterModal").classList.add("open");$("posterModal").style.display="grid"}})}}).catch(()=>fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/images/"+id+"/"+(p.imageVersion||"1")+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){$("modalImage").src=rec.dataUrl;$("modalImage").alt=p.name;$("modalCaption").textContent=p.name+" · "+money(p.price);$("posterModal").classList.add("open");$("posterModal").style.display="grid"}}))}}
+function waProductUrl(p){const msg=`வணக்கம் YAGA'S MART, இந்தப் பொருளை ஆர்டர் செய்ய விரும்புகிறேன்.\nபொருள்: ${trName(p)}\nவிலை: ${money(p.price)}\nவகை: ${trCategory(p.category)}\nபக்க இணைப்பு: ${location.href}\nகிடைக்கும் விவரங்களைப் பகிரவும்.`;return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`}
+function openPoster(id){const p=items[id];if(!p)return;const img=document.querySelector(`img[data-image-id="${CSS.escape(id)}"]`);if(img?.src){$("modalImage").src=img.src;$("modalImage").alt=trName(p);$("modalCaption").textContent=`${trName(p)} · ${money(p.price)}`;$("posterModal").classList.add("open");$("posterModal").style.display="grid"}else if(p.hasImage){get(dr(db,`images/${id}/${p.imageVersion||"1"}`)).then(s=>{if(s.exists()&&s.val().dataUrl){$("modalImage").src=s.val().dataUrl;$("modalImage").alt=trName(p);$("modalCaption").textContent=`${trName(p)} · ${money(p.price)}`;$("posterModal").classList.add("open");$("posterModal").style.display="grid"}else{fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/images/"+id+"/"+(p.imageVersion||"1")+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){$("modalImage").src=rec.dataUrl;$("modalImage").alt=trName(p);$("modalCaption").textContent=trName(p)+" · "+money(p.price);$("posterModal").classList.add("open");$("posterModal").style.display="grid"}})}}).catch(()=>fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/images/"+id+"/"+(p.imageVersion||"1")+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){$("modalImage").src=rec.dataUrl;$("modalImage").alt=trName(p);$("modalCaption").textContent=trName(p)+" · "+money(p.price);$("posterModal").classList.add("open");$("posterModal").style.display="grid"}}))}}
 $("productGrid").addEventListener("click",e=>{const add=e.target.closest("[data-add]");if(add){addToCart(add.dataset.add);return}const preview=e.target.closest("[data-preview]");if(preview)openPoster(preview.dataset.preview)});
 $("search").addEventListener("input",render);$("sort").addEventListener("change",e=>{sortMode=e.target.value;render()});
 
-function addToCart(id){const p=items[id];if(!p||p.status!=="active")return;const line=cart[id]||{id,qty:0};line.qty=Math.min(99,(Number(line.qty)||0)+1);line.name=p.name;line.price=Number(p.price)||0;line.category=p.category;cart[id]=line;persistCart();const b=document.querySelector(`[data-add="${CSS.escape(id)}"]`);if(b){const old=b.textContent;b.textContent="✓ "+tr("added");setTimeout(()=>{if(b.isConnected)b.textContent="🛒 "+tr("add")},1100)}}
+function addToCart(id){const p=items[id];if(!p||p.status!=="active")return;const line=cart[id]||{id,qty:0};line.qty=Math.min(99,(Number(line.qty)||0)+1);line.name=trName(p);line.price=Number(p.price)||0;line.category=p.category;cart[id]=line;persistCart();const b=document.querySelector(`[data-add="${CSS.escape(id)}"]`);if(b){const old=b.textContent;b.textContent="✓ "+tr("added");setTimeout(()=>{if(b.isConnected)b.textContent="🛒 "+tr("add")},1100)}}
 function cartRows(){return Object.values(cart).filter(x=>x&&x.qty>0).map(line=>{const p=items[line.id];if(p&&p.status==="active")return {...line,name:p.name,price:Number(p.price)||0,category:p.category};return line})}
 function renderCartBadge(){const count=cartRows().reduce((n,x)=>n+Number(x.qty||0),0);$("cartCount").textContent=count}
-function renderCart(){const rows=cartRows();$("cartItems").innerHTML=rows.map(x=>{const p=items[x.id];const thumb=p?.hasImage?`<img class="cart-thumb" alt="" data-cart-image="${esc(x.id)}" src="">`:`<div class="cart-thumb"></div>`;return `<div class="cart-line">${thumb}<div><h3>${esc(x.name)}</h3><small>${money(x.price)} each</small><div class="qty-controls"><button type="button" data-qty="-1" data-id="${esc(x.id)}" aria-label="Decrease quantity">−</button><b>${Number(x.qty)}</b><button type="button" data-qty="1" data-id="${esc(x.id)}" aria-label="Increase quantity">+</button><button type="button" class="remove-line" data-remove="${esc(x.id)}">Remove</button></div></div><strong>${money(Number(x.price)*Number(x.qty))}</strong></div>`}).join("");$("cartEmpty").style.display=rows.length?"none":"block";const total=rows.reduce((n,x)=>n+Number(x.price)*Number(x.qty),0);$("cartSubtotal").textContent=money(total);$("checkoutCart").disabled=!rows.length;$("cartItems").querySelectorAll("[data-cart-image]").forEach(img=>{const p=items[img.dataset.cartImage];if(!p?.hasImage)return;const key=p.id+":"+(p.imageVersion||"1");if(imageCache.has(key)){img.src=imageCache.get(key);return}get(dr(db,`images/${p.id}/${p.imageVersion||"1"}`)).then(s=>{if(s.exists()&&s.val().dataUrl){imageCache.set(key,s.val().dataUrl);img.src=s.val().dataUrl}else{fetchRESTImage(p.id,p.imageVersion||"1",img,key)}}).catch(()=>fetchRESTImage(p.id,p.imageVersion||"1",img,key))});}
+function renderCart(){const rows=cartRows();$("cartItems").innerHTML=rows.map(x=>{const p=items[x.id];const thumb=p?.hasImage?`<img class="cart-thumb" alt="" data-cart-image="${esc(x.id)}" src="">`:`<div class="cart-thumb"></div>`;return `<div class="cart-line">${thumb}<div><h3>${esc(x.name)}</h3><small>${money(x.price)} each</small><div class="qty-controls"><button type="button" data-qty="-1" data-id="${esc(x.id)}" aria-label="Decrease quantity">−</button><b>${Number(x.qty)}</b><button type="button" data-qty="1" data-id="${esc(x.id)}" aria-label="Increase quantity">+</button></div></div><strong>${money(Number(x.price)*Number(x.qty))}</strong></div>`}).join("");$("cartEmpty").style.display=rows.length?"none":"block";const total=rows.reduce((n,x)=>n+Number(x.price)*Number(x.qty),0);$("cartSubtotal").textContent=money(total);const cf=$("checkoutForm");if(cf)cf.style.display=rows.length?"block":"none";$("cartItems").querySelectorAll("[data-cart-image]").forEach(img=>{const p=items[img.dataset.cartImage];if(!p?.hasImage)return;const key=p.id+":"+(p.imageVersion||"1");if(imageCache.has(key)){img.src=imageCache.get(key);return}get(dr(db,`images/${p.id}/${p.imageVersion||"1"}`)).then(s=>{if(s.exists()&&s.val().dataUrl){imageCache.set(key,s.val().dataUrl);img.src=s.val().dataUrl}else{fetchRESTImage(p.id,p.imageVersion||"1",img,key)}}).catch(()=>fetchRESTImage(p.id,p.imageVersion||"1",img,key))});}
 $("cartItems").addEventListener("click",e=>{const q=e.target.closest("[data-qty]"),r=e.target.closest("[data-remove]");if(q){const id=q.dataset.id;cart[id].qty=Math.max(0,Math.min(99,Number(cart[id].qty)+Number(q.dataset.qty)));if(!cart[id].qty)delete cart[id];persistCart()}if(r){delete cart[r.dataset.remove];persistCart()}});
 function showCart(){renderCart();$("cartOverlay").classList.remove("hidden");$("cartOverlay").setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
 function hideCart(){$("cartOverlay").classList.add("hidden");$("cartOverlay").setAttribute("aria-hidden","true");document.body.style.overflow=""}
 $("openCart").onclick=showCart;$("closeCart").onclick=hideCart;$("cartOverlay").addEventListener("click",e=>{if(e.target===$("cartOverlay"))hideCart()});$("clearCart").onclick=()=>{cart={};persistCart()};
-$("checkoutCart").onclick=()=>{const rows=cartRows();if(!rows.length)return;const total=rows.reduce((n,x)=>n+x.price*x.qty,0);const lines=rows.map(x=>`• ${x.name} × ${x.qty} — ${money(x.price*x.qty)}`).join("\n");const message=`வணக்கம் YAGA'S MART, நான் இந்தப் பொருட்களை ஆர்டர் செய்ய விரும்புகிறேன்.\n\n${lines}\n\nமொத்தம்: ${money(total)}\nபெயர் / முகவரி / டெலிவரி விவரங்களை உறுதி செய்ய தொடர்பு கொள்ளவும்.\nWebsite: ${location.href}`;window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,"_blank","noopener")};
+$("checkoutForm").onsubmit=async e=>{
+  e.preventDefault();
+  const rows=cartRows();if(!rows.length)return;
+  const name=$("custName").value.trim(),phone=$("custPhone").value.trim(),address=$("custAddress").value.trim();
+  if(!name||!phone||!address)return;
+  const total=rows.reduce((n,x)=>n+x.price*x.qty,0);
+  const orderId=crypto.randomUUID();
+  const order={id:orderId,customerName:name,customerPhone:phone,customerAddress:address,items:rows.map(x=>({productId:x.id,name:x.name,price:x.price,qty:x.qty})),total,status:"new",createdAt:Date.now(),updatedAt:Date.now()};
+  try{
+    await set(dr(db,"orders/"+orderId),order);
+  }catch(err){console.warn("Order save failed",err)}
+  if(isAdmin)renderOrders();
+  const lines=rows.map(x=>`• ${x.name} × ${x.qty} — ${money(x.price*x.qty)}`).join("\n");
+  const message=`Hi YAGA'S MART, I want to order.\n\n${lines}\n\nTotal: ${money(total)}\n\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\n\nOrder ID: ${orderId}\nWebsite: ${location.href}`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,"_blank","noopener");
+  const f=$("checkoutForm");if(f)f.classList.add("hidden");
+  $("custName").value="";$("custPhone").value="";$("custAddress").value="";
+  cart={};persistCart();renderCart();
+};
 
 // Main menu behaviour
 $("menuToggle").onclick=()=>{const open=$("mainMenu").classList.toggle("open");$("menuToggle").setAttribute("aria-expanded",String(open))};$("mainMenu").querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>$("mainMenu").classList.remove("open")));
 
 // Admin panel and Firebase management
 function status(t){$("status").textContent=t}
-function renderAdmin(){if(!isAdmin)return;const list=Object.values(items||{}).filter(Boolean);$("activeN").textContent=list.filter(p=>p.status==="active").length;$("archiveN").textContent=list.filter(p=>p.status==="archived").length;$("usage").textContent=mb(used)+" MB";$("meter").style.width="0%";const term=($("productSearch")?.value||"").toLowerCase();const filtered=list.filter(p=>($("filter").value==="all"||p.status===$("filter").value)&&(!term||p.name.toLowerCase().includes(term)));$("manage").innerHTML=filtered.map(p=>`<div class="adminrow"><div class="grow"><b>${esc(p.name)}</b><small>${esc(p.category)} · ${money(p.price)}</small></div><button data-edit="${esc(p.id)}">Edit</button>${p.status==="archived"?`<button data-restore="${esc(p.id)}">Restore</button>`:`<button data-archive="${esc(p.id)}">Archive</button>`}<button class="danger" data-del="${esc(p.id)}">Delete</button></div>`).join("")||'<p>No products.</p>';$("manage").querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editProduct(b.dataset.edit));$("manage").querySelectorAll("[data-archive]").forEach(b=>b.onclick=()=>setStatus(b.dataset.archive,"archived"));$("manage").querySelectorAll("[data-restore]").forEach(b=>b.onclick=()=>setStatus(b.dataset.restore,"active"));$("manage").querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>deleteProduct(b.dataset.del));$("recentProducts").innerHTML=list.slice(0,5).map(p=>`<div class="adminrow"><div class="grow"><b>${esc(p.name)}</b><small>${esc(p.category)} · ${money(p.price)}</small></div></div>`).join("")||'<p>No products yet.</p>';renderBannerAdmin()}
+function renderOrders(){
+  if(!isAdmin)return;
+  const list=Object.values(orders||{}).filter(Boolean).sort((a,b)=>(b.createdAt||0)-(a.createdAt||0));
+  const el=$("ordersManage");if(!el)return;
+  if(!list.length){el.innerHTML='<p>No orders yet. Orders placed by customers will appear here.</p>';return}
+  const statusColors={new:{bg:"#FFF3E0",text:"#E8550F",label:"New"},confirmed:{bg:"#E3F2FD",text:"#1565C0",label:"Confirmed"},delivered:{bg:"#E8F5E9",text:"#2E7D32",label:"Delivered"},cancelled:{bg:"#FFEBEE",text:"#C62828",label:"Cancelled"}};
+  const totalRevenue=list.filter(o=>o.status!=="cancelled").reduce((n,o)=>n+(o.total||0),0);
+  const rows=list.map(o=>{
+    const date=new Date(o.createdAt||Date.now()).toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"});
+    const items=(o.items||[]);
+    const itemsHtml=items.slice(0,3).map(it=>`<div style="font-size:12px;color:#6f6b70">${esc(it.name)} <b style="color:#1A1A2E">× ${it.qty}</b></div>`).join("")+(items.length>3?`<div style="font-size:11px;color:#9a968e">+${items.length-3} more</div>`:"");
+    const status=o.status||"new";
+    const sc=statusColors[status]||statusColors.new;
+    const initials=(o.customerName||"?").split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase();
+    return `<tr>
+    <td style="padding:10px 8px;border-bottom:1px solid #eae6df"><b style="font-family:var(--ym-mono);font-size:12px">#${esc((o.id||"").slice(0,8))}</b></td>
+    <td style="padding:10px 8px;border-bottom:1px solid #eae6df"><div style="display:flex;align-items:center;gap:8px"><span class="order-avatar">${esc(initials)}</span><div><b style="font-size:13px">${esc(o.customerName||"—")}</b><div style="font-size:11px;color:#6f6b70">${esc(o.customerPhone||"—")}</div></div></div></td>
+    <td style="padding:10px 8px;border-bottom:1px solid #eae6df">${itemsHtml||"—"}</td>
+    <td style="padding:10px 8px;border-bottom:1px solid #eae6df;text-align:right"><b style="color:#2D9D5F;font-size:14px">${money(o.total||0)}</b></td>
+    <td style="padding:10px 8px;border-bottom:1px solid #eae6df;font-size:12px;color:#6f6b70">${date}</td>
+    <td style="padding:10px 8px;border-bottom:1px solid #eae6df"><span class="order-status-badge" style="background:${sc.bg};color:${sc.text}">${esc(sc.label)}</span></td>
+    <td style="padding:10px 8px;border-bottom:1px solid #eae6df"><div style="display:flex;gap:5px;flex-wrap:wrap">
+    ${status!=="delivered"&&status!=="cancelled"?`<button type="button" data-order-status="${esc(o.id)}" data-status="confirmed" class="order-btn">Confirm</button>`:""}
+    ${status!=="delivered"&&status!=="cancelled"?`<button type="button" data-order-status="${esc(o.id)}" data-status="delivered" class="order-btn">Delivered</button>`:""}
+    ${status!=="cancelled"?`<button type="button" class="danger order-btn" data-order-status="${esc(o.id)}" data-status="cancelled">Cancel</button>`:""}
+    </div></td>
+    </tr>`;
+  }).join("");
+  el.innerHTML=`<div class="orders-summary">
+  <div><b>${list.length}</b> orders · <b>${money(totalRevenue)}</b> revenue</div>
+  <div style="display:flex;gap:8px"><button type="button" id="exportCsv" class="admin-action">📥 Export CSV</button><button type="button" id="printOrders" class="admin-secondary">🖨️ Print / PDF</button></div>
+  </div>
+  <div class="orders-table-wrap"><table class="orders-table" style="width:100%;border-collapse:collapse">
+  <thead><tr class="orders-header">
+  <th>Order ID</th><th>Customer</th><th>Items</th><th style="text-align:right">Total</th><th>Date</th><th>Status</th><th>Actions</th>
+  </tr></thead>
+  <tbody>${rows}</tbody>
+  </table></div>`;
+  el.querySelectorAll("[data-order-status]").forEach(b=>b.onclick=async()=>{
+    try{await update(dr(db,"orders/"+b.dataset.orderStatus),{status:b.dataset.status,updatedAt:Date.now()});renderOrders()}catch(e){alert("Update failed: "+(e.message||""))}
+  });
+  if($("exportCsv"))$("exportCsv").onclick=()=>{
+    const header="Order ID,Customer,Phone,Items,Total,Date,Status";
+    const lines=list.map(o=>{
+      const items=(o.items||[]).map(it=>`${it.name} x${it.qty}`).join("; ");
+      const date=new Date(o.createdAt||Date.now()).toLocaleString("en-IN");
+      return [`#${(o.id||"").slice(0,8)}`,o.customerName,o.customerPhone,items,o.total,date,o.status].map(v=>'"'+String(v||"").replace(/"/g,'""')+'"').join(",");
+    });
+    const csv=[header,...lines].join("\n");
+    const blob=new Blob([csv],{type:"text/csv;charset=utf-8"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");a.href=url;a.download="yaga-orders-"+new Date().toISOString().slice(0,10)+".csv";a.click();
+    URL.revokeObjectURL(url);
+  };
+  if($("printOrders"))$("printOrders").onclick=()=>window.print();
+}
+function renderAdmin(){if(!isAdmin)return;const list=Object.values(items||{}).filter(Boolean);list.forEach(p=>{if(!p.name_ta&&p.name)translateProduct(p).catch(()=>{})});$("activeN").textContent=list.filter(p=>p.status==="active").length;$("archiveN").textContent=list.filter(p=>p.status==="archived").length;$("usage").textContent=mb(used)+" MB";$("meter").style.width="0%";const term=($("productSearch")?.value||"").toLowerCase();const cat=$("categoryFilter")?.value||"all";const cats=[...new Set(list.map(p=>p.category).filter(Boolean))].sort();const sel=$("category");if(sel){const cur=sel.value;const defaults=["Toys & RC","Smart Gadgets","Home & Kitchen","Home Care"];const all=[...new Set([...defaults,...cats])];sel.innerHTML='<option value="">Select category...</option>'+all.map(c=>`<option value="${esc(c)}"${c===cur?" selected":""}>${esc(c)}</option>`).join("")+'<option value="__new__">➕ Add new category...</option>'}const cf=$("categoryFilter");if(cf){const cur=cf.value;cf.innerHTML='<option value="all">All categories</option>'+cats.map(c=>`<option value="${esc(c)}"${c===cur?" selected":""}>${esc(c)}</option>`).join("")}const filtered=list.filter(p=>($("filter").value==="all"||p.status===$("filter").value)&&(cat==="all"||p.category===cat)&&(!term||p.name.toLowerCase().includes(term)));$("manage").innerHTML=filtered.map(p=>`<div class="adminrow"><div class="grow"><b>${esc(p.name)}</b><span class="admin-cat-badge">${esc(p.category)}</span><small>${money(p.price)}</small></div><button data-edit="${esc(p.id)}">Edit</button>${p.status==="archived"?`<button data-restore="${esc(p.id)}">Restore</button>`:`<button data-archive="${esc(p.id)}">Archive</button>`}<button class="danger" data-del="${esc(p.id)}">Delete</button></div>`).join("")||'<p>No products.</p>';$("manage").querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editProduct(b.dataset.edit));$("manage").querySelectorAll("[data-archive]").forEach(b=>b.onclick=()=>setStatus(b.dataset.archive,"archived"));$("manage").querySelectorAll("[data-restore]").forEach(b=>b.onclick=()=>setStatus(b.dataset.restore,"active"));$("manage").querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>deleteProduct(b.dataset.del));$("recentProducts").innerHTML=list.slice(0,5).map(p=>`<div class="adminrow"><div class="grow"><b>${esc(p.name)}</b><span class="admin-cat-badge">${esc(p.category)}</span><small>${money(p.price)}</small></div></div>`).join("")||'<p>No products yet.</p>';renderBannerAdmin();renderOrders()}
 function editProduct(id){const p=items[id];if(!p)return;$("pid").value=id;["name","category","price","mrp","description","expiry"].forEach(k=>$(k).value=p[k]??"");$("image").value="";$("save").textContent="Update & Publish";$("productModalTitle").textContent="Edit Product";$("productModal").classList.remove("hidden")}
-function resetForm(){$("productForm").reset();$("pid").value="";$("save").textContent="Save & Publish";status("")}
+function resetForm(){$("productForm").reset();$("pid").value="";$("save").textContent="Save & Publish";const nc=$("newCategory");if(nc)nc.style.display="none";status("")}
 
 function bannerStatus(message){$("bannerStatus").textContent=message||""}
 function safeBannerHref(value){const v=String(value||"#offers").trim();return (/^(#|https?:\/\/|\/)/i).test(v)?v:"#offers"}
@@ -1267,13 +1520,13 @@ function renderBannerAdmin(){
   }catch(err){console.warn("Banner thumbnail load failed",err)}
  });
 }
-function resetBannerForm(){$("bannerForm").reset();$("bannerId").value="";$("bannerOrder").value=String(Object.keys(banners||{}).length+1);$("bannerActive").checked=true;$("saveBanner").textContent="Save & Publish Banner";bannerStatus("")}
+function resetBannerForm(){$("bannerForm").reset();$("bannerId").value="";$("bannerOrder").value=String(Object.keys(banners||{}).length+1);$("bannerActive").checked=true;$("saveBanner").textContent="Save & Publish Banner";if($("bannerModalTitle"))$("bannerModalTitle").textContent="Add Banner";bannerStatus("")}
 function editBanner(id){
  const b=banners[id];if(!b)return;$("bannerId").value=id;$("bannerTitle").value=b.title||"";$("bannerAlt").value=b.altText||"";
  $("bannerSubtitle").value=b.subtitle||"";$("bannerCta").value=b.ctaText||"";$("bannerLink").value=b.link||"";
  $("bannerOrder").value=Number(b.order)||0;$("bannerStart").value=b.startDate||"";$("bannerEnd").value=b.endDate||"";
- $("bannerActive").checked=b.status==="active";$("bannerImage").value="";$("saveBanner").textContent="Update Banner";$("bannerForm").scrollIntoView({behavior:"smooth"});
-}
+  $("bannerActive").checked=b.status==="active";$("bannerImage").value="";$("saveBanner").textContent="Update Banner";$("bannerModalTitle").textContent="Edit Banner";$("bannerModal").classList.remove("hidden");
+ }
 async function saveBanner(e){
  e.preventDefault();if(!isAdmin)return;
  const id=$("bannerId").value||crypto.randomUUID(),old=banners[id]||{},file=$("bannerImage").files[0]||null;
@@ -1309,22 +1562,24 @@ async function deleteBanner(id){
 
 async function reserveBytes(delta){const tx=await runTransaction(dr(db,"meta/usedBytes"),current=>{const next=Number(current||0)+delta;if(next<0||next>MAX_TRACKED_BYTES)return;return next});if(!tx.committed)throw Error("The 200 MB application storage limit would be exceeded. Remove unused images or banners first.");used=Number(tx.snapshot.val()||0)}
 async function compressImage(file){if(file.size>SOURCE_IMAGE_LIMIT)throw Error("Choose an image smaller than 8 MB.");if(!file.type.startsWith("image/"))throw Error("Please select a valid image.");const bitmap=await createImageBitmap(file),scale=Math.min(1,1280/Math.max(bitmap.width,bitmap.height)),canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));canvas.getContext("2d",{alpha:false}).drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();let blob=await new Promise(r=>canvas.toBlob(r,"image/webp",.76));if(!blob)blob=await new Promise(r=>canvas.toBlob(r,"image/jpeg",.76));if(!blob||blob.size>COMPRESSED_IMAGE_LIMIT)throw Error("Compressed image is above 1 MB. Choose a smaller image.");const dataUrl=await new Promise((r,j)=>{const f=new FileReader();f.onload=()=>r(f.result);f.onerror=()=>j(Error("Could not read image."));f.readAsDataURL(blob)});return{dataUrl,size:bytes(dataUrl),mime:blob.type}}
-async function saveProduct(e){e.preventDefault();if(!isAdmin)return;const id=$("pid").value||crypto.randomUUID(),old=items[id]||{},file=$("image").files[0]||null;const p={id,name:$("name").value.trim(),category:$("category").value.trim(),price:Number($("price").value),mrp:Number($("mrp").value||0),description:$("description").value.trim(),expiry:$("expiry").value,status:old.status||"active",createdAt:old.createdAt||Date.now(),updatedAt:Date.now(),hasImage:!!old.hasImage,imageVersion:old.imageVersion||"",imageBytes:Number(old.imageBytes||0)};if(!p.name||!p.category||!Number.isFinite(p.price)||p.price<0){status("Check required fields.");return}$("save").disabled=true;let reserved=0,newPath="";try{let imageRecord=null;if(file){status("Compressing image…");imageRecord=await compressImage(file);p.hasImage=true;p.imageVersion=String(Date.now());p.imageBytes=imageRecord.size}p.trackedBytes=productMetadataBytes(p)+Number(p.imageBytes||0);reserved=p.trackedBytes-trackedBytes(old);await reserveBytes(reserved);if(imageRecord){newPath=`images/${id}/${p.imageVersion}`;status("Saving image to Firebase…");await set(dr(db,newPath),{dataUrl:imageRecord.dataUrl,version:p.imageVersion,mime:imageRecord.mime,bytes:imageRecord.size,updatedAt:Date.now()})}await set(dr(db,"products/"+id),p);if(file&&old.hasImage&&old.imageVersion)try{await remove(dr(db,`images/${id}/${old.imageVersion}`))}catch(e){console.warn(e)}status("Published. Customer pages update live.");resetForm()}catch(err){if(newPath)try{await remove(dr(db,newPath))}catch{}if(reserved)try{await reserveBytes(-reserved)}catch{}status(err.message||"Save failed.")}finally{$("save").disabled=false}}
-async function setStatus(id,s){const p=items[id];if(p)await update(dr(db,"products/"+id),{status:s,archivedAt:s==="archived"?Date.now():null,updatedAt:Date.now()})}
+async function saveProduct(e){e.preventDefault();if(!isAdmin)return;const id=$("pid").value||crypto.randomUUID(),old=items[id]||{},file=$("image").files[0]||null;const p={id,name:$("name").value.trim(),category:$("category").value==="__new__"?($("newCategory").value.trim()):$("category").value.trim(),price:Number($("price").value),mrp:Number($("mrp").value||0),description:$("description").value.trim(),expiry:$("expiry").value,status:old.status||"active",createdAt:old.createdAt||Date.now(),updatedAt:Date.now(),hasImage:!!old.hasImage,imageVersion:old.imageVersion||"",imageBytes:Number(old.imageBytes||0)};if(!p.name||!p.category||!Number.isFinite(p.price)||p.price<0){status("Check required fields.");return}$("save").disabled=true;let reserved=0,newPath="";try{let imageRecord=null;if(file){status("Compressing image…");imageRecord=await compressImage(file);p.hasImage=true;p.imageVersion=String(Date.now());p.imageBytes=imageRecord.size}p.trackedBytes=productMetadataBytes(p)+Number(p.imageBytes||0);reserved=p.trackedBytes-trackedBytes(old);await reserveBytes(reserved);if(imageRecord){newPath=`images/${id}/${p.imageVersion}`;status("Saving image to Firebase…");await set(dr(db,newPath),{dataUrl:imageRecord.dataUrl,version:p.imageVersion,mime:imageRecord.mime,bytes:imageRecord.size,updatedAt:Date.now()})}await set(dr(db,"products/"+id),p);if(!categoryTranslations[p.category])translateCategory(p.category).catch(()=>{});if(!p.name_ta)translateProduct(p).catch(()=>{});if(file&&old.hasImage&&old.imageVersion)try{await remove(dr(db,`images/${id}/${old.imageVersion}`))}catch(e){console.warn(e)}status("Published. Customer pages update live.");resetForm()}catch(err){if(newPath)try{await remove(dr(db,newPath))}catch{}if(reserved)try{await reserveBytes(-reserved)}catch{}status(err.message||"Save failed.")}finally{$("save").disabled=false}}
+async function setStatus(id,s){const p=items[id];if(!p)return;try{await update(dr(db,"products/"+id),{status:s,archivedAt:s==="archived"?Date.now():null,updatedAt:Date.now()});status(s==="archived"?"Product archived.":"Product restored.");renderAdmin()}catch(e){status("Update failed: "+(e.message||"Permission denied"));alert("Update failed: "+(e.message||"Permission denied. Check Firebase rules."))}}
 async function deleteProduct(id){const p=items[id];if(!p||!confirm(`Permanently delete ${p.name} and its image?`))return;try{await remove(dr(db,"products/"+id));if(p.hasImage&&p.imageVersion)await remove(dr(db,`images/${id}/${p.imageVersion}`));await reserveBytes(-trackedBytes(p));status("Product and image deleted.")}catch(e){alert(e.message||"Delete failed.")}}
 async function cleanup(){const now=Date.now(),today=new Date().toISOString().slice(0,10);for(const p of Object.values(items||{})){if(!p)continue;if(p.status==="active"&&p.expiry&&p.expiry<today)await setStatus(p.id,"archived");else if(p.status==="archived"&&p.archivedAt&&now-p.archivedAt>ARCHIVE_RETENTION_DAYS*86400000)await deleteProduct(p.id)}}
 document.querySelectorAll(".js-add-product").forEach(b=>b.onclick=()=>{resetForm();$("productModalTitle").textContent="Add Product";$("productModal").classList.remove("hidden")});
 $("cancel").onclick=()=>{$("productModal").classList.add("hidden");resetForm()};
-$("filter").onchange=renderAdmin;$("productSearch").oninput=renderAdmin;$("productForm").onsubmit=saveProduct;
+$("filter").onchange=renderAdmin;$("categoryFilter").onchange=renderAdmin;$("productSearch").oninput=renderAdmin;$("category").onchange=()=>{const nc=$("newCategory");if(nc)nc.style.display=$("category").value==="__new__"?"block":"none"};$("productForm").onsubmit=saveProduct;
 document.querySelectorAll(".js-add-banner").forEach(b=>b.onclick=()=>{resetBannerForm();$("bannerModalTitle").textContent="Add Banner";$("bannerModal").classList.remove("hidden")});
 $("bannerForm").onsubmit=saveBanner;$("cancelBanner").onclick=()=>{$("bannerModal").classList.add("hidden");resetBannerForm()};$("bannerFilter").onchange=renderBannerAdmin;
-document.querySelectorAll(".admin-tab").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".admin-tab").forEach(b=>b.classList.remove("active"));document.querySelectorAll(".admin-tab-panel").forEach(p=>p.classList.remove("active"));btn.classList.add("active");$("tab-"+btn.dataset.tab).classList.add("active")});
+document.querySelectorAll(".admin-tab").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".admin-tab").forEach(b=>b.classList.remove("active"));document.querySelectorAll(".admin-tab-panel").forEach(p=>p.classList.remove("active"));btn.classList.add("active");$("tab-"+btn.dataset.tab).classList.add("active");if(btn.dataset.tab==="orders")renderOrders();if(btn.dataset.tab==="banners")renderBannerAdmin();if(btn.dataset.tab==="products"||btn.dataset.tab==="dashboard")renderAdmin()});
 $("login").onclick=()=>$("loginModal").classList.remove("hidden");$("closeLogin").onclick=()=>$("loginModal").classList.add("hidden");$("logout").onclick=()=>{if(auth)signOut(auth)};$("loginForm").onsubmit=async e=>{e.preventDefault();if(!auth){$("loginErr").textContent="Firebase Authentication is not enabled. Enable Email/Password in Firebase Console.";return}try{await signInWithEmailAndPassword(auth,$("email").value,$("password").value);$("loginModal").classList.add("hidden");$("password").value=""}catch(err){$("loginErr").textContent=err.message}};
 $("posterModal").querySelector(".modal-close").onclick=()=>{$("posterModal").classList.remove("open");$("posterModal").style.display="none"};$("posterModal").addEventListener("click",e=>{if(e.target===$("posterModal")){$("posterModal").classList.remove("open");$("posterModal").style.display="none"}});
 
 const app=initializeApp(firebaseConfig);db=getDatabase(app);try{auth=getAuth(app)}catch(authErr){console.warn("Auth init failed:",authErr);auth=null}
-onValue(dr(db,"products"),snap=>{items=snap.val()||{};for(const [id,line] of Object.entries(cart)){const p=items[id];if(!p||p.status!=="active")delete cart[id];else{line.name=p.name;line.price=Number(p.price)||0;line.category=p.category}}persistCart();render();$("resultCount").dataset.connection="live"},err=>{console.warn("WebSocket failed, trying REST API:",err.code||"error");fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/products.json").then(r=>r.json()).then(data=>{items=data||{};render();$("resultCount").dataset.connection="rest"}).catch(e=>{$("emptyState").textContent="Database connection error: "+e.message;$("emptyState").classList.add("show")})});
+onValue(dr(db,"products"),snap=>{items=snap.val()||{};for(const [id,line] of Object.entries(cart)){const p=items[id];if(!p||p.status!=="active")delete cart[id];else{line.name=trName(p);line.price=Number(p.price)||0;line.category=p.category}}persistCart();render();$("resultCount").dataset.connection="live"},err=>{console.warn("WebSocket failed, trying REST API:",err.code||"error");fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/products.json").then(r=>r.json()).then(data=>{items=data||{};render();$("resultCount").dataset.connection="rest"}).catch(e=>{$("emptyState").textContent="Database connection error: "+e.message;$("emptyState").classList.add("show")})});
 onValue(dr(db,"banners"),snap=>{banners=snap.val()||{};renderBannerAdmin();renderRemoteBanners().catch(e=>console.warn("Banner carousel update failed",e))},err=>console.warn("Banner listener skipped (rules not updated):",err.code||"error"));
+onValue(dr(db,"orders"),snap=>{orders=snap.val()||{};if(isAdmin)renderOrders()},err=>console.warn("Orders listener skipped:",err.code||"error"));
+onValue(dr(db,"categoryTranslations"),snap=>{categoryTranslations=snap.val()||{};render()},err=>console.warn("Translation cache load failed:",err.code||"error"));
 onValue(dr(db,"meta/usedBytes"),snap=>{used=Number(snap.val()||0);if(isAdmin)renderAdmin()},err=>console.warn("Meta listener skipped:",err.code||"error"));
 if(auth){onAuthStateChanged(auth,async u=>{user=u;isAdmin=!!u&&ADMIN_UIDS.includes(u.uid);$("admin").classList.toggle("hidden",!isAdmin);$("login").classList.toggle("hidden",!!isAdmin);$("logout").classList.toggle("hidden",!isAdmin);if(u&&!isAdmin){await signOut(auth);alert("This account is not an authorized YAGA HOT DEALS administrator.")}if(isAdmin){renderAdmin();renderBannerAdmin();await cleanup()}})}
 setLanguage($("languageSelect")?.value||"ta");renderCartBadge();renderCart();
