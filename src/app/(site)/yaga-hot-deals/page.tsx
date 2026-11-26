@@ -22,10 +22,29 @@ export const metadata: Metadata = {
   },
 };
 
-export default function YagaHotDealsPage() {
+export default function YagaHotDealsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}) {
+  return <YagaHotDealsClient searchParams={searchParams} />;
+}
+
+async function YagaHotDealsClient({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>;
+}) {
+  const params = await searchParams;
+  const category = params.category;
+  const v = "20261126o";
+  const src = category
+    ? `/yaga-hot-deals.html?v=${v}&category=${encodeURIComponent(category)}`
+    : `/yaga-hot-deals.html?v=${v}`;
+
   return (
     <iframe
-      src="/yaga-hot-deals.html"
+      src={src}
       title="YAGA'S MART — Special Offers"
       style={{
         position: "fixed",
