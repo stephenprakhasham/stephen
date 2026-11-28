@@ -1142,8 +1142,8 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
   <label class="language-select-wrap">
     <span class="sr-only">Language</span>
     <select id="languageSelect" aria-label="Select language">
-      <option value="ta" selected>தமிழ்</option>
-      <option value="en">English</option>
+      <option value="ta">தமிழ்</option>
+      <option value="en" selected>English</option>
       <option value="hi">हिन्दी</option>
     </select>
   </label>
@@ -1152,11 +1152,12 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
   <a class="nav-brand" href="#top" aria-label="YAGA HOT DEALS home">YAGA <span>HOT DEALS</span></a>
   <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainMenu">☰ <span data-i18n="menu">மெனு</span></button>
   <div class="menu-links" id="mainMenu">
-    <a href="#top" data-i18n="home">முகப்பு</a><a href="#offers" data-i18n="shop">சலுகைகள்</a><a href="#dynamicFilters" data-i18n="categories">வகைகள்</a><a href="#" id="openContact" data-i18n="contact">தொடர்பு</a>
+    <a href="#top" data-i18n="home">முகப்பு</a><a href="#offers" data-i18n="shop">சலுகைகள்</a><a href="#dynamicFilters" data-i18n="categories">வகைகள்</a><a href="#" id="openContact" data-i18n="contact">தொடர்பு</a><a href="/yagawholesale" target="_top" rel="noopener">Wholesale</a>
     <button class="menu-cart" id="openCart" type="button"><span aria-hidden="true">🛒</span> <span data-i18n="cart">கார்ட்</span> <b id="cartCount">0</b></button>
     <button class="menu-admin" id="login" type="button" data-i18n="adminLogin">Admin Login</button>
   </div>
 </nav>
+<div class="ym-ticker"><span id="ymTickerText">⚡ MEGA SALE IS LIVE · Earbuds from ₹180 · Neckbands from ₹160 · Chargers from ₹80 · Cables from ₹99 · Power Banks from ₹410 · Limited stock — order now on WhatsApp ↗</span></div>
 
 <main id="offers">
   <section class="intro">
@@ -1165,9 +1166,11 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
       <h1 id="heroHeadline">இவ்வளவு குறைந்த விலையா?</h1>
       <p id="heroSupporting">உங்களுக்குப் பிடித்த பொருட்கள்… இனி உங்கள் பட்ஜெட்டுக்குள்!</p>
       <div class="promo-action-line" id="heroAction">விலையைப் பாருங்கள் <span>✦</span> பிடித்ததைத் தேர்வு செய்யுங்கள்</div>
+      <div class="ym-countdown" id="ymCountdown"><span class="cd-label">⏰ OFFER ENDS IN</span><span class="cd-box" id="cdH">00</span><span class="cd-sep">:</span><span class="cd-box" id="cdM">00</span><span class="cd-sep">:</span><span class="cd-box" id="cdS">00</span></div>
     </div>
     <div class="title-rule"></div>
   </section>
+  <div class="ym-social"><span class="stars">⭐⭐⭐⭐⭐</span> <span id="ymSoldCount">2,340+</span> sold this week · <span>🔥 Limited stock</span></div>
   <section aria-label="பொருட்களின் சிறப்புச் சலுகைகள்">
     <div class="toolbar">
       <div class="filters" role="group" aria-label="Product categories" id="dynamicFilters"></div>
@@ -1182,6 +1185,21 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
     <div class="grid" id="productGrid" aria-live="polite"></div>
     <div class="empty" id="emptyState">நீங்கள் தேடிய பொருள் கிடைக்கவில்லை. வேறு பெயர் அல்லது வகையில் தேடிப் பாருங்கள்.</div>
   </section>
+  <section class="wholesale-cta-wrap" style="max-width:1120px;margin:36px auto 0;padding:0 clamp(12px,2.5vw,28px)">
+    <div style="padding:clamp(22px,3.5vw,40px);border-radius:22px;background:linear-gradient(120deg,#FFF3E9,#FFE7D6);border:1px solid #F5D6C0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 14px 36px rgba(43,31,45,.08)">
+      <div style="min-width:0;flex:1 1 320px">
+        <div style="font-size:12px;font-weight:900;letter-spacing:.16em;color:#E8550F;text-transform:uppercase">YAGA MOBILES · B2B</div>
+        <h2 style="margin:6px 0;font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:#1A1A2E;font-weight:900;letter-spacing:-.02em">🏭 YAGA MOBILES WHOLESALE</h2>
+        <p style="margin:0;color:#6b5a52;font-size:clamp(13px,1.4vw,15px);line-height:1.6">Bulk prices for retailers &amp; dealers — tier pricing, low MOQ, fast stock.</p>
+        <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:6px 12px;border-radius:999px;background:#fff;border:1px solid #F0D6C2;font-size:12px;font-weight:700;color:#762630">Tier pricing</span>
+          <span style="padding:6px 12px;border-radius:999px;background:#fff;border:1px solid #F0D6C2;font-size:12px;font-weight:700;color:#762630">Low MOQ</span>
+          <span style="padding:6px 12px;border-radius:999px;background:#fff;border:1px solid #F0D6C2;font-size:12px;font-weight:700;color:#762630">Fast stock</span>
+        </div>
+      </div>
+      <a href="/yagawholesale" target="_top" rel="noopener" style="flex:0 0 auto;padding:14px 22px;border-radius:999px;background:linear-gradient(110deg,#FF8A4C,#FF6B35);color:#fff;font-weight:900;text-decoration:none;font-size:15px;box-shadow:0 8px 22px rgba(255,107,53,.28);white-space:nowrap">Visit Wholesale Store →</a>
+    </div>
+  </section>
   <section class="footer-cta" id="footerCta">
     <div><h2><span class="footer-drop">உ</span>ங்கள் விருப்பம்… எங்கள் சலுகை!</h2><p>பிடித்த பொருளைத் தேர்வு செய்து, விலை மற்றும் கிடைக்கும் விவரங்களை WhatsApp-ல் கேளுங்கள்.</p></div>
     <a class="footer-button" href="https://wa.me/919787608569?text=வணக்கம்%20YAGA%27S%20MART%2C%20உங்கள்%20சலுகைகள்%20பற்றி%20விவரம்%20வேண்டும்." target="_blank" rel="noopener">WhatsApp-ல் விசாரிக்கவும் ↗</a>
@@ -1193,6 +1211,10 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
   <div class="admin-shell">
     <aside class="admin-sidebar">
       <div class="admin-brand">YAGA <span>ADMIN</span></div>
+      <div class="shop-switcher" style="display:flex;gap:6px;padding:8px 10px;border-bottom:1px solid rgba(169,145,255,.15);margin-bottom:8px">
+        <button type="button" data-shop="retail" style="flex:1;padding:8px 6px;border-radius:8px;border:1px solid #e0d9cf;background:#fff;color:#20202a;font-weight:800;cursor:pointer;font-size:12px">🔥 Hot Deals</button>
+        <button type="button" data-shop="wholesale" style="flex:1;padding:8px 6px;border-radius:8px;border:1px solid #e0d9cf;background:#fff;color:#20202a;font-weight:800;cursor:pointer;font-size:12px">🏭 Wholesale</button>
+      </div>
       <nav class="admin-nav">
         <button class="admin-tab active" type="button" data-tab="dashboard">📊 <span>Dashboard</span></button>
         <button class="admin-tab" type="button" data-tab="products">📦 <span>Products</span></button>
@@ -1255,6 +1277,10 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
           <label>MRP (₹)<input id="mrp" type="number" min="0" step="0.01"></label>
           <label class="full">Description<textarea id="description" maxlength="500"></textarea></label>
           <label>Product image<input id="image" type="file" accept="image/*"><small class="img-size-hint">📐 Exact size: <b>1200 × 800 px</b> (3:2 ratio) · Max 8 MB source · Auto-compressed to 1 MB</small></label>
+          <div id="b2bFields" class="full" style="display:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px">
+            <label>Pack size<input id="packSize" maxlength="40" placeholder="Pack of 10"></label>
+            <label>MOQ (min order qty)<input id="moq" type="number" min="1" step="1" placeholder="10"></label>
+          </div>
         </div>
         <div class="admin-buttons"><button id="save" type="submit" class="admin-action">Save &amp; Publish</button><span id="status" role="status"></span></div>
       </form>
@@ -1366,6 +1392,14 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
 .contact-row .ci{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:11px;background:#fff4e6;font-size:19px;flex:0 0 40px}
 .contact-row b{font-size:13px;color:#762630}
 .contact-row span{font-size:13.5px;line-height:1.5}
+/* Theme-consistent dropdowns (fix black selects) */
+.admin-fields select,.admin-toolbar select,.admin-manage-head select{background:#fffdf8!important;border:1px solid #e6ddd2!important;color:#20202a!important;padding:11px 12px;border-radius:10px;font-weight:600}
+.admin-fields select:focus,.admin-toolbar select:focus,.admin-manage-head select:focus{outline:none;border-color:#FF6B35!important;box-shadow:0 0 0 3px rgba(255,107,53,.15)}
+.admin-fields select option,.admin-toolbar select option,.admin-manage-head select option{background:#fffdf8!important;color:#20202a!important}
+/* Featured (sort) dropdown matches the language dropdown style */
+.sort{background:#fff!important;border:1px solid #d8c8d8!important;color:#30213e!important;padding:10px 34px 10px 13px!important;border-radius:12px!important;font-size:14px!important;font-weight:800!important;box-shadow:0 4px 14px rgba(48,33,62,.08)!important;cursor:pointer!important}
+.sort:focus{outline:3px solid rgba(230,108,53,.2)!important;border-color:#e66c35!important}
+.sort option{background:#fff!important;color:#30213e!important}
 </style>
 <div id="toast" class="ym-toast" role="alert" aria-live="assertive"></div>
 
@@ -1407,9 +1441,34 @@ body:has(#admin:not(.hidden)) .site-nav,body:has(#admin:not(.hidden)) .language-
 
 
 
+<style id="phase3-eyecandy">
+.disc-badge{position:absolute;top:10px;left:10px;z-index:3;padding:5px 10px;border-radius:999px;background:linear-gradient(110deg,#ff3b3b,#ff7900);color:#fff;font-size:12px;font-weight:900;box-shadow:0 6px 16px rgba(255,59,59,.35)}
+.card-b2b{margin-top:8px;padding:7px 10px;border-radius:10px;background:linear-gradient(90deg,rgba(255,107,53,.12),rgba(255,211,106,.12));border:1px solid rgba(255,107,53,.25);color:#7a2e00;font-size:12px;font-weight:800}
+.ym-gradient-text{background:linear-gradient(90deg,#ff8a4c,#ffd36a,#ff6b35,#ff8a4c);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:ymGradShift 6s linear infinite}
+@keyframes ymGradShift{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+.ym-countdown{display:inline-flex;gap:6px;align-items:center;margin-top:14px;padding:10px 16px;border-radius:14px;background:rgba(255,59,59,.12);border:1px solid rgba(255,59,59,.3)}
+.ym-countdown .cd-label{font-size:12px;font-weight:800;color:#ffb3b3;letter-spacing:.06em}
+.ym-countdown .cd-box{display:inline-grid;place-items:center;min-width:38px;padding:6px 8px;border-radius:9px;background:#1a1a2e;color:#fff;font-weight:900;font-size:16px}
+.ym-countdown .cd-sep{font-weight:900;color:#ff8a4c}
+.ym-social{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px auto 0;padding:12px 18px;border-radius:16px;background:linear-gradient(90deg,rgba(255,107,53,.12),rgba(255,211,106,.12));border:1px solid rgba(255,107,53,.25);color:#1a1a2e;font-weight:800;font-size:14px}
+.ym-social .stars{color:#ffd36a;letter-spacing:2px}
+.ym-ticker{overflow:hidden;white-space:nowrap;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,107,53,.08);padding:8px 0}
+.ym-ticker span{display:inline-block;padding-left:100%;animation:ymTicker 22s linear infinite;font-weight:800;font-size:13px;color:#7a2e00}
+@keyframes ymTicker{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+.ym-stickybar{position:fixed;left:0;right:0;bottom:0;z-index:9998;display:none;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(16,14,28,.96);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.1)}
+.ym-stickybar button,.ym-stickybar a{flex:1;border:0;border-radius:12px;padding:13px;font-weight:900;font-size:14px;cursor:pointer;text-decoration:none;text-align:center}
+.ym-stickybar .sb-cart{background:#fff;color:#1a1a2e}
+.ym-stickybar .sb-wa{background:linear-gradient(110deg,#25d366,#128c7e);color:#fff}
+.ym-floatwa{position:fixed;right:16px;bottom:74px;z-index:9997;width:56px;height:56px;border-radius:50%;display:none;place-items:center;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-size:26px;text-decoration:none;box-shadow:0 10px 26px rgba(37,211,102,.4);animation:ymWAPulse 2s ease-in-out infinite}
+@keyframes ymWAPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@media(max-width:800px){.ym-stickybar{display:flex}.ym-floatwa{display:grid}}
+@media(prefers-reduced-motion:reduce){.ym-gradient-text,.ym-ticker span,.ym-floatwa{animation:none!important}}
+</style>
+<div class="ym-stickybar"><button type="button" class="sb-cart" id="sbCart">🛒 Cart (<span id="sbCount">0</span>)</button><a class="sb-wa" id="sbWa" href="https://wa.me/919787608569" target="_blank" rel="noopener">💬 WhatsApp</a></div>
+<a class="ym-floatwa" href="https://wa.me/919787608569" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 <script type="module">
 import{initializeApp}from"https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-import{getDatabase,ref as dr,onValue,get,set,update,remove,runTransaction}from"https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+import{getDatabase,ref,onValue,get,set,update,remove,runTransaction}from"https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";const SHOP=new URLSearchParams(location.search).get("shop")==="wholesale"?"wholesale/":"";const dr=(db,path)=>ref(db,SHOP+path);
 import{getAuth,signInWithEmailAndPassword,onAuthStateChanged,signOut}from"https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
 const firebaseConfig={apiKey:"AIzaSyCUaJQpWQ6MEM1VqvhhevrOpUFs6zm4Rxs",authDomain:"yaga-hot-deals.firebaseapp.com",databaseURL:"https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"yaga-hot-deals",appId:"1:254497809499:web:25ef75b4432b6d02994b7e"};
@@ -1418,15 +1477,28 @@ const SOURCE_IMAGE_LIMIT=8*1024*1024,COMPRESSED_IMAGE_LIMIT=1024*1024,ARCHIVE_RE
 const WHATSAPP_NUMBER="919787608569",$=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const bytes=s=>new TextEncoder().encode(s).length,mb=n=>(n/1048576).toFixed(2);
-let db,auth,user=null,isAdmin=false,items={},used=0,activeCategory="All",sortMode="featured",language="ta";
+let db,auth,user=null,isAdmin=false,items={},used=0,activeCategory="All",sortMode="featured",language="en";
 let banners={},bannerImageCache=new Map();
 let orders={};
 let categoryTranslations={};
+function isBadTranslation(t){return !t||/MYMEMORY WARNING|QUERY LENGTH LIMIT|TRANSLATION LIMIT|next available|translated\.net\/doc/i.test(String(t))}
+function cleanTranslation(t,fallback){return isBadTranslation(t)?fallback:String(t).trim()}
+async function googleTranslate(text,lang){
+  if(!text)return text;
+  try{
+    const r=await fetch("https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl="+encodeURIComponent(lang)+"&dt=t&q="+encodeURIComponent(text));
+    const data=await r.json();
+    const translated=(data&&data[0]&&data[0].map)?data[0].map(seg=>seg&&seg[0]?seg[0]:"").join(""):"";
+    return cleanTranslation(translated,text);
+  }catch(e){return text}
+}
+
 async function translateCategory(cat){
   if(!cat)return{en:cat,ta:cat,hi:cat};
-  if(categoryTranslations[cat])return categoryTranslations[cat];
+  const cached=categoryTranslations[cat];
+  if(cached && !isBadTranslation(cached.ta) && cached.ta!==cached.en && !isBadTranslation(cached.hi))return cached;
   try{
-    const pair=(lang)=>fetch("https://api.mymemory.translated.net/get?q="+encodeURIComponent(cat)+"&langpair=en|"+lang).then(r=>r.json()).then(d=>(d.responseData&&d.responseData.translatedText)||cat).catch(()=>cat);
+    const pair=(lang)=>googleTranslate(cat,lang);
     const [ta,hi]=await Promise.all([pair("ta"),pair("hi")]);
     const rec={en:cat,ta,hi,updatedAt:Date.now()};
     categoryTranslations[cat]=rec;
@@ -1442,35 +1514,44 @@ const CATEGORY_I18N={
   "Jewels":{ta:"நகைகள்",hi:"गहने",en:"Jewels"},
   "Car Accessories":{ta:"கார் பொருட்கள்",hi:"कार एक्सेसरीज़",en:"Car Accessories"},
   "Mobile Accessories":{ta:"மொபைல் பொருட்கள்",hi:"मोबाइल एक्सेसरीज़",en:"Mobile Accessories"},
-  "Combo Offer":{ta:"காம்போ சலுகை",hi:"कोंबो ऑफर",en:"Combo Offer"}
+  "Combo Offer":{ta:"காம்போ சலுகை",hi:"कोंबो ऑफर",en:"Combo Offer"},
+  "Chirstmas special":{ta:"கிறிஸ்துமஸ் சிறப்பு",hi:"क्रिसमस विशेष",en:"Chirstmas special"},
+  "Christmas special":{ta:"கிறிஸ்துமஸ் சிறப்பு",hi:"क्रिसमस विशेष",en:"Christmas special"}
 };
 function trCategory(cat){
   const t=CATEGORY_I18N[cat];
-  if(t)return t[language]||cat;
+  if(t){const v=t[language];return isBadTranslation(v)?cat:v}
   const c=categoryTranslations[cat];
   if(!c)return cat;
-  return c[language]||cat;
+  const v=c[language];
+  return isBadTranslation(v)?cat:v;
 }
 async function translateAllCategories(){
   const cats=[...new Set(active().map(p=>p.category).filter(Boolean))];
   let changed=false;
-  for(const c of cats){if(!CATEGORY_I18N[c]&&!categoryTranslations[c]){await translateCategory(c);changed=true}}
+  for(const c of cats){if(!CATEGORY_I18N[c]&&(!categoryTranslations[c]||isBadTranslation(categoryTranslations[c].ta)||categoryTranslations[c].ta===categoryTranslations[c].en)){await translateCategory(c);changed=true}}
   if(changed)render();
 }
 async function translateText(text,lang){
   if(!text)return text;
-  try{
-    const r=await fetch("https://api.mymemory.translated.net/get?q="+encodeURIComponent(text)+"&langpair=en|"+lang).then(r=>r.json());
-    return (r.responseData&&r.responseData.translatedText)||text;
-  }catch(e){return text}
+  return googleTranslate(text,lang);
 }
-function trName(p){return (language==="ta"&&p.name_ta)||(language==="hi"&&p.name_hi)||p.name}
-function trDesc(p){return (language==="ta"&&p.description_ta)||(language==="hi"&&p.description_hi)||p.description||""}
+function trName(p){const v=(language==="ta"&&p.name_ta)||(language==="hi"&&p.name_hi);return (v&&!isBadTranslation(v))?v:p.name}
+function trDesc(p){const v=(language==="ta"&&p.description_ta)||(language==="hi"&&p.description_hi);return (v&&!isBadTranslation(v))?v:(p.description||"")}
 async function translateProduct(p){
   if(!p||!p.name)return;
   const [nt,nh,dt,dh]=await Promise.all([translateText(p.name,"ta"),translateText(p.name,"hi"),translateText(p.description||"","ta"),translateText(p.description||"","hi")]);
   try{await update(dr(db,"products/"+p.id),{name_ta:nt,name_hi:nh,description_ta:dt,description_hi:dh,updatedAt:Date.now()})}catch(e){console.warn("Product translation save failed",e)}
 }
+// Countdown timer + sticky bar (Phase 3)
+(function(){
+  const end=new Date();end.setHours(23,59,59,999);
+  const pad=n=>String(n).padStart(2,"0");
+  function tick(){const diff=Math.max(0,end-Date.now());if($("cdH"))$("cdH").textContent=pad(Math.floor(diff/3600000));if($("cdM"))$("cdM").textContent=pad(Math.floor(diff%3600000/60000));if($("cdS"))$("cdS").textContent=pad(Math.floor(diff%60000/1000));}
+  tick();setInterval(tick,1000);
+  const sb=$("sbCart");if(sb)sb.onclick=()=>{const c=$("openCart");if(c)c.click()};
+  const cc=$("cartCount");if(cc&&window.MutationObserver){new MutationObserver(()=>{const s=$("sbCount");if(s)s.textContent=cc.textContent}).observe(cc,{childList:true,characterData:true,subtree:true})}
+})();
 const fallbackCarouselSlides=$("top").querySelector(".slides").innerHTML,fallbackCarouselDots=$("top").querySelector(".dots").innerHTML;let usingRemoteBanners=false;
 const imageCache=new Map(),cartStoreKey="yaga_hot_deals_cart_v1";
 let cart=readCart();
@@ -1483,25 +1564,25 @@ copy.ta.contactTitle="தொடர்பு";copy.ta.contactSub="YAGA'S MART —
 copy.en.contactTitle="Contact Us";copy.en.contactSub="YAGA'S MART — We're here to help!";copy.en.contactPhone="Call us";copy.en.contactWhatsapp="WhatsApp";copy.en.contactAddress="Visit us";
 copy.hi.contactTitle="संपर्क";copy.hi.contactSub="YAGA'S MART — हम आपकी मदद के लिए तैयार हैं!";copy.hi.contactPhone="कॉल करें";copy.hi.contactWhatsapp="WhatsApp";copy.hi.contactAddress="पता";
 function tr(k){return (copy[language]||copy.ta)[k]||copy.en[k]||k}
-function active(){const today=new Date().toISOString().slice(0,10);return Object.values(items||{}).filter(p=>p&&p.status==="active"&&(!p.expiry||p.expiry>=today))}
+function active(){return Object.values(items||{}).filter(p=>p&&p.status==="active")}
 function productMetadataBytes(p){const{trackedBytes:_,imageBytes:__,...meta}=p||{};return bytes(JSON.stringify(meta))}
 function trackedBytes(p){return !p||!p.id?0:Number(p.trackedBytes||productMetadataBytes(p)+Number(p.imageBytes||0))}
 function readCart(){try{return JSON.parse(localStorage.getItem(cartStoreKey)||"{}")}catch{return {}}}
 function persistCart(){localStorage.setItem(cartStoreKey,JSON.stringify(cart));renderCartBadge();renderCart()}
 function money(n){return "₹"+Number(n||0).toLocaleString("en-IN",{maximumFractionDigits:2})}
-function setLanguage(lang){language=copy[lang]?lang:"ta";document.documentElement.lang=language;const languageCaption=document.querySelector(".language-caption");if(languageCaption)languageCaption.textContent=copy[language].languageLabel;document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(copy[language][key])el.textContent=tr(key)});const s=$("search");if(s)s.placeholder=tr("search");const hint=document.querySelector(".results-line span:last-child");if(hint)hint.textContent=tr("hint");const sel=$("sort");if(sel)[...sel.options].forEach((o,i)=>o.textContent=tr("sort")[i]||o.textContent);const c=copy[language];const kicker=document.querySelector(".promo-kicker"),hero=$("heroHeadline"),intro=$("heroSupporting"),action=$("heroAction");if(kicker)kicker.textContent=c.kicker;if(hero)hero.textContent=c.hero;if(intro)intro.textContent=c.intro;if(action)action.innerHTML=esc(c.action)+" <span>✦</span> "+esc(c.action2);document.querySelectorAll(".tamil-hook").forEach((section,i)=>{const h=c.hooks[i];if(!h)return;const k=section.querySelector(".hook-kicker"),title=section.querySelector("h2"),para=section.querySelector("p");if(k)k.textContent=h[0];if(title){title.replaceChildren();const a=document.createElement("span");a.className="hook-line-primary";a.textContent=h[1];const b=document.createElement("em");b.className="hook-line-secondary";b.textContent=h[2];title.append(a,document.createElement("br"),b)}if(para)para.textContent=h[3]});const ft=document.querySelector(".footer-cta h2"),fp=document.querySelector(".footer-cta p"),fb=document.querySelector(".footer-button");if(ft)ft.textContent=c.closing;if(fp)fp.textContent=c.closeText;if(fb)fb.textContent=c.closeButton+" ↗";render();renderCart()}
+function setLanguage(lang){language=copy[lang]?lang:"en";document.documentElement.lang=language;const languageCaption=document.querySelector(".language-caption");if(languageCaption)languageCaption.textContent=copy[language].languageLabel;document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(copy[language][key])el.textContent=tr(key)});const s=$("search");if(s)s.placeholder=tr("search");const hint=document.querySelector(".results-line span:last-child");if(hint)hint.textContent=tr("hint");const sel=$("sort");if(sel)[...sel.options].forEach((o,i)=>o.textContent=tr("sort")[i]||o.textContent);const c=copy[language];const kicker=document.querySelector(".promo-kicker"),hero=$("heroHeadline"),intro=$("heroSupporting"),action=$("heroAction");if(kicker)kicker.textContent=c.kicker;if(hero)hero.textContent=c.hero;if(intro)intro.textContent=c.intro;if(action)action.innerHTML=esc(c.action)+" <span>✦</span> "+esc(c.action2);document.querySelectorAll(".tamil-hook").forEach((section,i)=>{const h=c.hooks[i];if(!h)return;const k=section.querySelector(".hook-kicker"),title=section.querySelector("h2"),para=section.querySelector("p");if(k)k.textContent=h[0];if(title){title.replaceChildren();const a=document.createElement("span");a.className="hook-line-primary";a.textContent=h[1];const b=document.createElement("em");b.className="hook-line-secondary";b.textContent=h[2];title.append(a,document.createElement("br"),b)}if(para)para.textContent=h[3]});const ft=document.querySelector(".footer-cta h2"),fp=document.querySelector(".footer-cta p"),fb=document.querySelector(".footer-button");if(ft)ft.textContent=c.closing;if(fp)fp.textContent=c.closeText;if(fb)fb.textContent=c.closeButton+" ↗";render();renderCart()}
 $("languageSelect")?.addEventListener("change",e=>setLanguage(e.target.value));
 
 function buildFilters(){const cats=["All",...new Set(active().map(p=>p.category).filter(Boolean).sort((a,b)=>a.localeCompare(b)))];if(cats.length>1&&!cats.includes(activeCategory)){const lower=activeCategory.toLowerCase();const match=cats.find(c=>c.toLowerCase()===lower);activeCategory=match||"All";}$("dynamicFilters").innerHTML=cats.map(c=>`<button type="button" class="filter ${c===activeCategory?"active":""}" data-filter="${esc(c)}">${c==="All"?esc(tr("all")):esc(trCategory(c))}${c==="All"?` <span>(${active().length})</span>`:""}</button>`).join("");$("dynamicFilters").querySelectorAll("[data-filter]").forEach(b=>b.onclick=()=>{activeCategory=b.dataset.filter;render();renderRemoteBanners()})}
 function visibleProducts(){let list=active().filter(p=>(activeCategory==="All"||p.category===activeCategory));const term=$("search")?.value.trim().toLowerCase()||"";if(term)list=list.filter(p=>[p.name,p.category,p.description].join(" ").toLowerCase().includes(term));if(sortMode==="low")list.sort((a,b)=>Number(a.price)-Number(b.price));else if(sortMode==="high")list.sort((a,b)=>Number(b.price)-Number(a.price));else if(sortMode==="az")list.sort((a,b)=>String(a.name).localeCompare(String(b.name)));else list.sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0));return list}
 function cardTemplate(p){return `<article class="product-card" data-id="${esc(p.id)}" data-category="${esc(p.category)}" data-name="${esc(p.name).toLowerCase()}" data-price="${Number(p.price)||0}">
-<button class="image-button" type="button" data-preview="${esc(p.id)}" aria-label="${esc(tr("view"))} ${esc(p.name)}">${p.hasImage?`<img alt="${esc(p.name)}" loading="lazy" data-image-id="${esc(p.id)}" data-image-version="${esc(p.imageVersion||"1")}">`:`<span class="product-placeholder">YAGA<br>HOT DEALS</span>`}<span class="view-label">${esc(tr("view"))} <span aria-hidden="true">↗</span></span></button>
-<div class="card-content"><div class="card-topline"><span class="category-tag">${esc(p.category)}</span><span class="offer-dot">${esc(tr("limited"))}</span></div><h3>${esc(trName(p))}</h3><p>${esc(trDesc(p)||"Special offer from YAGA MOBILES.")}</p><div class="card-bottom"><div class="price-wrap"><small>${esc(tr("mega"))}</small><strong>${money(p.price)}</strong>${Number(p.mrp)>Number(p.price)?`<del>${money(p.mrp)}</del>`:""}</div><div class="card-actions"><button class="cart-add" type="button" data-add="${esc(p.id)}">🛒 ${esc(tr("add"))}</button></div></div></div></article>`}
+<button class="image-button" type="button" data-preview="${esc(p.id)}" aria-label="${esc(tr("view"))} ${esc(p.name)}">${p.hasImage?`<img alt="${esc(p.name)}" loading="lazy" data-image-id="${esc(p.id)}" data-image-version="${esc(p.imageVersion||"1")}">`:`<span class="product-placeholder">YAGA<br>HOT DEALS</span>`}${Number(p.mrp)>Number(p.price)?`<span class="disc-badge">-${Math.round((1-Number(p.price)/Number(p.mrp))*100)}%</span>`:""}<span class="view-label">${esc(tr("view"))} <span aria-hidden="true">↗</span></span></button>
+<div class="card-content"><div class="card-topline"><span class="category-tag">${esc(p.category)}</span><span class="offer-dot">${esc(tr("limited"))}</span></div><h3>${esc(trName(p))}</h3><p>${esc(trDesc(p)||"Special offer from YAGA MOBILES.")}</p>${SHOP==="wholesale/"&&(p.pack_size||p.moq)?`<div class="card-b2b">📦 ${esc(p.pack_size||"Pack")} · MOQ ${p.moq||1}</div>`:""}<div class="card-bottom"><div class="price-wrap"><small>${esc(tr("mega"))}</small><strong>${money(p.price)}</strong>${Number(p.mrp)>Number(p.price)?`<del>${money(p.mrp)}</del>`:""}</div><div class="card-actions"><button class="cart-add" type="button" data-add="${esc(p.id)}">🛒 ${esc(tr("add"))}</button></div></div></div></article>`}
 function render(){buildFilters();const list=visibleProducts();$("productGrid").innerHTML=list.map(cardTemplate).join("");$("emptyState").classList.toggle("show",list.length===0);$("emptyState").textContent=tr("empty");$("resultCount").textContent=`${list.length} / ${active().length} ${tr("result")}`;loadLazyImages($("productGrid"));if(isAdmin)renderAdmin()}
-function fetchRESTImage(id,version,img,key){fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/images/"+id+"/"+version+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){imageCache.set(key,rec.dataUrl);img.src=rec.dataUrl;}}).catch(e=>console.warn("REST image fallback failed",id,e))}
+function fetchRESTImage(id,version,img,key){fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/"+SHOP+"images/"+id+"/"+version+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){imageCache.set(key,rec.dataUrl);img.src=rec.dataUrl;}}).catch(e=>console.warn("REST image fallback failed",id,e))}
 function loadLazyImages(root=document){const imgs=root.querySelectorAll("img[data-image-id]");if(!imgs.length)return;const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const img=entry.target;observer.unobserve(img);const id=img.dataset.imageId,version=img.dataset.imageVersion,key=id+":"+version;if(imageCache.has(key)){img.src=imageCache.get(key);return}get(dr(db,`images/${id}/${version}`)).then(snap=>{if(!snap.exists()){fetchRESTImage(id,version,img,key);return}const rec=snap.val();if(rec.version===version&&rec.dataUrl){imageCache.set(key,rec.dataUrl);img.src=rec.dataUrl;}else{fetchRESTImage(id,version,img,key)}}).catch(e=>fetchRESTImage(id,version,img,key))}),{rootMargin:"250px"});imgs.forEach(i=>observer.observe(i))}
 function waProductUrl(p){const msg=`வணக்கம் YAGA'S MART, இந்தப் பொருளை ஆர்டர் செய்ய விரும்புகிறேன்.\nபொருள்: ${trName(p)}\nவிலை: ${money(p.price)}\nவகை: ${trCategory(p.category)}\nபக்க இணைப்பு: ${location.href}\nகிடைக்கும் விவரங்களைப் பகிரவும்.`;return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`}
-function openPoster(id){const p=items[id];if(!p)return;const img=document.querySelector(`img[data-image-id="${CSS.escape(id)}"]`);if(img?.src){$("modalImage").src=img.src;$("modalImage").alt=trName(p);$("modalCaption").textContent=`${trName(p)} · ${money(p.price)}`;$("posterModal").classList.add("open");$("posterModal").style.display="grid"}else if(p.hasImage){get(dr(db,`images/${id}/${p.imageVersion||"1"}`)).then(s=>{if(s.exists()&&s.val().dataUrl){$("modalImage").src=s.val().dataUrl;$("modalImage").alt=trName(p);$("modalCaption").textContent=`${trName(p)} · ${money(p.price)}`;$("posterModal").classList.add("open");$("posterModal").style.display="grid"}else{fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/images/"+id+"/"+(p.imageVersion||"1")+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){$("modalImage").src=rec.dataUrl;$("modalImage").alt=trName(p);$("modalCaption").textContent=trName(p)+" · "+money(p.price);$("posterModal").classList.add("open");$("posterModal").style.display="grid"}})}}).catch(()=>fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/images/"+id+"/"+(p.imageVersion||"1")+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){$("modalImage").src=rec.dataUrl;$("modalImage").alt=trName(p);$("modalCaption").textContent=trName(p)+" · "+money(p.price);$("posterModal").classList.add("open");$("posterModal").style.display="grid"}}))}}
+function openPoster(id){const p=items[id];if(!p)return;const img=document.querySelector(`img[data-image-id="${CSS.escape(id)}"]`);if(img?.src){$("modalImage").src=img.src;$("modalImage").alt=trName(p);$("modalCaption").textContent=`${trName(p)} · ${money(p.price)}`;$("posterModal").classList.add("open");$("posterModal").style.display="grid"}else if(p.hasImage){get(dr(db,`images/${id}/${p.imageVersion||"1"}`)).then(s=>{if(s.exists()&&s.val().dataUrl){$("modalImage").src=s.val().dataUrl;$("modalImage").alt=trName(p);$("modalCaption").textContent=`${trName(p)} · ${money(p.price)}`;$("posterModal").classList.add("open");$("posterModal").style.display="grid"}else{fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/"+SHOP+"images/"+id+"/"+(p.imageVersion||"1")+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){$("modalImage").src=rec.dataUrl;$("modalImage").alt=trName(p);$("modalCaption").textContent=trName(p)+" · "+money(p.price);$("posterModal").classList.add("open");$("posterModal").style.display="grid"}})}}).catch(()=>fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/"+SHOP+"images/"+id+"/"+(p.imageVersion||"1")+".json").then(r=>r.json()).then(rec=>{if(rec&&rec.dataUrl){$("modalImage").src=rec.dataUrl;$("modalImage").alt=trName(p);$("modalCaption").textContent=trName(p)+" · "+money(p.price);$("posterModal").classList.add("open");$("posterModal").style.display="grid"}}))}}
 $("productGrid").addEventListener("click",e=>{const add=e.target.closest("[data-add]");if(add){addToCart(add.dataset.add);return}const preview=e.target.closest("[data-preview]");if(preview)openPoster(preview.dataset.preview)});
 $("search").addEventListener("input",render);$("sort").addEventListener("change",e=>{sortMode=e.target.value;render()});
 
@@ -1606,8 +1687,8 @@ function renderOrders(){
   };
   if($("printOrders"))$("printOrders").onclick=()=>window.print();
 }
-function renderAdmin(){if(!isAdmin)return;const list=Object.values(items||{}).filter(Boolean);list.forEach(p=>{if(!p.name_ta&&p.name)translateProduct(p).catch(()=>{})});$("activeN").textContent=list.filter(p=>p.status==="active").length;$("archiveN").textContent=list.filter(p=>p.status==="archived").length;$("usage").textContent=mb(used)+" MB";$("meter").style.width="0%";const term=($("productSearch")?.value||"").toLowerCase();const cat=$("categoryFilter")?.value||"all";const cats=[...new Set(list.map(p=>p.category).filter(Boolean))].sort();const sel=$("category");if(sel){const cur=sel.value;const defaults=["Toys & RC","Smart Gadgets","Home & Kitchen","Home Care"];const all=[...new Set([...defaults,...cats])];sel.innerHTML='<option value="">Select category...</option>'+all.map(c=>`<option value="${esc(c)}"${c===cur?" selected":""}>${esc(c)}</option>`).join("")+'<option value="__new__">➕ Add new category...</option>'}const cf=$("categoryFilter");if(cf){const cur=cf.value;cf.innerHTML='<option value="all">All categories</option>'+cats.map(c=>`<option value="${esc(c)}"${c===cur?" selected":""}>${esc(c)}</option>`).join("")}const filtered=list.filter(p=>($("filter").value==="all"||p.status===$("filter").value)&&(cat==="all"||p.category===cat)&&(!term||p.name.toLowerCase().includes(term)));$("manage").innerHTML=filtered.map(p=>`<div class="adminrow"><div class="grow"><b>${esc(p.name)}</b><span class="admin-cat-badge">${esc(p.category)}</span><small>${money(p.price)}</small></div><button data-edit="${esc(p.id)}">Edit</button>${p.status==="archived"?`<button data-restore="${esc(p.id)}">Restore</button>`:`<button data-archive="${esc(p.id)}">Archive</button>`}<button class="danger" data-del="${esc(p.id)}">Delete</button></div>`).join("")||'<p>No products.</p>';$("manage").querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editProduct(b.dataset.edit));$("manage").querySelectorAll("[data-archive]").forEach(b=>b.onclick=()=>setStatus(b.dataset.archive,"archived"));$("manage").querySelectorAll("[data-restore]").forEach(b=>b.onclick=()=>setStatus(b.dataset.restore,"active"));$("manage").querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>deleteProduct(b.dataset.del));$("recentProducts").innerHTML=list.slice(0,5).map(p=>`<div class="adminrow"><div class="grow"><b>${esc(p.name)}</b><span class="admin-cat-badge">${esc(p.category)}</span><small>${money(p.price)}</small></div></div>`).join("")||'<p>No products yet.</p>';renderBannerAdmin();renderOrders()}
-function editProduct(id){const p=items[id];if(!p)return;$("pid").value=id;["name","category","price","mrp","description"].forEach(k=>$(k).value=p[k]??"");$("image").value="";$("save").textContent="Update & Publish";$("productModalTitle").textContent="Edit Product";$("productModal").classList.remove("hidden")}
+function renderAdmin(){if(!isAdmin)return;const list=Object.values(items||{}).filter(Boolean);list.forEach(p=>{if(!p.name_ta&&p.name){window.__ymTr=window.__ymTr||new Set();if(!window.__ymTr.has(p.id)){window.__ymTr.add(p.id);translateProduct(p).catch(()=>{})}}});$("activeN").textContent=list.filter(p=>p.status==="active").length;$("archiveN").textContent=list.filter(p=>p.status==="archived").length;$("usage").textContent=mb(used)+" MB";$("meter").style.width="0%";const term=($("productSearch")?.value||"").toLowerCase();const cat=$("categoryFilter")?.value||"all";const cats=[...new Set(list.map(p=>p.category).filter(Boolean))].sort();const sel=$("category");if(sel){const cur=sel.value;const defaults=["Toys & RC","Smart Gadgets","Home & Kitchen","Home Care"];const all=[...new Set([...defaults,...cats])];sel.innerHTML='<option value="">Select category...</option>'+all.map(c=>`<option value="${esc(c)}"${c===cur?" selected":""}>${esc(c)}</option>`).join("")+'<option value="__new__">➕ Add new category...</option>'}const cf=$("categoryFilter");if(cf){const cur=cf.value;cf.innerHTML='<option value="all">All categories</option>'+cats.map(c=>`<option value="${esc(c)}"${c===cur?" selected":""}>${esc(c)}</option>`).join("")}const filtered=list.filter(p=>($("filter").value==="all"||p.status===$("filter").value)&&(cat==="all"||p.category===cat)&&(!term||p.name.toLowerCase().includes(term)));$("manage").innerHTML=filtered.map(p=>`<div class="adminrow"><div class="grow"><b>${esc(p.name)}</b><span class="admin-cat-badge">${esc(p.category)}</span><small>${money(p.price)}</small></div><button data-edit="${esc(p.id)}">Edit</button>${p.status==="archived"?`<button data-restore="${esc(p.id)}">Restore</button>`:`<button data-archive="${esc(p.id)}">Archive</button>`}<button class="danger" data-del="${esc(p.id)}">Delete</button></div>`).join("")||'<p>No products.</p>';$("manage").querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>editProduct(b.dataset.edit));$("manage").querySelectorAll("[data-archive]").forEach(b=>b.onclick=()=>setStatus(b.dataset.archive,"archived"));$("manage").querySelectorAll("[data-restore]").forEach(b=>b.onclick=()=>setStatus(b.dataset.restore,"active"));$("manage").querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>deleteProduct(b.dataset.del));$("recentProducts").innerHTML=list.slice(0,5).map(p=>`<div class="adminrow"><div class="grow"><b>${esc(p.name)}</b><span class="admin-cat-badge">${esc(p.category)}</span><small>${money(p.price)}</small></div></div>`).join("")||'<p>No products yet.</p>';renderBannerAdmin();renderOrders()}
+function editProduct(id){const p=items[id];if(!p)return;$("pid").value=id;["name","category","price","mrp","description"].forEach(k=>$(k).value=p[k]??"");$("packSize").value=p.pack_size||"";$("moq").value=p.moq||"";$("image").value="";$("save").textContent="Update & Publish";$("productModalTitle").textContent="Edit Product";$("productModal").classList.remove("hidden")}
 function resetForm(){$("productForm").reset();$("pid").value="";$("save").textContent="Save & Publish";const nc=$("newCategory");if(nc)nc.style.display="none";status("")}
 
 function bannerStatus(message){$("bannerStatus").textContent=message||"";if(message)toast(message)}
@@ -1687,9 +1768,8 @@ async function saveBanner(e){
  const id=$("bannerId").value||crypto.randomUUID(),old=banners[id]||{},file=$("bannerImage").files[0]||null;
  const title=$("bannerTitle").value.trim(),altText=$("bannerAlt").value.trim();
  if(!title||!altText){bannerStatus("Enter banner title and alternative text.");return}
- if(!file&&!old.hasImage){bannerStatus("Please select a banner image.");return}
- const dateToMs=v=>v?new Date(v+"T00:00:00").getTime():0;
- const b={id,title,altText,category:$("bannerCategory").value.trim(),subtitle:$("bannerSubtitle").value.trim(),ctaText:$("bannerCta").value.trim(),link:$("bannerLink").value.trim()||"#offers",
+  if(!file&&!old.hasImage){bannerStatus("Please select a banner image.");return}
+  const b={id,title,altText,category:$("bannerCategory").value.trim(),subtitle:$("bannerSubtitle").value.trim(),ctaText:$("bannerCta").value.trim(),link:$("bannerLink").value.trim()||"#offers",
  order:Math.max(0,Number($("bannerOrder").value)||0),startDate:old.startDate||"",endDate:old.endDate||"",startAt:old.startAt||0,endAt:old.endAt||0,
  status:$("bannerActive").checked?"active":"archived",createdAt:old.createdAt||Date.now(),updatedAt:Date.now(),
  hasImage:!!old.hasImage,imageVersion:old.imageVersion||"",imageBytes:Number(old.imageBytes||0)};
@@ -1715,11 +1795,49 @@ async function deleteBanner(id){
 
 async function reserveBytes(delta){try{const tx=await runTransaction(dr(db,"meta/usedBytes"),current=>{const next=Number(current||0)+delta;if(next<0)return;return next});if(tx.committed)used=Number(tx.snapshot.val()||0);else console.warn("Usage counter not updated (non-blocking)")}catch(e){console.warn("reserveBytes skipped (non-blocking):",e.code||e.message)}}
 async function recomputeUsage(){try{const realBytes=Object.values(items||{}).reduce((n,p)=>n+trackedBytes(p),0)+Object.values(banners||{}).reduce((n,b)=>n+bannerTrackedBytes(b),0);await set(dr(db,"meta/usedBytes"),realBytes);used=realBytes;if(isAdmin)renderAdmin()}catch(e){console.warn("Usage recompute skipped:",e.code||e.message)}}
+async function clearAllExpiry(){try{for(const p of Object.values(items||{})){if(p&&p.expiry){await update(dr(db,"products/"+p.id),{expiry:""})}}}catch(e){console.warn("clearExpiry skipped:",e.code||e.message)}}
+async function clearBadTranslations(){
+  try{
+    window.__ymTr=new Set();
+    for(const p of Object.values(items||{})){
+      if(!p)continue;
+      const bad=isBadTranslation(p.name_ta)||isBadTranslation(p.name_hi)||(p.name_ta&&p.name_ta===p.name)||(p.name_hi&&p.name_hi===p.name)||(p.description_ta&&p.description_ta===p.description);
+      if(bad){await update(dr(db,"products/"+p.id),{name_ta:null,name_hi:null,description_ta:null,description_hi:null});translateProduct(p).catch(()=>{})}
+    }
+    let changed=false;
+    Object.keys(categoryTranslations||{}).forEach(k=>{const v=categoryTranslations[k];if(!v||isBadTranslation(v.ta)||isBadTranslation(v.hi)||v.ta===v.en||v.hi===v.en){delete categoryTranslations[k];changed=true}});
+    if(changed){try{await set(dr(db,"categoryTranslations"),categoryTranslations)}catch(e){}}
+    render();
+  }catch(e){console.warn("clearBadTranslations skipped:",e.code||e.message)}
+}
 async function compressImage(file){if(file.size>SOURCE_IMAGE_LIMIT)throw Error("Choose an image smaller than 8 MB.");if(!file.type.startsWith("image/"))throw Error("Please select a valid image.");const bitmap=await createImageBitmap(file),scale=Math.min(1,1280/Math.max(bitmap.width,bitmap.height)),canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));canvas.getContext("2d",{alpha:false}).drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close();let blob=await new Promise(r=>canvas.toBlob(r,"image/webp",.76));if(!blob)blob=await new Promise(r=>canvas.toBlob(r,"image/jpeg",.76));if(!blob||blob.size>COMPRESSED_IMAGE_LIMIT)throw Error("Compressed image is above 1 MB. Choose a smaller image.");const dataUrl=await new Promise((r,j)=>{const f=new FileReader();f.onload=()=>r(f.result);f.onerror=()=>j(Error("Could not read image."));f.readAsDataURL(blob)});return{dataUrl,size:bytes(dataUrl),mime:blob.type}}
-async function saveProduct(e){e.preventDefault();if(!isAdmin)return;const id=$("pid").value||crypto.randomUUID(),old=items[id]||{},file=$("image").files[0]||null;const p={id,name:$("name").value.trim(),category:$("category").value==="__new__"?($("newCategory").value.trim()):$("category").value.trim(),price:Number($("price").value),mrp:Number($("mrp").value||0),description:$("description").value.trim(),expiry:old.expiry||"",status:old.status||"active",createdAt:old.createdAt||Date.now(),updatedAt:Date.now(),hasImage:!!old.hasImage,imageVersion:old.imageVersion||"",imageBytes:Number(old.imageBytes||0)};if(!p.name||!p.category||!Number.isFinite(p.price)||p.price<0){status("Check required fields.");return}$("save").disabled=true;let reserved=0,newPath="";try{let imageRecord=null;if(file){status("Compressing image…");imageRecord=await compressImage(file);p.hasImage=true;p.imageVersion=String(Date.now());p.imageBytes=imageRecord.size}p.trackedBytes=productMetadataBytes(p)+Number(p.imageBytes||0);reserved=p.trackedBytes-trackedBytes(old);await reserveBytes(reserved);if(imageRecord){newPath=`images/${id}/${p.imageVersion}`;status("Saving image to Firebase…");await set(dr(db,newPath),{dataUrl:imageRecord.dataUrl,version:p.imageVersion,mime:imageRecord.mime,bytes:imageRecord.size,updatedAt:Date.now()})}await set(dr(db,"products/"+id),p);if(!categoryTranslations[p.category])translateCategory(p.category).catch(()=>{});if(!p.name_ta)translateProduct(p).catch(()=>{});if(file&&old.hasImage&&old.imageVersion)try{await remove(dr(db,`images/${id}/${old.imageVersion}`))}catch(e){console.warn(e)}status(old.id?"Product updated successfully":"Product saved successfully");resetForm()}catch(err){if(newPath)try{await remove(dr(db,newPath))}catch{}if(reserved)try{await reserveBytes(-reserved)}catch{}status(err.message||"Save failed.")}finally{$("save").disabled=false}}
+async function seedWholesaleIfEmpty(){
+  if(SHOP!=="wholesale/"||!isAdmin)return;
+  try{
+    const snap=await get(dr(db,"products"));
+    if(snap.exists()&&Object.keys(snap.val()||{}).length)return;
+    const now=Date.now();
+    const demo=[
+      {name:"Fast Charging Cable (Type-C)",category:"Chargers",price:80,mrp:199,pack_size:"Pack of 10",moq:10,tier_bronze:80,tier_silver:75,tier_gold:70,tier_platinum:65},
+      {name:"Wireless Neckband",category:"Neckbands",price:180,mrp:499,pack_size:"Pack of 10",moq:10,tier_bronze:180,tier_silver:170,tier_gold:160,tier_platinum:150},
+      {name:"Tempered Glass (Universal)",category:"Cables",price:15,mrp:49,pack_size:"Pack of 50",moq:50,tier_bronze:15,tier_silver:13,tier_gold:12,tier_platinum:10},
+      {name:"Power Bank 10000mAh",category:"Power Banks",price:450,mrp:1250,pack_size:"Pack of 10",moq:10,tier_bronze:450,tier_silver:430,tier_gold:410,tier_platinum:390},
+      {name:"Wireless Earbuds",category:"Earbuds",price:180,mrp:599,pack_size:"Pack of 10",moq:10,tier_bronze:180,tier_silver:170,tier_gold:160,tier_platinum:150},
+      {name:"Mobile Accessories Combo",category:"Combos",price:250,mrp:799,pack_size:"Combo of 5",moq:10,tier_bronze:250,tier_silver:235,tier_gold:220,tier_platinum:200},
+    ];
+    for(const d of demo){
+      const id="ws-demo-"+d.name.toLowerCase().replace(/[^a-z0-9]+/g,"-");
+      const rec={id,expiry:"",status:"active",createdAt:now,updatedAt:now,hasImage:false,imageVersion:"",imageBytes:0,trackedBytes:0,...d};
+      await set(dr(db,"products/"+id),rec);
+    }
+    renderAdmin();render();
+    console.log("Wholesale demo products seeded");
+  }catch(e){console.warn("seed skipped:",e.code||e.message)}
+}
+async function saveProduct(e){e.preventDefault();if(!isAdmin)return;const id=$("pid").value||crypto.randomUUID(),old=items[id]||{},file=$("image").files[0]||null;const p={id,name:$("name").value.trim(),category:$("category").value==="__new__"?($("newCategory").value.trim()):$("category").value.trim(),price:Number($("price").value),mrp:Number($("mrp").value||0),description:$("description").value.trim(),pack_size:$("packSize").value.trim(),moq:Number($("moq").value)||0,expiry:"",status:old.status||"active",createdAt:old.createdAt||Date.now(),updatedAt:Date.now(),hasImage:!!old.hasImage,imageVersion:old.imageVersion||"",imageBytes:Number(old.imageBytes||0)};if(!p.name||!p.category||!Number.isFinite(p.price)||p.price<0){status("Check required fields.");return}$("save").disabled=true;let reserved=0,newPath="";try{let imageRecord=null;if(file){status("Compressing image…");imageRecord=await compressImage(file);p.hasImage=true;p.imageVersion=String(Date.now());p.imageBytes=imageRecord.size}p.trackedBytes=productMetadataBytes(p)+Number(p.imageBytes||0);reserved=p.trackedBytes-trackedBytes(old);await reserveBytes(reserved);if(imageRecord){newPath=`images/${id}/${p.imageVersion}`;status("Saving image to Firebase…");await set(dr(db,newPath),{dataUrl:imageRecord.dataUrl,version:p.imageVersion,mime:imageRecord.mime,bytes:imageRecord.size,updatedAt:Date.now()})}await set(dr(db,"products/"+id),p);if(!categoryTranslations[p.category]||isBadTranslation(categoryTranslations[p.category].ta))translateCategory(p.category).catch(()=>{});if(!p.name_ta||isBadTranslation(p.name_ta))translateProduct(p).catch(()=>{});if(file&&old.hasImage&&old.imageVersion)try{await remove(dr(db,`images/${id}/${old.imageVersion}`))}catch(e){console.warn(e)}status(old.id?"Product updated successfully":"Product saved successfully");resetForm()}catch(err){if(newPath)try{await remove(dr(db,newPath))}catch{}if(reserved)try{await reserveBytes(-reserved)}catch{}status(err.message||"Save failed.")}finally{$("save").disabled=false}}
 async function setStatus(id,s){const p=items[id];if(!p)return;try{await update(dr(db,"products/"+id),{status:s,archivedAt:s==="archived"?Date.now():null,updatedAt:Date.now()});status(s==="archived"?"Product archived.":"Product restored.");renderAdmin()}catch(e){status("Update failed: "+(e.message||"Permission denied"));alert("Update failed: "+(e.message||"Permission denied. Check Firebase rules."))}}
 async function deleteProduct(id){const p=items[id];if(!p||!confirm(`Permanently delete ${p.name} and its image?`))return;try{await remove(dr(db,"products/"+id));if(p.hasImage&&p.imageVersion)await remove(dr(db,`images/${id}/${p.imageVersion}`));await reserveBytes(-trackedBytes(p));status("Product and image deleted.")}catch(e){alert(e.message||"Delete failed.")}}
-async function cleanup(){const now=Date.now(),today=new Date().toISOString().slice(0,10);for(const p of Object.values(items||{})){if(!p)continue;if(p.status==="active"&&p.expiry&&p.expiry<today)await setStatus(p.id,"archived");else if(p.status==="archived"&&p.archivedAt&&now-p.archivedAt>ARCHIVE_RETENTION_DAYS*86400000)await deleteProduct(p.id)}}
+async function cleanup(){const now=Date.now();for(const p of Object.values(items||{})){if(!p)continue;if(p.status==="archived"&&p.archivedAt&&now-p.archivedAt>ARCHIVE_RETENTION_DAYS*86400000)await deleteProduct(p.id)}}
 document.querySelectorAll(".js-add-product").forEach(b=>b.onclick=()=>{resetForm();$("productModalTitle").textContent="Add Product";$("productModal").classList.remove("hidden")});
 $("cancel").onclick=()=>{$("productModal").classList.add("hidden");resetForm()};
 $("filter").onchange=renderAdmin;$("categoryFilter").onchange=renderAdmin;$("productSearch").oninput=renderAdmin;$("category").onchange=()=>{const nc=$("newCategory");if(nc)nc.style.display=$("category").value==="__new__"?"block":"none"};$("productForm").onsubmit=saveProduct;
@@ -1733,13 +1851,34 @@ $("posterModal").querySelector(".modal-close").onclick=()=>{$("posterModal").cla
 (function(){try{const params=new URLSearchParams(window.location.search);const cat=params.get("category");if(cat)activeCategory=decodeURIComponent(cat);}catch(e){console.warn("URL category param error",e)}})();
 
 const app=initializeApp(firebaseConfig);db=getDatabase(app);try{auth=getAuth(app)}catch(authErr){console.warn("Auth init failed:",authErr);auth=null}
-onValue(dr(db,"products"),snap=>{items=snap.val()||{};for(const [id,line] of Object.entries(cart)){const p=items[id];if(!p||p.status!=="active")delete cart[id];else{line.name=trName(p);line.price=Number(p.price)||0;line.category=p.category}}persistCart();render();$("resultCount").dataset.connection="live"},err=>{console.warn("WebSocket failed, trying REST API:",err.code||"error");fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/products.json").then(r=>r.json()).then(data=>{items=data||{};render();$("resultCount").dataset.connection="rest"}).catch(e=>{$("emptyState").textContent="Database connection error: "+e.message;$("emptyState").classList.add("show")})});
+onValue(dr(db,"products"),snap=>{items=snap.val()||{};for(const [id,line] of Object.entries(cart)){const p=items[id];if(!p||p.status!=="active")delete cart[id];else{line.name=trName(p);line.price=Number(p.price)||0;line.category=p.category}}persistCart();render();$("resultCount").dataset.connection="live"},err=>{console.warn("WebSocket failed, trying REST API:",err.code||"error");fetch("https://yaga-hot-deals-default-rtdb.asia-southeast1.firebasedatabase.app/"+SHOP+"products.json").then(r=>r.json()).then(data=>{items=data||{};render();$("resultCount").dataset.connection="rest"}).catch(e=>{$("emptyState").textContent="Database connection error: "+e.message;$("emptyState").classList.add("show")})});
 onValue(dr(db,"banners"),snap=>{banners=snap.val()||{};renderBannerAdmin();renderRemoteBanners().catch(e=>console.warn("Banner carousel update failed",e))},err=>console.warn("Banner listener skipped (rules not updated):",err.code||"error"));
 onValue(dr(db,"orders"),snap=>{orders=snap.val()||{};if(isAdmin)renderOrders()},err=>console.warn("Orders listener skipped:",err.code||"error"));
-onValue(dr(db,"categoryTranslations"),snap=>{categoryTranslations=snap.val()||{};render()},err=>console.warn("Translation cache load failed:",err.code||"error"));
+onValue(dr(db,"categoryTranslations"),snap=>{const raw={};Object.entries(snap.val()||{}).forEach(([k,v])=>{try{raw[decodeURIComponent(k)]=v}catch(e){raw[k]=v}});categoryTranslations=raw;render()},err=>console.warn("Translation cache load failed:",err.code||"error"));
 onValue(dr(db,"meta/usedBytes"),snap=>{used=Number(snap.val()||0);if(isAdmin)renderAdmin()},err=>console.warn("Meta listener skipped:",err.code||"error"));
-if(auth){onAuthStateChanged(auth,async u=>{user=u;isAdmin=!!u&&ADMIN_UIDS.includes(u.uid);$("admin").classList.toggle("hidden",!isAdmin);$("login").classList.toggle("hidden",!!isAdmin);$("logout").classList.toggle("hidden",!isAdmin);if(u&&!isAdmin){await signOut(auth);alert("This account is not an authorized YAGA HOT DEALS administrator.")}if(isAdmin){renderAdmin();renderBannerAdmin();await cleanup();await recomputeUsage();await translateAllCategories()}})}
-setLanguage($("languageSelect")?.value||"ta");renderCartBadge();renderCart();
+if(auth){onAuthStateChanged(auth,async u=>{user=u;isAdmin=!!u&&ADMIN_UIDS.includes(u.uid);$("admin").classList.toggle("hidden",!isAdmin);$("login").classList.toggle("hidden",!!isAdmin);$("logout").classList.toggle("hidden",!isAdmin);if(u&&!isAdmin){await signOut(auth);alert("This account is not an authorized YAGA HOT DEALS administrator.")}if(isAdmin){renderAdmin();renderBannerAdmin();await cleanup();await recomputeUsage();await clearAllExpiry();await clearBadTranslations();await translateAllCategories();await seedWholesaleIfEmpty()}})}
+setLanguage($("languageSelect")?.value||"en");renderCartBadge();renderCart();
+
+// Shop switcher + wholesale branding (Phase 2)
+(function(){
+  const isWholesale = SHOP === "wholesale/";
+  document.querySelectorAll(".shop-switcher [data-shop]").forEach(btn=>{
+    const active = (btn.dataset.shop==="wholesale")===isWholesale;
+    btn.style.background = active ? "linear-gradient(110deg,#FF8A4C,#FF6B35)" : "#fff";
+    btn.style.color = active ? "#fff" : "#20202a";
+    btn.style.borderColor = active ? "#FF6B35" : "#e0d9cf";
+    btn.onclick = ()=>{ const target = btn.dataset.shop==="wholesale" ? "?shop=wholesale" : ""; location.href = location.pathname + target; };
+  });
+  if(isWholesale){
+    const nb=document.querySelector(".nav-brand"); if(nb)nb.innerHTML='YAGA <span>WHOLESALE</span>';
+    const h=document.querySelector("#heroHeadline"); if(h)h.textContent="Wholesale prices for retailers & dealers";
+    const k=document.querySelector(".admin-kicker"); if(k)k.textContent="YAGA WHOLESALE";
+    document.title="YAGA MOBILES WHOLESALE | YAGA'S MART";
+    const b2b=$("b2bFields"); if(b2b)b2b.style.display="grid";
+  } else {
+    const k=document.querySelector(".admin-kicker"); if(k)k.textContent="YAGA HOT DEALS";
+  }
+})();
 </script>
 </body>
 </html>

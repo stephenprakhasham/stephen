@@ -37,10 +37,10 @@ async function YagaHotDealsClient({
 }) {
   const params = await searchParams;
   const category = params.category;
-  const v = "20261126o";
+  const v = "20261127r";
   const src = category
-    ? `/yaga-hot-deals.html?v=${v}&category=${encodeURIComponent(category)}`
-    : `/yaga-hot-deals.html?v=${v}`;
+    ? `/yaga-hot-deals-v2.html?v=${v}&category=${encodeURIComponent(category)}`
+    : `/yaga-hot-deals-v2.html?v=${v}`;
 
   return (
     <iframe
